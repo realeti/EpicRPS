@@ -14,6 +14,8 @@
 		C60F298B2C16564300D49F5A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C60F298A2C16564300D49F5A /* Base */; };
 		C60F29942C1656AC00D49F5A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C60F29932C1656AC00D49F5A /* SnapKit */; };
 		C631BE402C165CAD00A0D736 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631BE3F2C165CAD00A0D736 /* Constants.swift */; };
+		C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68679AB2C176A7800F40860 /* RulesViewController.swift */; };
+		C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C68679B02C1773E100F40860 /* Rubik-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		C60F298A2C16564300D49F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C60F298C2C16564300D49F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C631BE3F2C165CAD00A0D736 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C68679AB2C176A7800F40860 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		C68679B02C1773E100F40860 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				C60F29822C16564100D49F5A /* MainViewController.swift */,
+				C68679AB2C176A7800F40860 /* RulesViewController.swift */,
 				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
 			);
 			path = Screens;
@@ -89,6 +94,7 @@
 		C631BE3C2C165C3D00A0D736 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C68679AF2C1773D700F40860 /* Fonts */,
 				C60F29872C16564300D49F5A /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -107,6 +113,14 @@
 				C631BE3F2C165CAD00A0D736 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C68679AF2C1773D700F40860 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C68679B02C1773E100F40860 /* Rubik-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C60F29882C16564300D49F5A /* Assets.xcassets in Resources */,
+				C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */,
 				C60F298B2C16564300D49F5A /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */,
 				C60F29832C16564100D49F5A /* MainViewController.swift in Sources */,
 				C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */,
 				C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */,

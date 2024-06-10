@@ -8,7 +8,7 @@
 import Foundation
 
 struct K {
-    //
+    static let fontName = "Rubik-Regular"
     
     private init() {}
 }

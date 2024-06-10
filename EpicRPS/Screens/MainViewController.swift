@@ -9,6 +9,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    // MARK: - UI
+    
+    lazy var rulesButton = UIBarButtonItem(
+        image: UIImage(resource: .rules), style: .plain, target: self, action: #selector(rulesButtonPressed))
+    
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -22,8 +27,11 @@ class MainViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = UIColor(resource: .snow)
-        
-        //
+        navigationItem.rightBarButtonItem = rulesButton
+    }
+    
+    @objc func rulesButtonPressed(_ sender: UIButton) {
+        print("press")
     }
 }
 
