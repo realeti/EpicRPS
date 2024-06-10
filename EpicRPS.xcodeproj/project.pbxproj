@@ -9,21 +9,22 @@
 /* Begin PBXBuildFile section */
 		C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F297E2C16564100D49F5A /* AppDelegate.swift */; };
 		C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F29802C16564100D49F5A /* SceneDelegate.swift */; };
-		C60F29832C16564100D49F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F29822C16564100D49F5A /* ViewController.swift */; };
-		C60F29862C16564200D49F5A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C60F29852C16564200D49F5A /* Base */; };
+		C60F29832C16564100D49F5A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F29822C16564100D49F5A /* MainViewController.swift */; };
 		C60F29882C16564300D49F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C60F29872C16564300D49F5A /* Assets.xcassets */; };
 		C60F298B2C16564300D49F5A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C60F298A2C16564300D49F5A /* Base */; };
+		C60F29942C1656AC00D49F5A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C60F29932C1656AC00D49F5A /* SnapKit */; };
+		C631BE402C165CAD00A0D736 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631BE3F2C165CAD00A0D736 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C60F297B2C16564100D49F5A /* EpicRPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpicRPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60F297E2C16564100D49F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C60F29802C16564100D49F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C60F29822C16564100D49F5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C60F29852C16564200D49F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C60F29822C16564100D49F5A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C60F29872C16564300D49F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C60F298A2C16564300D49F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C60F298C2C16564300D49F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C631BE3F2C165CAD00A0D736 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60F29942C1656AC00D49F5A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +58,55 @@
 		C60F297D2C16564100D49F5A /* EpicRPS */ = {
 			isa = PBXGroup;
 			children = (
-				C60F297E2C16564100D49F5A /* AppDelegate.swift */,
-				C60F29802C16564100D49F5A /* SceneDelegate.swift */,
-				C60F29822C16564100D49F5A /* ViewController.swift */,
-				C60F29842C16564200D49F5A /* Main.storyboard */,
-				C60F29872C16564300D49F5A /* Assets.xcassets */,
-				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
+				C631BE3B2C165C2200A0D736 /* Support */,
+				C631BE3E2C165C9F00A0D736 /* Helpers */,
+				C631BE3D2C165C6F00A0D736 /* Model */,
+				C631BE3A2C165BC900A0D736 /* Screens */,
+				C631BE3C2C165C3D00A0D736 /* Resources */,
 				C60F298C2C16564300D49F5A /* Info.plist */,
 			);
 			path = EpicRPS;
+			sourceTree = "<group>";
+		};
+		C631BE3A2C165BC900A0D736 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C60F29822C16564100D49F5A /* MainViewController.swift */,
+				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C631BE3B2C165C2200A0D736 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				C60F29802C16564100D49F5A /* SceneDelegate.swift */,
+				C60F297E2C16564100D49F5A /* AppDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		C631BE3C2C165C3D00A0D736 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C60F29872C16564300D49F5A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C631BE3D2C165C6F00A0D736 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C631BE3E2C165C9F00A0D736 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C631BE3F2C165CAD00A0D736 /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +125,9 @@
 			dependencies = (
 			);
 			name = EpicRPS;
+			packageProductDependencies = (
+				C60F29932C1656AC00D49F5A /* SnapKit */,
+			);
 			productName = EpicRPS;
 			productReference = C60F297B2C16564100D49F5A /* EpicRPS.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +156,9 @@
 				Base,
 			);
 			mainGroup = C60F29722C16564100D49F5A;
+			packageReferences = (
+				C60F29922C1656AC00D49F5A /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = C60F297C2C16564100D49F5A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +175,6 @@
 			files = (
 				C60F29882C16564300D49F5A /* Assets.xcassets in Resources */,
 				C60F298B2C16564300D49F5A /* Base in Resources */,
-				C60F29862C16564200D49F5A /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +185,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C60F29832C16564100D49F5A /* ViewController.swift in Sources */,
+				C60F29832C16564100D49F5A /* MainViewController.swift in Sources */,
 				C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */,
 				C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */,
+				C631BE402C165CAD00A0D736 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C60F29842C16564200D49F5A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C60F29852C16564200D49F5A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C60F29892C16564300D49F5A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,11 +335,12 @@
 				DEVELOPMENT_TEAM = 69M929ZQ47;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EpicRPS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Epic RPS";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +348,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uk-servers.EpicRPS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -323,11 +368,12 @@
 				DEVELOPMENT_TEAM = 69M929ZQ47;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EpicRPS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Epic RPS";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +381,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uk-servers.EpicRPS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -363,6 +413,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C60F29922C1656AC00D49F5A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C60F29932C1656AC00D49F5A /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C60F29922C1656AC00D49F5A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C60F29732C16564100D49F5A /* Project object */;
 }
