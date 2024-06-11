@@ -18,6 +18,7 @@
 		C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C68679B02C1773E100F40860 /* Rubik-Regular.ttf */; };
 		FA10ED9B2C185E5300137F5C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10ED9A2C185E5300137F5C /* GameViewController.swift */; };
 		FA10ED9D2C185F6000137F5C /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */; };
+		FA10EDA32C18820F00137F5C /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		C68679B02C1773E100F40860 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		FA10ED9A2C185E5300137F5C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				C631BE3F2C165CAD00A0D736 /* Constants.swift */,
 				FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */,
+				FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */,
 				FA10ED9B2C185E5300137F5C /* GameViewController.swift in Sources */,
 				C631BE402C165CAD00A0D736 /* Constants.swift in Sources */,
+				FA10EDA32C18820F00137F5C /* UIButton + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

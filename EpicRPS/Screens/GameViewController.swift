@@ -35,6 +35,10 @@ final class GameViewController: UIViewController {
         return element
     }()
     
+    private let rockButton = UIButton(image: K.rockImageRpsButton)
+    private let paperButton = UIButton(image: K.paperImageRpsButton)
+    private let scissorsButton = UIButton(image: K.scissorsImageRpsButton)
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +50,22 @@ final class GameViewController: UIViewController {
     @objc private func pauseButtonPressed() {
         
     }
+    
+    @objc private func rpsButtonPressed(_ sender: UIButton) {
+        sender.tintColor = sender.tintColor == .white ? .rpsButtonPressed : .white
+    }
 }
 
 // MARK: - Setup UI
 private extension GameViewController {
     func setupUI() {
         view.addSubview(backgroundImageView)
+        view.addSubview(rockButton)
+        view.addSubview(paperButton)
+        view.addSubview(scissorsButton)
+        rockButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
+        paperButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
+        scissorsButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         
         navigationController?.navigationBar.tintColor = .navigation
         navigationTitleLabel.text = "Игра"
@@ -64,7 +78,23 @@ private extension GameViewController {
 // MARK: - Setup Constraints
 private extension GameViewController {
     func setupConstraints() {
+        rockButton.snp.makeConstraints {
+            $0.width.height.equalTo(K.widthRpsButtonLayer)
+            $0.trailing.equalTo(paperButton.snp.leading).offset(-K.leadingTrailingOffsetRpsButton)
+            $0.bottom.equalToSuperview().offset(-K.bottomOffsetRockScissorsButton)
+        }
         
+        paperButton.snp.makeConstraints {
+            $0.width.height.equalTo(K.widthRpsButtonLayer)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-K.bottomOffsetPaperButton)
+        }
+        
+        scissorsButton.snp.makeConstraints {
+            $0.width.height.equalTo(K.widthRpsButtonLayer)
+            $0.leading.equalTo(paperButton.snp.trailing).offset(K.leadingTrailingOffsetRpsButton)
+            $0.bottom.equalToSuperview().offset(-K.bottomOffsetRockScissorsButton)
+        }
     }
 }
 
