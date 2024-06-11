@@ -9,7 +9,7 @@ import UIKit
 
 struct K {
     static let fontName = "Rubik-Regular"
-    static let fontMedium500 = "Rubik-Bold"
+    static let fontMedium500 = "Rubik-Medium"
     static let fontBold700 = "Rubik-Bold"
     static let centerYView = UIScreen.main.bounds.height / 2
     static let sizeTitleLabel: CGFloat = 25
@@ -17,7 +17,6 @@ struct K {
     static let gameStatusLabelFontSize: CGFloat = 56
     
     enum RPSButton {
-        static let backgroundColorRpsButtonLayer: UIColor = .blueRPS
         static let widthRpsButtonLayer: CGFloat = 80
         static let rockImageRpsButton = "rock"
         static let paperImageRpsButton = "paper"

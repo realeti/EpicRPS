@@ -102,6 +102,7 @@ final class GameViewController: UIViewController {
     
     /// Действие по клику на кнопки Rock / Paper / Scissors
     @objc private func rpsButtonPressed(_ sender: UIButton) {
+//        sender.layer.backgroundColor = UIColor.red.cgColor
         sender.tintColor = sender.tintColor == .white ? K.Colors.yellow : .white
     }
 }

@@ -126,10 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				C631BE3F2C165CAD00A0D736 /* Constants.swift */,
-				FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */,
-				FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */,
-				FA10EDA42C18A42400137F5C /* UIProgressView + Extension.swift */,
-				FA10EDA82C18BCB400137F5C /* UIImageView + Extension.swift */,
+				FA10EDAE2C18DA9F00137F5C /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -142,6 +139,17 @@
 				C68679B02C1773E100F40860 /* Rubik-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FA10EDAE2C18DA9F00137F5C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */,
+				FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */,
+				FA10EDA42C18A42400137F5C /* UIProgressView + Extension.swift */,
+				FA10EDA82C18BCB400137F5C /* UIImageView + Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
