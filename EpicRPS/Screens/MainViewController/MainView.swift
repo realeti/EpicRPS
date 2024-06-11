@@ -19,23 +19,25 @@ class MainView: UIView {
     }()
     
     lazy var startButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setBackgroundImage(UIImage(named: "startButton"), for: .normal)
         button.layer.cornerRadius = 15
         
         button.setTitle("START", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .black)
+        button.tintColor = UIColor(red: 182/255, green: 124/255, blue: 98/255, alpha: 1.0)
         
         return button
     }()
     
     lazy var resultButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setBackgroundImage(UIImage(named: "startButton"), for: .normal)
         button.layer.cornerRadius = 15
         
         button.setTitle("RESULT", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .black)
+        button.tintColor = UIColor(red: 182/255, green: 124/255, blue: 98/255, alpha: 1.0)
         
         return button
     }()
