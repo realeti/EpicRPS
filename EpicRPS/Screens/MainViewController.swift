@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func rulesButtonPressed(_ sender: UIButton) {
-        print("press")
+        
     }
 }
 
