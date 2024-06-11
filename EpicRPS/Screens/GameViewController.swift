@@ -15,14 +15,14 @@ final class GameViewController: UIViewController {
     private lazy var backgroundImageView: UIImageView = {
         let element = UIImageView()
         element.frame = view.frame
-        element.image = .backgroundGameVC
+        element.image = UIImage(named: K.backgroundGameVC)
         element.contentMode = .scaleAspectFill
         return element
     }()
     
     private lazy var navigationTitleLabel: UILabel = {
         let element = UILabel()
-        element.textColor = .navigation
+        element.textColor = K.Colors.gray
         element.font = .init(name: K.fontName, size: K.sizeTitleLabel)
         return element
     }()
@@ -34,31 +34,31 @@ final class GameViewController: UIViewController {
         return element
     }()
     
-    private let rockButton = UIButton(image: K.rockImageRpsButton)
-    private let paperButton = UIButton(image: K.paperImageRpsButton)
-    private let scissorsButton = UIButton(image: K.scissorsImageRpsButton)
+    private let rockButton = UIButton(image: K.RPSButton.rockImageRpsButton)
+    private let paperButton = UIButton(image: K.RPSButton.paperImageRpsButton)
+    private let scissorsButton = UIButton(image: K.RPSButton.scissorsImageRpsButton)
     
-    private let timerProgress = UIProgressView(progressColor: .greenProgressTint)
+    private let timerProgress = UIProgressView(progressColor: K.Colors.green)
     private lazy var timerLabel: UILabel = {
         let element = UILabel()
-        element.font = .init(name: K.fontName, size: K.sizeTimerLabel)
+        element.font = .init(name: K.fontName, size: K.TimerLabel.sizeTimerLabel)
         element.textColor = .white
         element.sizeToFit()
-        element.text = "0:30"
         return element
     }()
     
     private let playerScoreProgress = UIProgressView(
-        progressColor: .yellowProgressTint
+        progressColor: K.Colors.yellow
     )
     private let opponentScoreProgress = UIProgressView(
-        progressColor: .yellowProgressTint
+        progressColor: K.Colors.yellow
     )
     private lazy var separatorView: UIView = {
         let element = UIView()
         element.backgroundColor = .white
         return element
     }()
+    
     private let playerAvatar = UIImageView(contentMode: .scaleAspectFit)
     private let opponentAvatar = UIImageView(contentMode: .scaleAspectFit)
     
@@ -67,8 +67,8 @@ final class GameViewController: UIViewController {
     
     private lazy var gameStatusLabel: UILabel = {
         let element = UILabel()
-        element.font = .init(name: K.fontName, size: 56)
-        element.textColor = .yellowProgressTint
+        element.font = .init(name: K.fontName, size: K.gameStatusLabelFontSize)
+        element.textColor = K.Colors.yellow
         element.sizeToFit()
         return element
     }()
@@ -87,6 +87,7 @@ final class GameViewController: UIViewController {
     }
     
     // MARK: - Private methods
+    /// Поворачивает progressViews на +/– 90 градусов
     private func rotateProgressView() {
         timerProgress.transform = CGAffineTransform(rotationAngle: .pi * -0.5)
         playerScoreProgress.transform = CGAffineTransform(rotationAngle: .pi * -0.5)
@@ -94,12 +95,14 @@ final class GameViewController: UIViewController {
     }
     
     // MARK: - Actions
+    /// Действие по клику на кнопку паузы в rightBarButtonItem
     @objc private func pauseButtonPressed() {
         
     }
     
+    /// Действие по клику на кнопки Rock / Paper / Scissors
     @objc private func rpsButtonPressed(_ sender: UIButton) {
-        sender.tintColor = sender.tintColor == .white ? .yellowSelectedRpsButton : .white
+        sender.tintColor = sender.tintColor == .white ? K.Colors.yellow : .white
     }
 }
 
@@ -129,6 +132,8 @@ private extension GameViewController {
         
         gameStatusLabel.text = "FIGHT"
         
+        timerLabel.text = "0:30"
+        
         rockButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         paperButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         scissorsButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
@@ -137,10 +142,11 @@ private extension GameViewController {
         playerScoreProgress.progress = 0.66
         opponentScoreProgress.progress = 0.33
         
-        navigationController?.navigationBar.tintColor = .navigation
+        navigationController?.navigationBar.tintColor = K.Colors.gray
         navigationTitleLabel.text = "Игра"
         navigationItem.titleView = navigationTitleLabel
         navigationItem.rightBarButtonItem = pauseButton
+        
         pauseButton.action = #selector(pauseButtonPressed)
     }
 }
@@ -149,68 +155,68 @@ private extension GameViewController {
 private extension GameViewController {
     func setupConstraints() {
         rockButton.snp.makeConstraints {
-            $0.width.height.equalTo(K.widthRpsButtonLayer)
-            $0.trailing.equalTo(paperButton.snp.leading).offset(-K.leadingTrailingOffsetRpsButton)
-            $0.bottom.equalToSuperview().offset(-K.bottomOffsetRockScissorsButton)
+            $0.width.height.equalTo(K.RPSButton.widthRpsButtonLayer)
+            $0.trailing.equalTo(paperButton.snp.leading).offset(-K.RPSButton.leadingTrailingOffsetRpsButton)
+            $0.bottom.equalToSuperview().offset(-K.RPSButton.bottomOffsetRockScissorsButton)
         }
         
         paperButton.snp.makeConstraints {
-            $0.width.height.equalTo(K.widthRpsButtonLayer)
+            $0.width.height.equalTo(K.RPSButton.widthRpsButtonLayer)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-K.bottomOffsetPaperButton)
+            $0.bottom.equalToSuperview().offset(-K.RPSButton.bottomOffsetPaperButton)
         }
         
         scissorsButton.snp.makeConstraints {
-            $0.width.height.equalTo(K.widthRpsButtonLayer)
-            $0.leading.equalTo(paperButton.snp.trailing).offset(K.leadingTrailingOffsetRpsButton)
-            $0.bottom.equalToSuperview().offset(-K.bottomOffsetRockScissorsButton)
+            $0.width.height.equalTo(K.RPSButton.widthRpsButtonLayer)
+            $0.leading.equalTo(paperButton.snp.trailing).offset(K.RPSButton.leadingTrailingOffsetRpsButton)
+            $0.bottom.equalToSuperview().offset(-K.RPSButton.bottomOffsetRockScissorsButton)
         }
         
         timerProgress.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.height.equalTo(K.heightProgress)
-            $0.width.equalTo(K.widthTimerProgress)
-            $0.leading.equalToSuperview().offset(-K.leadingTimerProgress)
+            $0.height.equalTo(K.TimerProgress.heightTimerProgress)
+            $0.width.equalTo(K.TimerProgress.widthTimerProgress)
+            $0.leading.equalToSuperview().offset(-K.TimerProgress.leadingTimerProgress)
         }
         
         timerLabel.snp.makeConstraints {
-            $0.top.equalTo(timerProgress.snp.bottom).offset(K.topOffsetTimerLabel)
-            $0.leading.equalToSuperview().offset(K.leadingOffsetTimerLabel)
+            $0.top.equalTo(timerProgress.snp.bottom).offset(K.TimerLabel.topOffsetTimerLabel)
+            $0.leading.equalToSuperview().offset(K.TimerLabel.leadingOffsetTimerLabel)
         }
         
         opponentScoreProgress.snp.makeConstraints {
-            $0.height.equalTo(K.heightProgress)
-            $0.width.equalTo(K.widthScoreProgress)
-            $0.trailing.equalToSuperview().offset(K.trailingScoreProgress)
-            $0.bottom.equalToSuperview().offset(-K.topBottomOffsetScoreProgress)
+            $0.height.equalTo(K.TimerProgress.heightTimerProgress)
+            $0.width.equalTo(K.ScoreProgress.widthScoreProgress)
+            $0.trailing.equalToSuperview().offset(K.ScoreProgress.trailingScoreProgress)
+            $0.bottom.equalToSuperview().offset(-K.ScoreProgress.topBottomOffsetScoreProgress)
         }
         
         playerScoreProgress.snp.makeConstraints {
-            $0.height.equalTo(K.heightProgress)
-            $0.width.equalTo(K.widthScoreProgress)
-            $0.trailing.equalToSuperview().offset(K.trailingScoreProgress)
-            $0.top.equalToSuperview().offset(K.topBottomOffsetScoreProgress)
+            $0.height.equalTo(K.TimerProgress.heightTimerProgress)
+            $0.width.equalTo(K.ScoreProgress.widthScoreProgress)
+            $0.trailing.equalToSuperview().offset(K.ScoreProgress.trailingScoreProgress)
+            $0.top.equalToSuperview().offset(K.ScoreProgress.topBottomOffsetScoreProgress)
         }
         
         separatorView.snp.makeConstraints {
-            $0.top.equalTo(K.topSeparator)
-            $0.width.equalTo(K.widthSeparator)
-            $0.height.equalTo(K.heightSeparator)
-            $0.trailing.equalToSuperview().offset(-K.trailingSeparator)
+            $0.top.equalTo(K.Separator.topSeparator)
+            $0.width.equalTo(K.Separator.widthSeparator)
+            $0.height.equalTo(K.Separator.heightSeparator)
+            $0.trailing.equalToSuperview().offset(-K.Separator.trailingSeparator)
         }
         
         opponentAvatar.snp.makeConstraints {
-            $0.width.equalTo(K.widthGamerAvatar)
-            $0.height.equalTo(K.heightGamerAvatar)
-            $0.trailing.equalToSuperview().offset(-K.trailingOffsetGamerImage)
-            $0.top.equalTo(K.bottomOffsetOpponentImage)
+            $0.width.equalTo(K.GamerAvatar.widthGamerAvatar)
+            $0.height.equalTo(K.GamerAvatar.heightGamerAvatar)
+            $0.trailing.equalToSuperview().offset(-K.GamerAvatar.trailingOffsetGamerAvatar)
+            $0.top.equalTo(K.GamerAvatar.bottomOffsetOpponentAvatar)
         }
         
         playerAvatar.snp.makeConstraints {
-            $0.width.equalTo(K.widthGamerAvatar)
-            $0.height.equalTo(K.heightGamerAvatar)
-            $0.trailing.equalToSuperview().offset(-K.trailingOffsetGamerImage)
-            $0.top.equalTo(K.topOffsetPlayerAvatar)
+            $0.width.equalTo(K.GamerAvatar.widthGamerAvatar)
+            $0.height.equalTo(K.GamerAvatar.heightGamerAvatar)
+            $0.trailing.equalToSuperview().offset(-K.GamerAvatar.trailingOffsetGamerAvatar)
+            $0.top.equalTo(K.GamerAvatar.topOffsetPlayerAvatar)
         }
         
         gameStatusLabel.snp.makeConstraints {
@@ -218,13 +224,13 @@ private extension GameViewController {
         }
         
         playerHand.snp.makeConstraints {
-            $0.top.equalTo(gameStatusLabel.snp.bottom).offset(K.topBottomOffsetHands)
-            $0.trailing.equalToSuperview().offset(-K.trailingOffsetPlayerHand)
+            $0.top.equalTo(gameStatusLabel.snp.bottom).offset(K.Hands.topBottomOffsetHands)
+            $0.trailing.equalToSuperview().offset(-K.Hands.trailingOffsetPlayerHand)
         }
         
         opponentHand.snp.makeConstraints {
-            $0.bottom.equalTo(gameStatusLabel.snp.top).offset(-K.topBottomOffsetHands)
-            $0.leading.equalToSuperview().offset(K.leadingOffsetOpponentHand)
+            $0.bottom.equalTo(gameStatusLabel.snp.top).offset(-K.Hands.topBottomOffsetHands)
+            $0.leading.equalToSuperview().offset(K.Hands.leadingOffsetOpponentHand)
         }
     }
 }

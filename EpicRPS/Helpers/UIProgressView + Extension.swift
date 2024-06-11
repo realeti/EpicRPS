@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIProgressView {
-    convenience init(progressColor: UIColor, trackColor: UIColor = .blueBackground) {
+    convenience init(progressColor: UIColor, trackColor: UIColor = K.Colors.blue) {
         self.init()
         self.progressTintColor = progressColor
         self.trackTintColor = trackColor
