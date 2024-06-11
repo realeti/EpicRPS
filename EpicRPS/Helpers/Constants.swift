@@ -10,5 +10,10 @@ import Foundation
 struct K {
     static let fontName = "Rubik-Regular"
     
+    // MARK: - Game Properties
+    
+    static let maxWins = 3
+    static let maxRoundTime: Float = 30.0
+    
     private init() {}
 }
