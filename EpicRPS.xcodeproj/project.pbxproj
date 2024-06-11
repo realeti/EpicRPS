@@ -16,6 +16,7 @@
 		C631BE402C165CAD00A0D736 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631BE3F2C165CAD00A0D736 /* Constants.swift */; };
 		C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68679AB2C176A7800F40860 /* RulesViewController.swift */; };
 		C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C68679B02C1773E100F40860 /* Rubik-Regular.ttf */; };
+		DD1038002C17767A00686701 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1037FF2C17767A00686701 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		C631BE3F2C165CAD00A0D736 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C68679AB2C176A7800F40860 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		C68679B02C1773E100F40860 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		DD1037FF2C17767A00686701 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +77,7 @@
 		C631BE3A2C165BC900A0D736 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C60F29822C16564100D49F5A /* MainViewController.swift */,
+				DD1037FE2C17766300686701 /* MainViewController */,
 				C68679AB2C176A7800F40860 /* RulesViewController.swift */,
 				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
 			);
@@ -121,6 +123,15 @@
 				C68679B02C1773E100F40860 /* Rubik-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DD1037FE2C17766300686701 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C60F29822C16564100D49F5A /* MainViewController.swift */,
+				DD1037FF2C17767A00686701 /* MainView.swift */,
+			);
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */,
+				DD1038002C17767A00686701 /* MainView.swift in Sources */,
 				C60F29832C16564100D49F5A /* MainViewController.swift in Sources */,
 				C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */,
 				C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */,

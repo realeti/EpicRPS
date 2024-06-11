@@ -9,12 +9,21 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    //MARK: - Properties
+    
+    private var mainView: MainView!
+    
     // MARK: - UI
     
     lazy var rulesButton = UIBarButtonItem(
         image: UIImage(resource: .rules), style: .plain, target: self, action: #selector(rulesButtonPressed))
     
     // MARK: - Life Cycle
+    
+    override func loadView() {
+        mainView = MainView()
+        view = mainView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
