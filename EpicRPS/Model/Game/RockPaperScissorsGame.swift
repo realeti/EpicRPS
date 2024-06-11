@@ -42,13 +42,13 @@ class RockPaperScissorsGame {
         checkPlayersScore()
     }
     
-    // MARK: - End Game
-    
     private func checkPlayersScore() {
         if playerScore >= maxWins || opponentScore >= maxWins {
             endGame()
         }
     }
+    
+    // MARK: - End Game
     
     private func endGame() {
         let finalResult = getResult()

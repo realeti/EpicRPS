@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GameProtocol {
+protocol GameProtocol: AnyObject {
     func startGame()
     func startNewRound()
 }
