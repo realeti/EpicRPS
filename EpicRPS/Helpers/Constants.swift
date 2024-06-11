@@ -33,11 +33,14 @@ struct K {
     static let heightSeparator: CGFloat = 1
     static let widthSeparator: CGFloat = 18
     static let trailingSeparator: CGFloat = 20.5
-    static let widthGamerImage: CGFloat = 35.85
-    static let heightGamerImage: CGFloat = 41.38
-    static let topOffsetPlayerImage: CGFloat = centerYView + widthScoreProgress - heightGamerImage / 2
-    static let bottomOffsetOpponentImage: CGFloat = centerYView - widthScoreProgress - heightGamerImage / 2
+    static let widthGamerAvatar: CGFloat = 35.85
+    static let heightGamerAvatar: CGFloat = 41.38
+    static let topOffsetPlayerAvatar: CGFloat = centerYView + widthScoreProgress - heightGamerAvatar / 2
+    static let bottomOffsetOpponentImage: CGFloat = centerYView - widthScoreProgress - heightGamerAvatar / 2
     static let trailingOffsetGamerImage: CGFloat = 11.5
+    static let topBottomOffsetHands: CGFloat = 45
+    static let leadingOffsetOpponentHand: CGFloat = 62.56
+    static let trailingOffsetPlayerHand: CGFloat = 77.06
     
     private init() {}
 }
