@@ -19,6 +19,8 @@
 		FA10ED9B2C185E5300137F5C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10ED9A2C185E5300137F5C /* GameViewController.swift */; };
 		FA10ED9D2C185F6000137F5C /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */; };
 		FA10EDA32C18820F00137F5C /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */; };
+		FA10EDA52C18A42400137F5C /* UIProgressView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10EDA42C18A42400137F5C /* UIProgressView + Extension.swift */; };
+		FA10EDA92C18BCB400137F5C /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10EDA82C18BCB400137F5C /* UIImageView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		FA10ED9A2C185E5300137F5C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
+		FA10EDA42C18A42400137F5C /* UIProgressView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgressView + Extension.swift"; sourceTree = "<group>"; };
+		FA10EDA82C18BCB400137F5C /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				C631BE3F2C165CAD00A0D736 /* Constants.swift */,
 				FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */,
 				FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */,
+				FA10EDA42C18A42400137F5C /* UIProgressView + Extension.swift */,
+				FA10EDA82C18BCB400137F5C /* UIImageView + Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,9 +219,11 @@
 				C60F29832C16564100D49F5A /* MainViewController.swift in Sources */,
 				C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */,
 				FA10ED9D2C185F6000137F5C /* UIViewController + Extension.swift in Sources */,
+				FA10EDA92C18BCB400137F5C /* UIImageView + Extension.swift in Sources */,
 				C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */,
 				FA10ED9B2C185E5300137F5C /* GameViewController.swift in Sources */,
 				C631BE402C165CAD00A0D736 /* Constants.swift in Sources */,
+				FA10EDA52C18A42400137F5C /* UIProgressView + Extension.swift in Sources */,
 				FA10EDA32C18820F00137F5C /* UIButton + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

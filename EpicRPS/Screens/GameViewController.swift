@@ -26,7 +26,6 @@ final class GameViewController: UIViewController {
         element.font = .init(name: K.fontName, size: K.sizeTitleLabel)
         return element
     }()
-    
     private lazy var pauseButton: UIBarButtonItem = {
         let element = UIBarButtonItem()
         element.image = .pauseButton
@@ -39,14 +38,7 @@ final class GameViewController: UIViewController {
     private let paperButton = UIButton(image: K.paperImageRpsButton)
     private let scissorsButton = UIButton(image: K.scissorsImageRpsButton)
     
-    private lazy var timerProgress: UIProgressView = {
-        let element = UIProgressView()
-        element.progressTintColor = .greenProgressTint
-        element.progress = 0.5
-        element.trackTintColor = .blueBackground
-        return element
-    }()
-    
+    private let timerProgress = UIProgressView(progressColor: .greenProgressTint)
     private lazy var timerLabel: UILabel = {
         let element = UILabel()
         element.font = .init(name: K.fontName, size: K.sizeTimerLabel)
@@ -56,11 +48,26 @@ final class GameViewController: UIViewController {
         return element
     }()
     
+    private let playerScoreProgress = UIProgressView(
+        progressColor: .yellowProgressTint
+    )
+    private let opponentScoreProgress = UIProgressView(
+        progressColor: .yellowProgressTint
+    )
+    private lazy var separatorView: UIView = {
+        let element = UIView()
+        element.backgroundColor = .white
+        return element
+    }()
+    private let playerImage = UIImageView(contentMode: .scaleAspectFit)
+    private let opponentImage = UIImageView(contentMode: .scaleAspectFit)
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -68,8 +75,11 @@ final class GameViewController: UIViewController {
         rotateProgressView()
     }
     
+    // MARK: - Private methods
     private func rotateProgressView() {
         timerProgress.transform = CGAffineTransform(rotationAngle: .pi * -0.5)
+        playerScoreProgress.transform = CGAffineTransform(rotationAngle: .pi * -0.5)
+        opponentScoreProgress.transform = CGAffineTransform(rotationAngle: .pi * 0.5)
     }
     
     // MARK: - Actions
@@ -78,7 +88,7 @@ final class GameViewController: UIViewController {
     }
     
     @objc private func rpsButtonPressed(_ sender: UIButton) {
-        sender.tintColor = sender.tintColor == .white ? .yellowSelected : .white
+        sender.tintColor = sender.tintColor == .white ? .yellowSelectedRpsButton : .white
     }
 }
 
@@ -91,10 +101,22 @@ private extension GameViewController {
         view.addSubview(scissorsButton)
         view.addSubview(timerProgress)
         view.addSubview(timerLabel)
+        view.addSubview(playerScoreProgress)
+        view.addSubview(opponentScoreProgress)
+        view.addSubview(separatorView)
+        view.addSubview(playerImage)
+        view.addSubview(opponentImage)
+        
+        playerImage.image = .player
+        opponentImage.image = .opponent
         
         rockButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         paperButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         scissorsButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
+        
+        timerProgress.progress = 0.5
+        playerScoreProgress.progress = 0.66
+        opponentScoreProgress.progress = 0.33
         
         navigationController?.navigationBar.tintColor = .navigation
         navigationTitleLabel.text = "Игра"
@@ -127,14 +149,49 @@ private extension GameViewController {
         
         timerProgress.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.height.equalTo(K.heightTimerProgress)
+            $0.height.equalTo(K.heightProgress)
             $0.width.equalTo(K.widthTimerProgress)
-            $0.leading.equalToSuperview().offset(-K.leadingOffsetTimerProgress)
+            $0.leading.equalToSuperview().offset(-K.leadingTimerProgress)
         }
         
         timerLabel.snp.makeConstraints {
             $0.top.equalTo(timerProgress.snp.bottom).offset(K.topOffsetTimerLabel)
             $0.leading.equalToSuperview().offset(K.leadingOffsetTimerLabel)
+        }
+        
+        opponentScoreProgress.snp.makeConstraints {
+            $0.height.equalTo(K.heightProgress)
+            $0.width.equalTo(K.widthScoreProgress)
+            $0.trailing.equalToSuperview().offset(K.trailingScoreProgress)
+            $0.bottom.equalToSuperview().offset(-K.topBottomOffsetScoreProgress)
+        }
+        
+        playerScoreProgress.snp.makeConstraints {
+            $0.height.equalTo(K.heightProgress)
+            $0.width.equalTo(K.widthScoreProgress)
+            $0.trailing.equalToSuperview().offset(K.trailingScoreProgress)
+            $0.top.equalToSuperview().offset(K.topBottomOffsetScoreProgress)
+        }
+        
+        separatorView.snp.makeConstraints {
+            $0.top.equalTo(K.topSeparator)
+            $0.width.equalTo(K.widthSeparator)
+            $0.height.equalTo(K.heightSeparator)
+            $0.trailing.equalToSuperview().offset(-K.trailingSeparator)
+        }
+        
+        opponentImage.snp.makeConstraints {
+            $0.width.equalTo(K.widthGamerImage)
+            $0.height.equalTo(K.heightGamerImage)
+            $0.trailing.equalToSuperview().offset(-K.trailingOffsetGamerImage)
+            $0.top.equalTo(K.bottomOffsetOpponentImage)
+        }
+        
+        playerImage.snp.makeConstraints {
+            $0.width.equalTo(K.widthGamerImage)
+            $0.height.equalTo(K.heightGamerImage)
+            $0.trailing.equalToSuperview().offset(-K.trailingOffsetGamerImage)
+            $0.top.equalTo(K.topOffsetPlayerImage)
         }
     }
 }
