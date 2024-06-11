@@ -9,6 +9,8 @@ import UIKit
 
 struct K {
     static let fontName = "Rubik-Regular"
+    static let fontMedium500 = "Rubik-Bold"
+    static let fontBold700 = "Rubik-Bold"
     static let centerYView = UIScreen.main.bounds.height / 2
     static let sizeTitleLabel: CGFloat = 25
     static let backgroundGameVC = "backgroundGameVC"

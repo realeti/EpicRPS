@@ -21,6 +21,8 @@
 		FA10EDA32C18820F00137F5C /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */; };
 		FA10EDA52C18A42400137F5C /* UIProgressView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10EDA42C18A42400137F5C /* UIProgressView + Extension.swift */; };
 		FA10EDA92C18BCB400137F5C /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10EDA82C18BCB400137F5C /* UIImageView + Extension.swift */; };
+		FA10EDAB2C18D84500137F5C /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA10EDAA2C18D84400137F5C /* Rubik-Bold.ttf */; };
+		FA10EDAD2C18D95E00137F5C /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA10EDAC2C18D95E00137F5C /* Rubik-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		FA10EDA42C18A42400137F5C /* UIProgressView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgressView + Extension.swift"; sourceTree = "<group>"; };
 		FA10EDA82C18BCB400137F5C /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		FA10EDAA2C18D84400137F5C /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		FA10EDAC2C18D95E00137F5C /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 		C68679AF2C1773D700F40860 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				FA10EDAC2C18D95E00137F5C /* Rubik-Medium.ttf */,
+				FA10EDAA2C18D84400137F5C /* Rubik-Bold.ttf */,
 				C68679B02C1773E100F40860 /* Rubik-Regular.ttf */,
 			);
 			path = Fonts;
@@ -203,8 +209,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C60F29882C16564300D49F5A /* Assets.xcassets in Resources */,
+				FA10EDAB2C18D84500137F5C /* Rubik-Bold.ttf in Resources */,
 				C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */,
 				C60F298B2C16564300D49F5A /* Base in Resources */,
+				FA10EDAD2C18D95E00137F5C /* Rubik-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

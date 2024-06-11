@@ -41,7 +41,7 @@ final class GameViewController: UIViewController {
     private let timerProgress = UIProgressView(progressColor: K.Colors.green)
     private lazy var timerLabel: UILabel = {
         let element = UILabel()
-        element.font = .init(name: K.fontName, size: K.TimerLabel.sizeTimerLabel)
+        element.font = .init(name: K.fontMedium500, size: K.TimerLabel.sizeTimerLabel)
         element.textColor = .white
         element.sizeToFit()
         return element
@@ -67,7 +67,7 @@ final class GameViewController: UIViewController {
     
     private lazy var gameStatusLabel: UILabel = {
         let element = UILabel()
-        element.font = .init(name: K.fontName, size: K.gameStatusLabelFontSize)
+        element.font = .init(name: K.fontBold700, size: K.gameStatusLabelFontSize)
         element.textColor = K.Colors.yellow
         element.sizeToFit()
         return element
