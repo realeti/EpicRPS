@@ -18,22 +18,12 @@
 		C64800572C18BB0E00D25822 /* RockPaperScissorsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64800562C18BB0E00D25822 /* RockPaperScissorsGame.swift */; };
 		C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68679AB2C176A7800F40860 /* RulesViewController.swift */; };
 		C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C68679B02C1773E100F40860 /* Rubik-Regular.ttf */; };
-
-		FA10ED9B2C185E5300137F5C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10ED9A2C185E5300137F5C /* GameViewController.swift */; };
-		FA10ED9D2C185F6000137F5C /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */; };
-		FA10EDA32C18820F00137F5C /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */; };
-		FA10EDA52C18A42400137F5C /* UIProgressView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10EDA42C18A42400137F5C /* UIProgressView + Extension.swift */; };
-		FA10EDA92C18BCB400137F5C /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10EDA82C18BCB400137F5C /* UIImageView + Extension.swift */; };
-		FA10EDAB2C18D84500137F5C /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA10EDAA2C18D84400137F5C /* Rubik-Bold.ttf */; };
-		FA10EDAD2C18D95E00137F5C /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA10EDAC2C18D95E00137F5C /* Rubik-Medium.ttf */; };
-
 		C6AD1E412C18CF12003E5C92 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E402C18CF12003E5C92 /* Player.swift */; };
 		C6AD1E442C18DCD1003E5C92 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E432C18DCD1003E5C92 /* GameProtocol.swift */; };
 		C6AD1E462C18DCEA003E5C92 /* GameOverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E452C18DCEA003E5C92 /* GameOverProtocol.swift */; };
 		C6AD1E482C18DCFB003E5C92 /* TimerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E472C18DCFB003E5C92 /* TimerProtocol.swift */; };
 		C6AD1E4B2C18DD46003E5C92 /* GameSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E4A2C18DD46003E5C92 /* GameSymbol.swift */; };
 		C6AD1E4D2C18DD56003E5C92 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E4C2C18DD56003E5C92 /* GameResult.swift */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,22 +39,12 @@
 		C64800562C18BB0E00D25822 /* RockPaperScissorsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsGame.swift; sourceTree = "<group>"; };
 		C68679AB2C176A7800F40860 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		C68679B02C1773E100F40860 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
-
-		FA10ED9A2C185E5300137F5C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
-		FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
-		FA10EDA42C18A42400137F5C /* UIProgressView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgressView + Extension.swift"; sourceTree = "<group>"; };
-		FA10EDA82C18BCB400137F5C /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
-		FA10EDAA2C18D84400137F5C /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
-		FA10EDAC2C18D95E00137F5C /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
-
 		C6AD1E402C18CF12003E5C92 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C6AD1E432C18DCD1003E5C92 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
 		C6AD1E452C18DCEA003E5C92 /* GameOverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverProtocol.swift; sourceTree = "<group>"; };
 		C6AD1E472C18DCFB003E5C92 /* TimerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProtocol.swift; sourceTree = "<group>"; };
 		C6AD1E4A2C18DD46003E5C92 /* GameSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSymbol.swift; sourceTree = "<group>"; };
 		C6AD1E4C2C18DD56003E5C92 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +94,6 @@
 				C60F29822C16564100D49F5A /* MainViewController.swift */,
 				C68679AB2C176A7800F40860 /* RulesViewController.swift */,
 				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
-				FA10ED9A2C185E5300137F5C /* GameViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -150,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				C631BE3F2C165CAD00A0D736 /* Constants.swift */,
-				FA10EDAE2C18DA9F00137F5C /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -158,24 +136,11 @@
 		C68679AF2C1773D700F40860 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				FA10EDAC2C18D95E00137F5C /* Rubik-Medium.ttf */,
-				FA10EDAA2C18D84400137F5C /* Rubik-Bold.ttf */,
 				C68679B02C1773E100F40860 /* Rubik-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-
-		FA10EDAE2C18DA9F00137F5C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				FA10ED9C2C185F6000137F5C /* UIViewController + Extension.swift */,
-				FA10EDA22C18820F00137F5C /* UIButton + Extension.swift */,
-				FA10EDA42C18A42400137F5C /* UIProgressView + Extension.swift */,
-				FA10EDA82C18BCB400137F5C /* UIImageView + Extension.swift */,
-			);
-			path = Extensions;
-
 		C6AD1E422C18DCC7003E5C92 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +161,6 @@
 				C64800562C18BB0E00D25822 /* RockPaperScissorsGame.swift */,
 			);
 			path = Game;
-
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,10 +228,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C60F29882C16564300D49F5A /* Assets.xcassets in Resources */,
-				FA10EDAB2C18D84500137F5C /* Rubik-Bold.ttf in Resources */,
 				C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */,
 				C60F298B2C16564300D49F5A /* Base in Resources */,
-				FA10EDAD2C18D95E00137F5C /* Rubik-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,19 +248,11 @@
 				C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */,
 				C60F29832C16564100D49F5A /* MainViewController.swift in Sources */,
 				C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */,
-
-				FA10ED9D2C185F6000137F5C /* UIViewController + Extension.swift in Sources */,
-				FA10EDA92C18BCB400137F5C /* UIImageView + Extension.swift in Sources */,
-
 				C6AD1E412C18CF12003E5C92 /* Player.swift in Sources */,
 				C6AD1E4D2C18DD56003E5C92 /* GameResult.swift in Sources */,
 				C6AD1E482C18DCFB003E5C92 /* TimerProtocol.swift in Sources */,
-
 				C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */,
-				FA10ED9B2C185E5300137F5C /* GameViewController.swift in Sources */,
 				C631BE402C165CAD00A0D736 /* Constants.swift in Sources */,
-				FA10EDA52C18A42400137F5C /* UIProgressView + Extension.swift in Sources */,
-				FA10EDA32C18820F00137F5C /* UIButton + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
