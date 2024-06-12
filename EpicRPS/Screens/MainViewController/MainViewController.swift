@@ -9,18 +9,22 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    // MARK: - UI
+    private var mainView: MainView!
     
     lazy var rulesButton = UIBarButtonItem(
         image: UIImage(resource: .rules), style: .plain, target: self, action: #selector(rulesButtonPressed))
+    lazy var settingsButton = UIBarButtonItem(image: UIImage(resource: .settings ), style: .plain, target: self, action: #selector(settingsButtonPressed))
     
     // MARK: - Life Cycle
-
+    
+    override func loadView() {
+        mainView = MainView()
+        view = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
-        setupConstraints()
     }
     
     // MARK: - Setup UI
@@ -28,18 +32,18 @@ class MainViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = UIColor(resource: .snow)
         navigationItem.rightBarButtonItem = rulesButton
+        navigationItem.leftBarButtonItem = settingsButton
+        settingsButton.tintColor = .black
     }
     
     @objc func rulesButtonPressed(_ sender: UIButton) {
         print("press")
     }
-}
-
-extension MainViewController {
     
-    // MARK: - Setup Constraints
-    
-    private func setupConstraints() {
-        
+    @objc func settingsButtonPressed(_ sender: UIButton) {
+        print("press press")
     }
+
+    //MARK: - Objc func
+    
 }

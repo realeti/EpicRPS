@@ -24,6 +24,7 @@
 		C6AD1E482C18DCFB003E5C92 /* TimerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E472C18DCFB003E5C92 /* TimerProtocol.swift */; };
 		C6AD1E4B2C18DD46003E5C92 /* GameSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E4A2C18DD46003E5C92 /* GameSymbol.swift */; };
 		C6AD1E4D2C18DD56003E5C92 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E4C2C18DD56003E5C92 /* GameResult.swift */; };
+		DD9E1ED02C1A190F00BC9694 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E1ECF2C1A190F00BC9694 /* MainView.swift */; };
 		FAAF47B32C19B821000CC955 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B22C19B821000CC955 /* GameViewController.swift */; };
 		FAAF47B92C19B88C000CC955 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B42C19B88C000CC955 /* UIButton + Extension.swift */; };
 		FAAF47BA2C19B88C000CC955 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B52C19B88C000CC955 /* UIImageView + Extension.swift */; };
@@ -52,6 +53,7 @@
 		C6AD1E472C18DCFB003E5C92 /* TimerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProtocol.swift; sourceTree = "<group>"; };
 		C6AD1E4A2C18DD46003E5C92 /* GameSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSymbol.swift; sourceTree = "<group>"; };
 		C6AD1E4C2C18DD56003E5C92 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		DD9E1ECF2C1A190F00BC9694 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FAAF47B22C19B821000CC955 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FAAF47B42C19B88C000CC955 /* UIButton + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		FAAF47B52C19B88C000CC955 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
@@ -105,7 +107,7 @@
 		C631BE3A2C165BC900A0D736 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C60F29822C16564100D49F5A /* MainViewController.swift */,
+				DD9E1ECE2C1A190100BC9694 /* MainViewController */,
 				C68679AB2C176A7800F40860 /* RulesViewController.swift */,
 				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
 				FAAF47B22C19B821000CC955 /* GameViewController.swift */,
@@ -179,6 +181,15 @@
 				C64800562C18BB0E00D25822 /* RockPaperScissorsGame.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		DD9E1ECE2C1A190100BC9694 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C60F29822C16564100D49F5A /* MainViewController.swift */,
+				DD9E1ECF2C1A190F00BC9694 /* MainView.swift */,
+			);
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 		FAAF47B82C19B88C000CC955 /* Extensions */ = {
@@ -276,6 +287,7 @@
 				C64800572C18BB0E00D25822 /* RockPaperScissorsGame.swift in Sources */,
 				C6AD1E4B2C18DD46003E5C92 /* GameSymbol.swift in Sources */,
 				C6AD1E442C18DCD1003E5C92 /* GameProtocol.swift in Sources */,
+				DD9E1ED02C1A190F00BC9694 /* MainView.swift in Sources */,
 				FAAF47B92C19B88C000CC955 /* UIButton + Extension.swift in Sources */,
 				C60668C12C18E4D60079CE1E /* ProgressProtocol.swift in Sources */,
 				C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */,
