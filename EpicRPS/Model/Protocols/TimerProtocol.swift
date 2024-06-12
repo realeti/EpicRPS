@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TimerProtocol {
+protocol TimerProtocol: AnyObject {
     func startTimer()
     func resetTimer()
 }

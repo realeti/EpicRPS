@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C60668C12C18E4D60079CE1E /* ProgressProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60668C02C18E4D60079CE1E /* ProgressProtocol.swift */; };
 		C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F297E2C16564100D49F5A /* AppDelegate.swift */; };
 		C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F29802C16564100D49F5A /* SceneDelegate.swift */; };
 		C60F29832C16564100D49F5A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F29822C16564100D49F5A /* MainViewController.swift */; };
@@ -16,10 +17,23 @@
 		C631BE402C165CAD00A0D736 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631BE3F2C165CAD00A0D736 /* Constants.swift */; };
 		C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68679AB2C176A7800F40860 /* RulesViewController.swift */; };
 		C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C68679B02C1773E100F40860 /* Rubik-Regular.ttf */; };
-		DD1038002C17767A00686701 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1037FF2C17767A00686701 /* MainView.swift */; };
+		C6AD1E412C18CF12003E5C92 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E402C18CF12003E5C92 /* Player.swift */; };
+		C6AD1E442C18DCD1003E5C92 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E432C18DCD1003E5C92 /* GameProtocol.swift */; };
+		C6AD1E462C18DCEA003E5C92 /* GameOverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E452C18DCEA003E5C92 /* GameOverProtocol.swift */; };
+		C6AD1E482C18DCFB003E5C92 /* TimerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E472C18DCFB003E5C92 /* TimerProtocol.swift */; };
+		C6AD1E4B2C18DD46003E5C92 /* GameSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E4A2C18DD46003E5C92 /* GameSymbol.swift */; };
+		C6AD1E4D2C18DD56003E5C92 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E4C2C18DD56003E5C92 /* GameResult.swift */; };
+		FAAF47B32C19B821000CC955 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B22C19B821000CC955 /* GameViewController.swift */; };
+		FAAF47B92C19B88C000CC955 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B42C19B88C000CC955 /* UIButton + Extension.swift */; };
+		FAAF47BA2C19B88C000CC955 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B52C19B88C000CC955 /* UIImageView + Extension.swift */; };
+		FAAF47BB2C19B88C000CC955 /* UIProgressView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B62C19B88C000CC955 /* UIProgressView + Extension.swift */; };
+		FAAF47BC2C19B88C000CC955 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B72C19B88C000CC955 /* UIViewController + Extension.swift */; };
+		FAAF47BF2C19B89C000CC955 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAF47BD2C19B89C000CC955 /* Rubik-Medium.ttf */; };
+		FAAF47C02C19B89C000CC955 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAF47BE2C19B89C000CC955 /* Rubik-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C60668C02C18E4D60079CE1E /* ProgressProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressProtocol.swift; sourceTree = "<group>"; };
 		C60F297B2C16564100D49F5A /* EpicRPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpicRPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60F297E2C16564100D49F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C60F29802C16564100D49F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +44,19 @@
 		C631BE3F2C165CAD00A0D736 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C68679AB2C176A7800F40860 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		C68679B02C1773E100F40860 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
-		DD1037FF2C17767A00686701 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C6AD1E402C18CF12003E5C92 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C6AD1E432C18DCD1003E5C92 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
+		C6AD1E452C18DCEA003E5C92 /* GameOverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverProtocol.swift; sourceTree = "<group>"; };
+		C6AD1E472C18DCFB003E5C92 /* TimerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProtocol.swift; sourceTree = "<group>"; };
+		C6AD1E4A2C18DD46003E5C92 /* GameSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSymbol.swift; sourceTree = "<group>"; };
+		C6AD1E4C2C18DD56003E5C92 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		FAAF47B22C19B821000CC955 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		FAAF47B42C19B88C000CC955 /* UIButton + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
+		FAAF47B52C19B88C000CC955 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		FAAF47B62C19B88C000CC955 /* UIProgressView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIProgressView + Extension.swift"; sourceTree = "<group>"; };
+		FAAF47B72C19B88C000CC955 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		FAAF47BD2C19B89C000CC955 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		FAAF47BE2C19B89C000CC955 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +106,7 @@
 				DD1037FE2C17766300686701 /* MainViewController */,
 				C68679AB2C176A7800F40860 /* RulesViewController.swift */,
 				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
+				FAAF47B22C19B821000CC955 /* GameViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -113,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				C631BE3F2C165CAD00A0D736 /* Constants.swift */,
+				FAAF47B82C19B88C000CC955 /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -121,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				C68679B02C1773E100F40860 /* Rubik-Regular.ttf */,
+				FAAF47BE2C19B89C000CC955 /* Rubik-Bold.ttf */,
+				FAAF47BD2C19B89C000CC955 /* Rubik-Medium.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -128,10 +158,23 @@
 		DD1037FE2C17766300686701 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C60F29822C16564100D49F5A /* MainViewController.swift */,
-				DD1037FF2C17767A00686701 /* MainView.swift */,
+				C6AD1E432C18DCD1003E5C92 /* GameProtocol.swift */,
+				C6AD1E452C18DCEA003E5C92 /* GameOverProtocol.swift */,
+				C6AD1E472C18DCFB003E5C92 /* TimerProtocol.swift */,
+				C60668C02C18E4D60079CE1E /* ProgressProtocol.swift */,
 			);
 			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		FAAF47B82C19B88C000CC955 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAAF47B42C19B88C000CC955 /* UIButton + Extension.swift */,
+				FAAF47B52C19B88C000CC955 /* UIImageView + Extension.swift */,
+				FAAF47B62C19B88C000CC955 /* UIProgressView + Extension.swift */,
+				FAAF47B72C19B88C000CC955 /* UIViewController + Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +244,8 @@
 				C60F29882C16564300D49F5A /* Assets.xcassets in Resources */,
 				C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */,
 				C60F298B2C16564300D49F5A /* Base in Resources */,
+				FAAF47BF2C19B89C000CC955 /* Rubik-Medium.ttf in Resources */,
+				FAAF47C02C19B89C000CC955 /* Rubik-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,12 +256,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAAF47B32C19B821000CC955 /* GameViewController.swift in Sources */,
+				C6AD1E462C18DCEA003E5C92 /* GameOverProtocol.swift in Sources */,
+				C64800572C18BB0E00D25822 /* RockPaperScissorsGame.swift in Sources */,
+				C6AD1E4B2C18DD46003E5C92 /* GameSymbol.swift in Sources */,
+				C6AD1E442C18DCD1003E5C92 /* GameProtocol.swift in Sources */,
+				FAAF47B92C19B88C000CC955 /* UIButton + Extension.swift in Sources */,
+				C60668C12C18E4D60079CE1E /* ProgressProtocol.swift in Sources */,
 				C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */,
 				DD1038002C17767A00686701 /* MainView.swift in Sources */,
 				C60F29832C16564100D49F5A /* MainViewController.swift in Sources */,
 				C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */,
+				FAAF47BC2C19B88C000CC955 /* UIViewController + Extension.swift in Sources */,
+				C6AD1E412C18CF12003E5C92 /* Player.swift in Sources */,
+				C6AD1E4D2C18DD56003E5C92 /* GameResult.swift in Sources */,
+				FAAF47BA2C19B88C000CC955 /* UIImageView + Extension.swift in Sources */,
+				C6AD1E482C18DCFB003E5C92 /* TimerProtocol.swift in Sources */,
 				C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */,
 				C631BE402C165CAD00A0D736 /* Constants.swift in Sources */,
+				FAAF47BB2C19B88C000CC955 /* UIProgressView + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
