@@ -15,6 +15,8 @@ class RulesViewController: UIViewController {
     private lazy var mainStackView: UIStackView = {
         let element = UIStackView()
         element.axis = .vertical
+        element.spacing = 1
+        element.distribution = .fillEqually
         element.spacing = 20
         element.distribution = .fillEqually
 //        element.backgroundColor = .white
