@@ -82,6 +82,8 @@ class RulesViewController: UIViewController {
     
     // MARK: - Life Cycle
 
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,6 +91,7 @@ class RulesViewController: UIViewController {
         setupConstraints()
         
     }
+    
 }
 
 struct ViewControllerProvider1: PreviewProvider {
