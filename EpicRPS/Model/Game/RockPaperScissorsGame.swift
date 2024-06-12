@@ -57,8 +57,6 @@ class RockPaperScissorsGame {
     }
     
     private func getResult() -> GameResult {
-        let result: GameResult
-        
         if playerScore > opponentScore {
             return .win
         } else if playerScore < opponentScore {
