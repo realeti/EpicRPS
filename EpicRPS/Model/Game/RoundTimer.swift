@@ -39,8 +39,4 @@ final class RoundTimer {
         label.text = "0:" + roundDuration.description
         progress.progress = 0
     }
-    
-    func pauseTimer(){
-        timer?.invalidate()
-    }
 }

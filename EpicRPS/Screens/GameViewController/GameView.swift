@@ -177,6 +177,7 @@ private extension GameView {
         
         gameStatusLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
+            
         }
         
         playerHand.snp.makeConstraints {
@@ -185,7 +186,7 @@ private extension GameView {
         }
         
         opponentHand.snp.makeConstraints {
-            $0.bottom.equalTo(gameStatusLabel.snp.top).offset(-K.Hands.topBottomOffsetHands)
+            $0.top.equalToSuperview().offset(-70)
             $0.leading.equalToSuperview().offset(K.Hands.leadingOffsetOpponentHand)
         }
     }

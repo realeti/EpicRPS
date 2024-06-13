@@ -20,7 +20,6 @@ final class GameViewController: UIViewController {
     // MARK: - Private properties
     private var gameView: GameView!
     private let timer = RoundTimer()
-    private var isPaused = false
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -33,6 +32,7 @@ final class GameViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         toggleEnableRpsButtons()
+        timer.startTimer(label: gameView.timerLabel, progress: gameView.timerProgress)
     }
     
     override func viewWillLayoutSubviews() {
@@ -107,7 +107,6 @@ final class GameViewController: UIViewController {
                 )
             } completion: { [weak self] _ in
                 guard let self else { return }
-                timer.isPaused ? () : timer.startTimer(label: gameView.timerLabel, progress: gameView.timerProgress)
                 toggleEnableRpsButtons()
                 gameView.gameStatusLabel.transform = CGAffineTransform(
                     scaleX: 1,
@@ -136,35 +135,14 @@ final class GameViewController: UIViewController {
     
     /// Анимация смены рук
     private func animateHands(_ gameSymbol: GameSymbol) {
-        UIView.animate(withDuration: 0.25,
-                       delay: 0,
-                       options: .curveEaseOut,
-                       animations: { [weak self] in
-            guard let self else { return }
-            
-            // скрываем руки
-            gameView.opponentHand.frame.origin.y = view.frame.minY - gameView.opponentHand.frame.height
-            gameView.playerHand.frame.origin.y = view.frame.maxY + gameView.playerHand.frame.height
-        }) { [weak self] _ in
-            guard let self else { return }
-            
-            // выбираем жест
-            choiceHand(gameSymbol)
-            
-            UIView.animate(withDuration: 0.25, delay: 0.75) { [weak self] in
-                guard let self else { return }
-                
-                // показываем руки
-                gameView.opponentHand.frame.origin.y = gameView.gameStatusLabel.frame.minY - gameView.opponentHand.frame.height
-                gameView.opponentHand.snp.updateConstraints { [weak self] make in
-                    guard let self else { return }
-                    make.bottom.equalTo(gameView.gameStatusLabel.snp.top)
-                }
-                gameView.playerHand.frame.origin.y = gameView.gameStatusLabel.frame.maxY
-                gameView.playerHand.snp.updateConstraints { [weak self] make in
-                    guard let self else { return }
-                    make.top.equalTo(gameView.gameStatusLabel.snp.bottom)
-                }
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.gameView.opponentHand.alpha = 0
+            self?.gameView.playerHand.alpha = 0
+        } completion: { [weak self] _ in
+            self?.choiceHand(gameSymbol)
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                self?.gameView.opponentHand.alpha = 1
+                self?.gameView.playerHand.alpha = 1
             }
         }
     }
@@ -175,7 +153,7 @@ final class GameViewController: UIViewController {
         pauseLabelAnimate()
         
         if !timer.isPaused {
-            timer.pauseTimer()
+            timer.timer?.invalidate()
             toggleEnableRpsButtons()
         } else {
             timer.startTimer(label: gameView.timerLabel, progress: gameView.timerProgress)
@@ -206,14 +184,13 @@ final class GameViewController: UIViewController {
             guard let self else { return }
             sender.tintColor = .white
             toggleEnableRpsButtons()
-            
-            timer.startTimer(
-                label: gameView.timerLabel,
-                progress: gameView.timerProgress
-            )
         }
         
         timer.resetTimer(
+            label: gameView.timerLabel,
+            progress: gameView.timerProgress
+        )
+        timer.startTimer(
             label: gameView.timerLabel,
             progress: gameView.timerProgress
         )
