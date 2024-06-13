@@ -16,6 +16,8 @@ struct K {
     static let sizeTitleLabel: CGFloat = 25
     static let backgroundGameVC = "backgroundGameVC"
     static let gameStatusLabelFontSize: CGFloat = 56
+    static let backgroundLoadVC = "BackgroundLoadVC"
+    static let playerLabelFontSize: CGFloat = 19.5
     
     // MARK: - Game Properties
     

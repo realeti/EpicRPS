@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BFBD854F2C1ADC120036E578 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD854E2C1ADC120036E578 /* LoadViewController.swift */; };
+		BFBD85512C1B63230036E578 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD85502C1B63230036E578 /* UILabel + Extension.swift */; };
 		C60668C12C18E4D60079CE1E /* ProgressProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60668C02C18E4D60079CE1E /* ProgressProtocol.swift */; };
 		C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F297E2C16564100D49F5A /* AppDelegate.swift */; };
 		C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F29802C16564100D49F5A /* SceneDelegate.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BFBD854E2C1ADC120036E578 /* LoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
+		BFBD85502C1B63230036E578 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		C60668C02C18E4D60079CE1E /* ProgressProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressProtocol.swift; sourceTree = "<group>"; };
 		C60F297B2C16564100D49F5A /* EpicRPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpicRPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60F297E2C16564100D49F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 		C631BE3A2C165BC900A0D736 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				BFBD854E2C1ADC120036E578 /* LoadViewController.swift */,
 				C60F29822C16564100D49F5A /* MainViewController.swift */,
 				C68679AB2C176A7800F40860 /* RulesViewController.swift */,
 				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
@@ -185,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				FAAF47B42C19B88C000CC955 /* UIButton + Extension.swift */,
+				BFBD85502C1B63230036E578 /* UILabel + Extension.swift */,
 				FAAF47B52C19B88C000CC955 /* UIImageView + Extension.swift */,
 				FAAF47B62C19B88C000CC955 /* UIProgressView + Extension.swift */,
 				FAAF47B72C19B88C000CC955 /* UIViewController + Extension.swift */,
@@ -277,7 +283,9 @@
 				C6AD1E4B2C18DD46003E5C92 /* GameSymbol.swift in Sources */,
 				C6AD1E442C18DCD1003E5C92 /* GameProtocol.swift in Sources */,
 				FAAF47B92C19B88C000CC955 /* UIButton + Extension.swift in Sources */,
+				BFBD85512C1B63230036E578 /* UILabel + Extension.swift in Sources */,
 				C60668C12C18E4D60079CE1E /* ProgressProtocol.swift in Sources */,
+				BFBD854F2C1ADC120036E578 /* LoadViewController.swift in Sources */,
 				C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */,
 				C60F29832C16564100D49F5A /* MainViewController.swift in Sources */,
 				C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */,
