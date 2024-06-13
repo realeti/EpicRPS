@@ -14,7 +14,6 @@ DerivedData/
 #
 # General macOS files
 .DS_Store
-EpicRPS.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 
 EpicRPS.xcodeproj/project.xcworkspace/xcuserdata/alex.xcuserdatad/UserInterfaceState.xcuserstate
 
