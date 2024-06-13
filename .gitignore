@@ -9,3 +9,12 @@ build/
 *.moved-aside
 DerivedData/
 .idea/
+
+# macOS
+#
+# General macOS files
+.DS_Store
+
+EpicRPS.xcodeproj/project.xcworkspace/xcuserdata/alex.xcuserdatad/UserInterfaceState.xcuserstate
+
+EpicRPS.xcodeproj/xcuserdata/alex.xcuserdatad/xcschemes/xcschememanagement.plist

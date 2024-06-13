@@ -63,12 +63,31 @@ struct K {
         static let topOffsetPlayerAvatar: CGFloat = centerYView + ScoreProgress.widthScoreProgress - heightGamerAvatar / 2
         static let bottomOffsetOpponentAvatar: CGFloat = centerYView - ScoreProgress.widthScoreProgress - heightGamerAvatar / 2
         static let trailingOffsetGamerAvatar: CGFloat = 11.5
+        
+        enum Image {
+            static let player = UIImage(named: "player")
+            static let opponent = UIImage(named: "opponent")
+        }
     }
     
     enum Hands {
         static let topBottomOffsetHands: CGFloat = 45
         static let leadingOffsetOpponentHand: CGFloat = 62.56
         static let trailingOffsetPlayerHand: CGFloat = 77.06
+        
+        enum Player {
+            static let rock = UIImage(named: "playerRock")
+            static let paper = UIImage(named: "playerPaper")
+            static let scissors = UIImage(named: "playerScissors")
+            static let start = UIImage(named: "playerStart")
+        }
+        
+        enum Opponent {
+            static let rock = UIImage(named: "opponentRock")
+            static let paper = UIImage(named: "opponentPaper")
+            static let scissors = UIImage(named: "opponentScissors")
+            static let start = UIImage(named: "opponentStart")
+        }
     }
     
     enum Colors {
