@@ -27,6 +27,7 @@
 		DD9E1ED02C1A190F00BC9694 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E1ECF2C1A190F00BC9694 /* MainView.swift */; };
 		DD9E1ED32C1A1D8E00BC9694 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E1ED22C1A1D8E00BC9694 /* ResultViewController.swift */; };
 		DD9E1ED52C1A1DB000BC9694 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E1ED42C1A1DB000BC9694 /* ResultView.swift */; };
+		FA1ECF9F2C1AF2DA0037A620 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ECF9E2C1AF2DA0037A620 /* GameView.swift */; };
 		FAAF47B32C19B821000CC955 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B22C19B821000CC955 /* GameViewController.swift */; };
 		FAAF47B92C19B88C000CC955 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B42C19B88C000CC955 /* UIButton + Extension.swift */; };
 		FAAF47BA2C19B88C000CC955 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B52C19B88C000CC955 /* UIImageView + Extension.swift */; };
@@ -59,6 +60,7 @@
 		DD9E1ECF2C1A190F00BC9694 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DD9E1ED22C1A1D8E00BC9694 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		DD9E1ED42C1A1DB000BC9694 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		FA1ECF9E2C1AF2DA0037A620 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		FAAF47B22C19B821000CC955 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FAAF47B42C19B88C000CC955 /* UIButton + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		FAAF47B52C19B88C000CC955 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
@@ -115,9 +117,9 @@
 			children = (
 				DD9E1ED12C1A1D4E00BC9694 /* ResultViewController */,
 				DD9E1ECE2C1A190100BC9694 /* MainViewController */,
+				FA1ECFA02C1AF80C0037A620 /* GameViewController */,
 				C68679AB2C176A7800F40860 /* RulesViewController.swift */,
 				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
-				FAAF47B22C19B821000CC955 /* GameViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -207,6 +209,15 @@
 				DD9E1ED42C1A1DB000BC9694 /* ResultView.swift */,
 			);
 			path = ResultViewController;
+			sourceTree = "<group>";
+		};
+		FA1ECFA02C1AF80C0037A620 /* GameViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA1ECF9E2C1AF2DA0037A620 /* GameView.swift */,
+				FAAF47B22C19B821000CC955 /* GameViewController.swift */,
+			);
+			path = GameViewController;
 			sourceTree = "<group>";
 		};
 		FAAF47B82C19B88C000CC955 /* Extensions */ = {
@@ -316,6 +327,7 @@
 				C6AD1E412C18CF12003E5C92 /* Player.swift in Sources */,
 				C6AD1E4D2C18DD56003E5C92 /* GameResult.swift in Sources */,
 				FAAF47BA2C19B88C000CC955 /* UIImageView + Extension.swift in Sources */,
+				FA1ECF9F2C1AF2DA0037A620 /* GameView.swift in Sources */,
 				DD9E1ED32C1A1D8E00BC9694 /* ResultViewController.swift in Sources */,
 				C6AD1E482C18DCFB003E5C92 /* TimerProtocol.swift in Sources */,
 				C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */,
