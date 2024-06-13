@@ -59,8 +59,8 @@ final class GameView: UIView {
     let playerAvatar = UIImageView(contentMode: .scaleAspectFit)
     let opponentAvatar = UIImageView(contentMode: .scaleAspectFit)
     
-    let playerHand = UIImageView(contentMode: .scaleAspectFit)
-    let opponentHand = UIImageView(contentMode: .scaleAspectFit)
+    let playerHand = UIImageView(contentMode: .scaleAspectFit, shadow: true)
+    let opponentHand = UIImageView(contentMode: .scaleAspectFit, shadow: true)
     
     lazy var gameStatusLabel: UILabel = {
         let element = UILabel()
