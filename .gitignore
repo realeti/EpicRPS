@@ -9,3 +9,8 @@ build/
 *.moved-aside
 DerivedData/
 .idea/
+
+# macOS
+#
+# General macOS files
+.DS_Store
