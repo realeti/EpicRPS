@@ -36,10 +36,10 @@ final class GameAudio: GameAudioProtocol {
     
     private func prepareBackgroundMusic() {
         backgroundMusicPlayer = loadAudio(
-            fileName: "123",
+            fileName: K.Sounds.background1,
             fileType: .wav,
             loops: -1,
-            volume: 0.8
+            volume: 0.65
         )
     }
     

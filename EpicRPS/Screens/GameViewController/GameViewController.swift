@@ -37,6 +37,11 @@ final class GameViewController: UIViewController {
         rotateProgressView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        playBackgroundMusic()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         gameStatusLabelAnimate()
@@ -138,6 +143,10 @@ final class GameViewController: UIViewController {
         gameView.paperButton.isUserInteractionEnabled.toggle()
         gameView.rockButton.isUserInteractionEnabled.toggle()
         gameView.scissorsButton.isUserInteractionEnabled.toggle()
+    }
+    
+    private func playBackgroundMusic() {
+        GameAudio.shared.playBackgroundMusic()
     }
     
     private func playSelectSymbolSound() {
