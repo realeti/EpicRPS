@@ -140,6 +140,10 @@ final class GameViewController: UIViewController {
         gameView.scissorsButton.isUserInteractionEnabled.toggle()
     }
     
+    private func playSelectSymbolSound() {
+        GameAudio.shared.playSelectSymbolMusic()
+    }
+    
     // MARK: - Actions
     /// Действие по клику на кнопку паузы в rightBarButtonItem
     @objc private func pauseButtonPressed() {
@@ -149,6 +153,7 @@ final class GameViewController: UIViewController {
     /// Действие по клику на кнопки Rock / Paper / Scissors
     @objc private func rpsButtonPressed(_ sender: UIButton) {
         sender.tintColor = K.Colors.yellow
+        playSelectSymbolSound()
         
         switch sender.tag {
         case 0:
@@ -169,7 +174,6 @@ final class GameViewController: UIViewController {
             toggleEnableRpsButtons()
         }
     }
-    
 }
 
 // MARK: - Setup UI

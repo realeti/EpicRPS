@@ -24,6 +24,15 @@ struct K {
     static let maxWins = 3
     static let maxRoundTime: Float = 30.0
     
+    // MARK: - Game Sounds
+    
+    enum Sounds {
+        static let background1 = "background-music-1"
+        static let background2 = "background-music-2"
+        static let selectSymbol = "select-symbol"
+        static let punch = "punch"
+    }
+    
     enum RPSButton {
         static let widthRpsButtonLayer: CGFloat = 80
         static let rockImageRpsButton = "rock"

@@ -28,6 +28,10 @@
 		C6AD1E4D2C18DD56003E5C92 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E4C2C18DD56003E5C92 /* GameResult.swift */; };
 		C6F58BB12C1B735C009D4944 /* GameAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F58BB02C1B735C009D4944 /* GameAudio.swift */; };
 		C6F58BB42C1B7391009D4944 /* GameAudioType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F58BB32C1B7391009D4944 /* GameAudioType.swift */; };
+		C6F58BBB2C1B9B77009D4944 /* select-symbol.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6F58BBA2C1B9B77009D4944 /* select-symbol.wav */; };
+		C6F58BBF2C1B9DFD009D4944 /* punch.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6F58BBE2C1B9DFD009D4944 /* punch.wav */; };
+		C6F58BC12C1BA4A4009D4944 /* background-music-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6F58BC02C1BA4A4009D4944 /* background-music-1.wav */; };
+		C6F58BC32C1BA4A8009D4944 /* background-music-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6F58BC22C1BA4A8009D4944 /* background-music-2.wav */; };
 		DD9E1ED02C1A190F00BC9694 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E1ECF2C1A190F00BC9694 /* MainView.swift */; };
 		DD9E1ED32C1A1D8E00BC9694 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E1ED22C1A1D8E00BC9694 /* ResultViewController.swift */; };
 		DD9E1ED52C1A1DB000BC9694 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E1ED42C1A1DB000BC9694 /* ResultView.swift */; };
@@ -65,6 +69,10 @@
 		C6AD1E4C2C18DD56003E5C92 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		C6F58BB02C1B735C009D4944 /* GameAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAudio.swift; sourceTree = "<group>"; };
 		C6F58BB32C1B7391009D4944 /* GameAudioType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAudioType.swift; sourceTree = "<group>"; };
+		C6F58BBA2C1B9B77009D4944 /* select-symbol.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "select-symbol.wav"; sourceTree = "<group>"; };
+		C6F58BBE2C1B9DFD009D4944 /* punch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = punch.wav; sourceTree = "<group>"; };
+		C6F58BC02C1BA4A4009D4944 /* background-music-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "background-music-1.wav"; sourceTree = "<group>"; };
+		C6F58BC22C1BA4A8009D4944 /* background-music-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "background-music-2.wav"; sourceTree = "<group>"; };
 		DD9E1ECF2C1A190F00BC9694 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DD9E1ED22C1A1D8E00BC9694 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		DD9E1ED42C1A1DB000BC9694 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 		C631BE3C2C165C3D00A0D736 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C6F58BB52C1B9413009D4944 /* Sounds */,
 				C68679AF2C1773D700F40860 /* Fonts */,
 				C60F29872C16564300D49F5A /* Assets.xcassets */,
 			);
@@ -218,6 +227,17 @@
 				C6F58BB32C1B7391009D4944 /* GameAudioType.swift */,
 			);
 			path = GameAudio;
+			sourceTree = "<group>";
+		};
+		C6F58BB52C1B9413009D4944 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C6F58BC02C1BA4A4009D4944 /* background-music-1.wav */,
+				C6F58BC22C1BA4A8009D4944 /* background-music-2.wav */,
+				C6F58BBE2C1B9DFD009D4944 /* punch.wav */,
+				C6F58BBA2C1B9B77009D4944 /* select-symbol.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		DD9E1ECE2C1A190100BC9694 /* MainViewController */ = {
@@ -323,12 +343,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6F58BBB2C1B9B77009D4944 /* select-symbol.wav in Resources */,
 				C60F29882C16564300D49F5A /* Assets.xcassets in Resources */,
 				C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */,
+				C6F58BBF2C1B9DFD009D4944 /* punch.wav in Resources */,
 				C60F298B2C16564300D49F5A /* Base in Resources */,
+				C6F58BC12C1BA4A4009D4944 /* background-music-1.wav in Resources */,
 				FAAF47BF2C19B89C000CC955 /* Rubik-Medium.ttf in Resources */,
 				FCD86E4E2C1A297900F681C2 /* dela-gothic-one-regular.ttf in Resources */,
 				FAAF47C02C19B89C000CC955 /* Rubik-Bold.ttf in Resources */,
+				C6F58BC32C1BA4A8009D4944 /* background-music-2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

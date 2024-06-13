@@ -70,8 +70,12 @@ class LoadViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
-        initAudio()
         startTimer()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initAudio()
     }
 }
     
@@ -166,7 +170,6 @@ private extension LoadViewController {
             $0.bottom.equalToSuperview().inset(30)
             $0.centerX.equalToSuperview()
         }
-        
     }
 }
 

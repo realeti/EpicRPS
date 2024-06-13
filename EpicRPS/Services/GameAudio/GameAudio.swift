@@ -15,6 +15,7 @@ protocol GameAudioProtocol: AnyObject {
     func prepareLoadAudio()
     func playBackgroundMusic()
     func playSelectSymbolMusic()
+    func playPunchMusic()
     func stopBackgroundMusic()
 }
 
@@ -28,20 +29,30 @@ final class GameAudio: GameAudioProtocol {
     // MARK: - Prepeare loadings
     
     func prepareLoadAudio() {
+        prepareBackgroundMusic()
+        prepareSelectSymbolMusic()
+        preparePunchMusic()
+    }
+    
+    private func prepareBackgroundMusic() {
         backgroundMusicPlayer = loadAudio(
             fileName: "123",
             fileType: .wav,
             loops: -1,
             volume: 0.8
         )
-        
+    }
+    
+    private func prepareSelectSymbolMusic() {
         selectSymbolMusicPlayer = loadAudio(
-            fileName: "321",
+            fileName: K.Sounds.selectSymbol,
             fileType: .wav
         )
-        
+    }
+    
+    private func preparePunchMusic() {
         punchMusicPlayer = loadAudio(
-            fileName: "333",
+            fileName: K.Sounds.punch,
             fileType: .wav
         )
     }
@@ -58,6 +69,12 @@ final class GameAudio: GameAudioProtocol {
         selectSymbolMusicPlayer?.stop()
         selectSymbolMusicPlayer?.currentTime = 0.0
         selectSymbolMusicPlayer?.play()
+    }
+    
+    // MARK: - Play Punch music
+    
+    func playPunchMusic() {
+        punchMusicPlayer?.play()
     }
     
     // MARK: - Stop Background music
