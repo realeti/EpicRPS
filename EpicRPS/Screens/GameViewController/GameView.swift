@@ -13,7 +13,6 @@ final class GameView: UIView {
     // MARK: - UI
     lazy var backgroundImageView: UIImageView = {
         let element = UIImageView()
-//        element.frame = 
         element.image = UIImage(named: K.backgroundGameVC)
         element.contentMode = .scaleAspectFill
         return element
@@ -29,13 +28,12 @@ final class GameView: UIView {
         let element = UIBarButtonItem()
         element.image = .pauseButton
         element.style = .plain
-        element.target = self
         return element
     }()
     
-    let rockButton = UIButton(image: K.RPSButton.rockImageRpsButton)
-    let paperButton = UIButton(image: K.RPSButton.paperImageRpsButton)
-    let scissorsButton = UIButton(image: K.RPSButton.scissorsImageRpsButton)
+    let rockButton = UIButton(image: K.RPSButton.rockImageRpsButton, tag: 0)
+    let paperButton = UIButton(image: K.RPSButton.paperImageRpsButton, tag: 1)
+    let scissorsButton = UIButton(image: K.RPSButton.scissorsImageRpsButton, tag: 2)
     
     let timerProgress = UIProgressView(progressColor: K.Colors.green)
     lazy var timerLabel: UILabel = {
