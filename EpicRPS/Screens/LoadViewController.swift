@@ -72,109 +72,124 @@ class LoadViewController: UIViewController {
         setupConstraints()
         startTimer()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initAudio()
+    }
 }
     
-    // MARK: - Setup UI
-    private extension LoadViewController {
-        func setupUI() {
-            view.addSubview(backgroundImageView)
-            view.addSubview(verticalStackView)
-            verticalStackView.addSubview(playerStackView)
-            playerStackView.addSubview(playerImage)
-            playerStackView.addSubview(playerVictoriesLabel)
-            playerStackView.addSubview(playerLosesLabel)
-            verticalStackView.addSubview(vsLabel)
-            verticalStackView.addSubview(oponentStackView)
-            oponentStackView.addSubview(opponentImage)
-            oponentStackView.addSubview(opponentVictoriesLabel)
-            oponentStackView.addSubview(opponentLosesLabel)
-            verticalStackView.addSubview(getReadyLabel)
-            
-            playerImage.image = .player
-            opponentImage.image = .opponent
-            playerVictoriesLabel.text = "10 Victories/"
-            playerVictoriesLabel.textColor = .white
-            playerVictoriesLabel.setSubTextColor(pSubString: "10", pColor: .yellowRPS)
-            playerLosesLabel.text = "2 Lose"
-            playerLosesLabel.textColor = .white
-            playerLosesLabel.setSubTextColor(pSubString: "2", pColor: .red)
-            
-            opponentVictoriesLabel.text = "21 Victories/"
-            opponentVictoriesLabel.textColor = .white
-            opponentVictoriesLabel.setSubTextColor(pSubString: "21", pColor: .yellowRPS)
-            opponentLosesLabel.text = "3 Lose"
-            opponentLosesLabel.textColor = .white
-            opponentLosesLabel.setSubTextColor(pSubString: "3", pColor: .red)
-            
-            playerVictoriesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
-            playerLosesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
-            opponentVictoriesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
-            opponentLosesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
+// MARK: - Setup UI
+private extension LoadViewController {
+    func setupUI() {
+        view.addSubview(backgroundImageView)
+        view.addSubview(verticalStackView)
+        verticalStackView.addSubview(playerStackView)
+        playerStackView.addSubview(playerImage)
+        playerStackView.addSubview(playerVictoriesLabel)
+        playerStackView.addSubview(playerLosesLabel)
+        verticalStackView.addSubview(vsLabel)
+        verticalStackView.addSubview(oponentStackView)
+        oponentStackView.addSubview(opponentImage)
+        oponentStackView.addSubview(opponentVictoriesLabel)
+        oponentStackView.addSubview(opponentLosesLabel)
+        verticalStackView.addSubview(getReadyLabel)
+        
+        playerImage.image = .player
+        opponentImage.image = .opponent
+        playerVictoriesLabel.text = "10 Victories/"
+        playerVictoriesLabel.textColor = .white
+        playerVictoriesLabel.setSubTextColor(pSubString: "10", pColor: .yellowRPS)
+        playerLosesLabel.text = "2 Lose"
+        playerLosesLabel.textColor = .white
+        playerLosesLabel.setSubTextColor(pSubString: "2", pColor: .red)
+        
+        opponentVictoriesLabel.text = "21 Victories/"
+        opponentVictoriesLabel.textColor = .white
+        opponentVictoriesLabel.setSubTextColor(pSubString: "21", pColor: .yellowRPS)
+        opponentLosesLabel.text = "3 Lose"
+        opponentLosesLabel.textColor = .white
+        opponentLosesLabel.setSubTextColor(pSubString: "3", pColor: .red)
+        
+        playerVictoriesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
+        playerLosesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
+        opponentVictoriesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
+        opponentLosesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
+    }
+}
+
+// MARK: - Setup Constraints
+private extension LoadViewController {
+    func setupConstraints() {
+        verticalStackView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+        }
+        vsLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        playerImage.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalTo(70)
+            $0.height.equalTo(100)
+        }
+        playerVictoriesLabel.snp.makeConstraints{
+            $0.top.equalTo(playerImage.snp.bottom)
+            $0.centerX.equalToSuperview()
+        }
+        playerLosesLabel.snp.makeConstraints{
+            $0.top.equalTo(playerVictoriesLabel.snp.bottom)
+            $0.centerX.equalToSuperview()
+        }
+        opponentVictoriesLabel.snp.makeConstraints{
+            $0.top.equalTo(opponentImage.snp.bottom)
+            $0.centerX.equalToSuperview()
+        }
+        opponentLosesLabel.snp.makeConstraints{
+            $0.top.equalTo(opponentVictoriesLabel.snp.bottom)
+            $0.centerX.equalToSuperview()
+        }
+        opponentImage.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalTo(70)
+            $0.height.equalTo(100)
+        }
+        playerStackView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.bottom.equalTo(vsLabel.snp.top)
+            $0.centerX.equalToSuperview()
+        }
+        oponentStackView.snp.makeConstraints {
+            $0.top.equalTo(vsLabel.snp.bottom)
+            $0.bottom.equalTo(getReadyLabel.snp.top)
+            $0.centerX.equalToSuperview()
+        }
+        getReadyLabel.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(30)
+            $0.centerX.equalToSuperview()
         }
     }
-    // MARK: - Setup Constraints
-    private extension LoadViewController {
-        func setupConstraints() {
-            verticalStackView.snp.makeConstraints {
-                $0.top.equalToSuperview()
-                $0.bottom.equalToSuperview()
-                $0.leading.equalToSuperview()
-                $0.trailing.equalToSuperview()
-            }
-            vsLabel.snp.makeConstraints {
-                $0.center.equalToSuperview()
-            }
-            playerImage.snp.makeConstraints {
-                $0.center.equalToSuperview()
-                $0.width.equalTo(70)
-                $0.height.equalTo(100)
-            }
-            playerVictoriesLabel.snp.makeConstraints{
-                $0.top.equalTo(playerImage.snp.bottom)
-                $0.centerX.equalToSuperview()
-            }
-            playerLosesLabel.snp.makeConstraints{
-                $0.top.equalTo(playerVictoriesLabel.snp.bottom)
-                $0.centerX.equalToSuperview()
-            }
-            opponentVictoriesLabel.snp.makeConstraints{
-                $0.top.equalTo(opponentImage.snp.bottom)
-                $0.centerX.equalToSuperview()
-            }
-            opponentLosesLabel.snp.makeConstraints{
-                $0.top.equalTo(opponentVictoriesLabel.snp.bottom)
-                $0.centerX.equalToSuperview()
-            }
-            opponentImage.snp.makeConstraints {
-                $0.center.equalToSuperview()
-                $0.width.equalTo(70)
-                $0.height.equalTo(100)
-            }
-            playerStackView.snp.makeConstraints {
-                $0.top.equalToSuperview()
-                $0.bottom.equalTo(vsLabel.snp.top)
-                $0.centerX.equalToSuperview()
-            }
-            oponentStackView.snp.makeConstraints {
-                $0.top.equalTo(vsLabel.snp.bottom)
-                $0.bottom.equalTo(getReadyLabel.snp.top)
-                $0.centerX.equalToSuperview()
-            }
-            getReadyLabel.snp.makeConstraints {
-                $0.bottom.equalToSuperview().inset(30)
-                $0.centerX.equalToSuperview()
-            }
-            
-        }
+}
+
+// MARK: - Init audio
+private extension LoadViewController {
+    func initAudio() {
+        GameAudio.shared.prepareLoadAudio()
     }
+}
+
+// MARK: - Navigate to game
 private extension LoadViewController {
     func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.navigateToGame()
         }
     }
+    
     func navigateToGame() {
-            let gameVC = GameViewController()
-            self.navigationController?.pushViewController(gameVC, animated: true)
-        }
+        let gameVC = GameViewController()
+        self.navigationController?.pushViewController(gameVC, animated: true)
     }
+}
