@@ -35,12 +35,12 @@ final class GameView: UIView {
     let paperButton = UIButton(image: K.RPSButton.paperImageRpsButton, tag: 1)
     let scissorsButton = UIButton(image: K.RPSButton.scissorsImageRpsButton, tag: 2)
     
-    let timerProgress = UIProgressView(progressColor: K.Colors.green)
+    let timerProgress = UIProgressView(timerProgressColor: K.Colors.blue)
     lazy var timerLabel: UILabel = {
         let element = UILabel()
         element.font = .init(name: K.fontMedium500, size: K.TimerLabel.sizeTimerLabel)
         element.textColor = .white
-        element.sizeToFit()
+        element.textAlignment = .center
         return element
     }()
     
@@ -88,7 +88,6 @@ private extension GameView {
         addSubview(backgroundImageView)
         addSubview(opponentHand)
         addSubview(playerHand)
-        addSubview(gameStatusLabel)
         addSubview(rockButton)
         addSubview(paperButton)
         addSubview(scissorsButton)
@@ -99,6 +98,7 @@ private extension GameView {
         addSubview(separatorView)
         addSubview(playerAvatar)
         addSubview(opponentAvatar)
+        addSubview(gameStatusLabel)
     }
 }
 
@@ -137,6 +137,7 @@ private extension GameView {
         timerLabel.snp.makeConstraints {
             $0.top.equalTo(timerProgress.snp.bottom).offset(K.TimerLabel.topOffsetTimerLabel)
             $0.leading.equalToSuperview().offset(K.TimerLabel.leadingOffsetTimerLabel)
+            $0.width.equalTo(K.TimerLabel.widthTimerLabel)
         }
         
         opponentScoreProgress.snp.makeConstraints {

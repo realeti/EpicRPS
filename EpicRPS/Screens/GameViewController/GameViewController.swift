@@ -17,8 +17,10 @@ struct ViewControllerProvider: PreviewProvider {
 
 final class GameViewController: UIViewController {
     
-    // MARK: - UI
+    // MARK: - Private properties
     private var gameView: GameView!
+    private let timer = RoundTimer()
+    private var isPaused = false
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -30,6 +32,7 @@ final class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        toggleEnableRpsButtons()
     }
     
     override func viewWillLayoutSubviews() {
@@ -46,36 +49,12 @@ final class GameViewController: UIViewController {
     /// Поворачивает progressViews на +/– 90 градусов
     private func rotateProgressView() {
         gameView.timerProgress.transform = CGAffineTransform(
-            rotationAngle: .pi * -0.5
+            rotationAngle: .pi * 0.5
         )
         gameView.playerScoreProgress.transform = CGAffineTransform(
             rotationAngle: .pi * -0.5
         )
         gameView.opponentScoreProgress.transform = CGAffineTransform(rotationAngle: .pi * 0.5)
-    }
-    
-    /// Анимация заголовка статуса игры ("Fight!")
-    private func gameStatusLabelAnimate() {
-        UIView.animate(withDuration: 0.5,
-                       delay: 0.5,
-                       animations: {
-            [weak self] in
-            guard let self else { return }
-            gameView.gameStatusLabel.alpha = 1
-            gameView.gameStatusLabel.transform = CGAffineTransform(
-                scaleX: 1.25,
-                y: 1.25
-            )
-        }) { _ in
-            UIView.animate(withDuration: 0.5, delay: 1) { [weak self] in
-                guard let self else { return }
-                gameView.gameStatusLabel.alpha = 0
-                gameView.gameStatusLabel.transform = CGAffineTransform(
-                    scaleX: 0.5,
-                    y: 0.5
-                )
-            }
-        }
     }
     
     /// Выбор руки (камень / ножницы / бумага)
@@ -96,6 +75,63 @@ final class GameViewController: UIViewController {
         }
         
         gameView.opponentHand.image = randomHandOpponent.randomElement() ?? K.Hands.Opponent.rock
+    }
+    
+    /// Включает/выключает доступность RPS-кнопок (Rock, Paper, Scissors) после нажатия
+    private func toggleEnableRpsButtons() {
+        gameView.paperButton.isUserInteractionEnabled.toggle()
+        gameView.rockButton.isUserInteractionEnabled.toggle()
+        gameView.scissorsButton.isUserInteractionEnabled.toggle()
+    }
+    
+    // MARK: - Animations
+    /// Анимация заголовка статуса игры ("Fight!")
+    private func gameStatusLabelAnimate() {
+        UIView.animate(withDuration: 0.25,
+                       delay: 0.5,
+                       animations: {
+            [weak self] in
+            guard let self else { return }
+            gameView.gameStatusLabel.alpha = 1
+            gameView.gameStatusLabel.transform = CGAffineTransform(
+                scaleX: 1.25,
+                y: 1.25
+            )
+        }) { _ in
+            UIView.animate(withDuration: 0.25, delay: 1) { [weak self] in
+                guard let self else { return }
+                gameView.gameStatusLabel.alpha = 0
+                gameView.gameStatusLabel.transform = CGAffineTransform(
+                    scaleX: 0.5,
+                    y: 0.5
+                )
+            } completion: { [weak self] _ in
+                guard let self else { return }
+                timer.isPaused ? () : timer.startTimer(label: gameView.timerLabel, progress: gameView.timerProgress)
+                toggleEnableRpsButtons()
+                gameView.gameStatusLabel.transform = CGAffineTransform(
+                    scaleX: 1,
+                    y: 1
+                )
+            }
+
+        }
+    }
+    
+    /// Анимация лейбла "Pause" при нажатии на кнопку паузы
+    private func pauseLabelAnimate() {
+        if gameView.gameStatusLabel.alpha == 0 {
+            UIView.animate(withDuration: 0.25) { [weak self] in
+                guard let self else { return }
+                gameView.gameStatusLabel.text = "PAUSE"
+                gameView.gameStatusLabel.alpha = 1
+            }
+        } else {
+            UIView.animate(withDuration: 0.25) { [weak self] in
+                guard let self else { return }
+                gameView.gameStatusLabel.alpha = 0
+            }
+        }
     }
     
     /// Анимация смены рук
@@ -133,17 +169,20 @@ final class GameViewController: UIViewController {
         }
     }
     
-    /// Включает/выключает доступность RPS-кнопок (Rock, Paper, Scissors) после нажатия
-    private func toggleEnableRpsButtons() {
-        gameView.paperButton.isUserInteractionEnabled.toggle()
-        gameView.rockButton.isUserInteractionEnabled.toggle()
-        gameView.scissorsButton.isUserInteractionEnabled.toggle()
-    }
-    
     // MARK: - Actions
     /// Действие по клику на кнопку паузы в rightBarButtonItem
     @objc private func pauseButtonPressed() {
-        gameStatusLabelAnimate()
+        pauseLabelAnimate()
+        
+        if !timer.isPaused {
+            timer.pauseTimer()
+            toggleEnableRpsButtons()
+        } else {
+            timer.startTimer(label: gameView.timerLabel, progress: gameView.timerProgress)
+            toggleEnableRpsButtons()
+        }
+        
+        timer.isPaused.toggle()
     }
     
     /// Действие по клику на кнопки Rock / Paper / Scissors
@@ -167,7 +206,17 @@ final class GameViewController: UIViewController {
             guard let self else { return }
             sender.tintColor = .white
             toggleEnableRpsButtons()
+            
+            timer.startTimer(
+                label: gameView.timerLabel,
+                progress: gameView.timerProgress
+            )
         }
+        
+        timer.resetTimer(
+            label: gameView.timerLabel,
+            progress: gameView.timerProgress
+        )
     }
     
 }
@@ -187,8 +236,7 @@ private extension GameViewController {
         gameView.gameStatusLabel.text = "FIGHT!"
         gameView.gameStatusLabel.alpha = 0
         
-        gameView.timerProgress.progress = 0.5
-        gameView.timerLabel.text = "0:30"
+        gameView.timerLabel.text = "0:" + timer.roundDuration.description
         
         gameView.rockButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         gameView.paperButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
