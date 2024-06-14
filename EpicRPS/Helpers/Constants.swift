@@ -41,6 +41,12 @@ struct K {
         static let leadingTrailingOffsetRpsButton: CGFloat = 16
         static let bottomOffsetPaperButton: CGFloat = 80
         static let bottomOffsetRockScissorsButton: CGFloat = 30
+        
+        enum Image {
+            static let rock: UIImage = .rock
+            static let paper: UIImage = .paper
+            static let scissors: UIImage = .scissors
+        }
     }
     
     enum TimerProgress {
@@ -107,7 +113,7 @@ struct K {
         static let gray: UIColor = .grayRPS
         static let green: UIColor = .greenRPS
         static let yellow: UIColor = .yellowRPS
-        static let snow : UIColor = .snow
+        static let marine: UIColor = .marine
     }
     
     private init() {}

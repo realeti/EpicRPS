@@ -31,9 +31,9 @@ final class GameView: UIView {
         return element
     }()
     
-    let rockButton = UIButton(image: K.RPSButton.rockImageRpsButton, tag: 0)
-    let paperButton = UIButton(image: K.RPSButton.paperImageRpsButton, tag: 1)
-    let scissorsButton = UIButton(image: K.RPSButton.scissorsImageRpsButton, tag: 2)
+    let rockButton = UIButton(image: K.RPSButton.Image.rock, tag: 0)
+    let paperButton = UIButton(image: K.RPSButton.Image.paper, tag: 1)
+    let scissorsButton = UIButton(image: K.RPSButton.Image.scissors, tag: 2)
     
     let timerProgress = UIProgressView(timerProgressColor: K.Colors.blue)
     lazy var timerLabel: UILabel = {
