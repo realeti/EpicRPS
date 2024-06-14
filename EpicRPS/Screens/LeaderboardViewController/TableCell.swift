@@ -83,7 +83,7 @@ final class TableCell: UITableViewCell {
     func configure(indexPath: IndexPath, modelItem: MockLeaderData) {
         avatar.image = UIImage(named: modelItem.avatar)
         nameLabel.text = modelItem.name
-        matchLabel.text = modelItem.match.description
+        matchLabel.text = modelItem.match.formatted(.number.grouping(.automatic)).description
         rateLabel.text = modelItem.rate.description + "%"
         
         switch indexPath.row {
