@@ -32,6 +32,7 @@ final class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupDelegates()
         toggleEnableRpsButtons()
         timer.startTimer(label: gameView.timerLabel, progress: gameView.timerProgress)
     }
@@ -243,8 +244,37 @@ private extension GameViewController {
     }
 }
 
+// MARK: - Setup Delegates
+private extension GameViewController {
+    func setupDelegates() {
+        game.delegate = self
+        timer.delegate = self
+    }
+}
+
 extension GameViewController: TimerProtocol {
     func timerDidEnded() {
         game.roundTimeout()
+    }
+}
+
+extension GameViewController: GameOverProtocol {
+    func gameDidEnd(_ playerScore: Int, _ opponentScore: Int, _ finalResult: GameResult) {
+        /// Method #1
+
+        /*let gameOverVC = GameOverViewController(
+            playerScore: playerScore,
+            opponentScore: opponentScore,
+            finalResult: finalResult
+        )*/
+        
+        /// Method #2
+
+        /*let gameOverVC = GameOverViewController()
+        gameOverVC.playerScore = playerScore
+        gameOverVC.opponentScore = opponentScore
+        gameOverVC.finalResult = finalResult*/
+        
+        //navigationController?.pushViewController(gameOverVC, animated: true)
     }
 }
