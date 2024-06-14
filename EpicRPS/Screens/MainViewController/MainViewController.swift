@@ -34,16 +34,23 @@ class MainViewController: UIViewController {
         navigationItem.rightBarButtonItem = rulesButton
         navigationItem.leftBarButtonItem = settingsButton
         settingsButton.tintColor = .black
+        
+        mainView.startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
+    }
+    
+    //MARK: - Objc func
+    
+    @objc func startButtonPressed(_ sender: UIButton) {
+        let loadGameVC = LoadViewController()
+        self.navigationController?.pushViewController(loadGameVC, animated: true)
     }
     
     @objc func rulesButtonPressed(_ sender: UIButton) {
-        print("press")
+        let rulesVC = RulesViewController()
+        self.navigationController?.pushViewController(rulesVC, animated: true)
     }
     
     @objc func settingsButtonPressed(_ sender: UIButton) {
         print("press press")
     }
-
-    //MARK: - Objc func
-    
 }
