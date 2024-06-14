@@ -56,14 +56,8 @@ class RockPaperScissorsGame {
         resetGame()
     }
     
-    private func getResult() -> GameResult {
-        if playerScore > opponentScore {
-            return .win
-        } else if playerScore < opponentScore {
-            return .lose
-        }
-        
-        return .draw
+    private func getResult() -> GameResult {        
+        return playerScore > opponentScore ? .win : .lose
     }
     
     private func resetGame() {
