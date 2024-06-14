@@ -24,7 +24,6 @@ final class LeaderboardViewController: UIViewController {
         element.font = .init(name: K.fontName, size: K.sizeTitleLabel)
         return element
     }()
-    
     private lazy var avatarBackgroundView: UIView = {
         let element = UIView()
         element.backgroundColor = .white
@@ -115,12 +114,50 @@ final class LeaderboardViewController: UIViewController {
         )
         return element
     }()
+    private lazy var tableView: UITableView = {
+        let element = UITableView()
+        element.dataSource = self
+        element.delegate = self
+        element.register(TableCell.self, forCellReuseIdentifier: TableCell.description())
+        element.separatorStyle = .none
+        element.showsVerticalScrollIndicator = false
+        return element
+    }()
+    
+    // MARK: - Private properties
+    private var mockData = MockLeaderData.getData()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
         setupConstraints()
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension LeaderboardViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        mockData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: TableCell.description(),
+            for: indexPath
+        ) as? TableCell else {
+            print("return default cell")
+            return UITableViewCell()
+        }
+        cell.configure(indexPath: indexPath)
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension LeaderboardViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        85
     }
 }
 
@@ -136,6 +173,7 @@ private extension LeaderboardViewController {
         view.addSubview(playersLabel)
         view.addSubview(matchLabel)
         view.addSubview(rateLabel)
+        view.addSubview(tableView)
                 
         navigationController?.navigationBar.tintColor = K.Colors.gray
         navigationTitleLabel.text = "Leaderboard"
@@ -185,6 +223,13 @@ private extension LeaderboardViewController {
         rateLabel.snp.makeConstraints {
             $0.top.equalTo(top10ImageView.snp.bottom).offset(10)
             $0.trailing.equalToSuperview().offset(-49.5)
+        }
+        
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(playersLabel.snp.bottom).offset(25)
+            $0.bottom.equalToSuperview()
+            $0.leading.equalToSuperview().offset(19)
+            $0.trailing.equalToSuperview().offset(-12)
         }
     }
 }
