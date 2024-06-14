@@ -172,6 +172,14 @@ final class GameViewController: UIViewController {
             }
         }
     }
+    
+    private func playBackgroundMusic() {
+        GameAudio.shared.playBackgroundMusic()
+    }
+    
+    private func playSelectSymbolSound() {
+        GameAudio.shared.playSelectSymbolMusic()
+    }
   
     // MARK: - Actions
     /// Действие по клику на кнопку паузы в rightBarButtonItem
