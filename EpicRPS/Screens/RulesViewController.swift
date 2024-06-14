@@ -273,6 +273,11 @@ extension RulesViewController {
             fifthUIlbel.centerXAnchor.constraint(equalTo: fifthView.centerXAnchor),
             fifthUIlbel.centerYAnchor.constraint(equalTo: fifthView.centerYAnchor),
             
+            
+            
+            
+            
+            
         ])
         
     }
@@ -307,7 +312,6 @@ extension UIStackView {
 extension UILabel {
     convenience init(textUilabel: String) {
         self.init()
-        self.init(frame:CGRect(x: 0, y: 0, width: 16, height: 18))
         self.text = "\(textUilabel)"
         self.numberOfLines = 3
         self.backgroundColor = .white
@@ -315,6 +319,10 @@ extension UILabel {
         self.textAlignment = .left
         self.layer.masksToBounds = true
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.shadowOffset = CGSize(width: 2, height: 2)
+        self.shadowColor = UIColor.black.withAlphaComponent(0.25)
+//        self.layer.shadowOpacity = 0.25
+//        self.layer.shadowRadius = 4
         
     }
 }
