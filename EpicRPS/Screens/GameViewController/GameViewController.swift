@@ -9,17 +9,18 @@ import UIKit
 import SnapKit
 import SwiftUI
 
-struct ViewControllerProvider: PreviewProvider {
+/*struct ViewControllerProvider: PreviewProvider {
     static var previews: some View {
         GameViewController().showPreview()
     }
-}
+}*/
 
 final class GameViewController: UIViewController {
     
     // MARK: - Private properties
     private var gameView: GameView!
     private let timer = RoundTimer()
+    private let game = RockPaperScissorsGame()
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -42,7 +43,7 @@ final class GameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        playBackgroundMusic()
+        //playBackgroundMusic()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,6 +88,14 @@ final class GameViewController: UIViewController {
         gameView.paperButton.isUserInteractionEnabled.toggle()
         gameView.rockButton.isUserInteractionEnabled.toggle()
         gameView.scissorsButton.isUserInteractionEnabled.toggle()
+    }
+    
+    private func playBackgroundMusic() {
+        GameAudio.shared.playBackgroundMusic()
+    }
+    
+    private func playSelectSymbolSound() {
+        GameAudio.shared.playSelectSymbolMusic()
     }
     
     // MARK: - Animations
@@ -150,21 +159,6 @@ final class GameViewController: UIViewController {
                 self?.gameView.playerHand.alpha = 1
             }
         }
-    }
-    
-    /// Включает/выключает доступность RPS-кнопок (Rock, Paper, Scissors) после нажатия
-    private func toggleEnableRpsButtons() {
-        gameView.paperButton.isUserInteractionEnabled.toggle()
-        gameView.rockButton.isUserInteractionEnabled.toggle()
-        gameView.scissorsButton.isUserInteractionEnabled.toggle()
-    }
-    
-    private func playBackgroundMusic() {
-        GameAudio.shared.playBackgroundMusic()
-    }
-    
-    private func playSelectSymbolSound() {
-        GameAudio.shared.playSelectSymbolMusic()
     }
   
     // MARK: - Actions
@@ -246,5 +240,11 @@ private extension GameViewController {
         
         gameView.pauseButton.target = self
         gameView.pauseButton.action = #selector(pauseButtonPressed)
+    }
+}
+
+extension GameViewController: TimerProtocol {
+    func timerDidEnded() {
+        game.roundTimeout()
     }
 }
