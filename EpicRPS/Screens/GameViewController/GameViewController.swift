@@ -153,11 +153,11 @@ final class GameViewController: UIViewController {
     }
     
     /// Включает/выключает доступность RPS-кнопок (Rock, Paper, Scissors) после нажатия
-    private func toggleEnableRpsButtons() {
-        gameView.paperButton.isUserInteractionEnabled.toggle()
-        gameView.rockButton.isUserInteractionEnabled.toggle()
-        gameView.scissorsButton.isUserInteractionEnabled.toggle()
-    }
+//    private func toggleEnableRpsButtons() {
+//        gameView.paperButton.isUserInteractionEnabled.toggle()
+//        gameView.rockButton.isUserInteractionEnabled.toggle()
+//        gameView.scissorsButton.isUserInteractionEnabled.toggle()
+//    }
     
     private func playBackgroundMusic() {
         GameAudio.shared.playBackgroundMusic()
