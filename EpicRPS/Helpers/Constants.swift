@@ -107,6 +107,7 @@ struct K {
         static let gray: UIColor = .grayRPS
         static let green: UIColor = .greenRPS
         static let yellow: UIColor = .yellowRPS
+        static let snow : UIColor = .snow
     }
     
     private init() {}

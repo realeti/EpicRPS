@@ -89,6 +89,16 @@ final class GameViewController: UIViewController {
         gameView.scissorsButton.isUserInteractionEnabled.toggle()
     }
     
+    /// Воспроизведение фоновой мелодии
+    private func playBackgroundMusic() {
+        GameAudio.shared.playBackgroundMusic()
+    }
+    
+    /// Воспроизведение звука по нажатию RPS-кнопок
+    private func playSelectSymbolSound() {
+        GameAudio.shared.playSelectSymbolMusic()
+    }
+    
     // MARK: - Animations
     /// Анимация заголовка статуса игры ("Fight!")
     private func gameStatusLabelAnimate() {
@@ -150,21 +160,6 @@ final class GameViewController: UIViewController {
                 self?.gameView.playerHand.alpha = 1
             }
         }
-    }
-    
-    /// Включает/выключает доступность RPS-кнопок (Rock, Paper, Scissors) после нажатия
-    private func toggleEnableRpsButtons() {
-        gameView.paperButton.isUserInteractionEnabled.toggle()
-        gameView.rockButton.isUserInteractionEnabled.toggle()
-        gameView.scissorsButton.isUserInteractionEnabled.toggle()
-    }
-    
-    private func playBackgroundMusic() {
-        GameAudio.shared.playBackgroundMusic()
-    }
-    
-    private func playSelectSymbolSound() {
-        GameAudio.shared.playSelectSymbolMusic()
     }
   
     // MARK: - Actions

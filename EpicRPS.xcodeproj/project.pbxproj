@@ -44,6 +44,7 @@
 		FAAF47BC2C19B88C000CC955 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF47B72C19B88C000CC955 /* UIViewController + Extension.swift */; };
 		FAAF47BF2C19B89C000CC955 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAF47BD2C19B89C000CC955 /* Rubik-Medium.ttf */; };
 		FAAF47C02C19B89C000CC955 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAF47BE2C19B89C000CC955 /* Rubik-Bold.ttf */; };
+		FAEFB5642C1C41D200C6C057 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFB5632C1C41D200C6C057 /* LeaderboardViewController.swift */; };
 		FCD86E4E2C1A297900F681C2 /* dela-gothic-one-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCD86E4D2C1A297900F681C2 /* dela-gothic-one-regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		FAAF47B72C19B88C000CC955 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		FAAF47BD2C19B89C000CC955 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		FAAF47BE2C19B89C000CC955 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		FAEFB5632C1C41D200C6C057 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		FCD86E4D2C1A297900F681C2 /* dela-gothic-one-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dela-gothic-one-regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 				DD9E1ED12C1A1D4E00BC9694 /* ResultViewController */,
 				DD9E1ECE2C1A190100BC9694 /* MainViewController */,
 				FA1ECFA02C1AF80C0037A620 /* GameViewController */,
+				FAEFB5622C1C41BD00C6C057 /* LeaderboardViewController */,
 				C68679AB2C176A7800F40860 /* RulesViewController.swift */,
 				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
 				BF5126142C1B7EE8008B13B5 /* LoadViewController.swift */,
@@ -282,6 +285,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FAEFB5622C1C41BD00C6C057 /* LeaderboardViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFB5632C1C41D200C6C057 /* LeaderboardViewController.swift */,
+			);
+			path = LeaderboardViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,6 +391,7 @@
 				C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */,
 				C60F29832C16564100D49F5A /* MainViewController.swift in Sources */,
 				C60F297F2C16564100D49F5A /* AppDelegate.swift in Sources */,
+				FAEFB5642C1C41D200C6C057 /* LeaderboardViewController.swift in Sources */,
 				FAAF47BC2C19B88C000CC955 /* UIViewController + Extension.swift in Sources */,
 				C6AD1E412C18CF12003E5C92 /* Player.swift in Sources */,
 				C6AD1E4D2C18DD56003E5C92 /* GameResult.swift in Sources */,
