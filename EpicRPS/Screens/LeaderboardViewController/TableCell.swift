@@ -11,6 +11,11 @@ import SnapKit
 final class TableCell: UITableViewCell {
     
     // MARK: - UI
+    private lazy var background: UIView = {
+        let element = UIView()
+        element.layer.cornerRadius = 20
+        return element
+    }()
     private lazy var avatar: UIImageView = {
         let element = UIImageView()
         element.contentMode = .scaleAspectFit
@@ -62,71 +67,70 @@ final class TableCell: UITableViewCell {
         setupConstraints()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(
-            by: UIEdgeInsets(
-                top: 4,
-                left: 0,
-                bottom: 4,
-                right: 0
-            )
-        )
-    }
-    
     required init?(coder: NSCoder) {
         fatalError()
     }
     
-    func configure(indexPath: IndexPath) {
-        avatar.image = UIImage(named: K.GamerAvatar.AvatarName.char1)
-        nameLabel.text = "Big Smoke"
-        badges.image = .goldBadge
-        matchLabel.text = "15,220"
-        rateLabel.text = "91%"
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatar.image = nil
+        nameLabel.text = nil
+        badges.image = nil
+        matchLabel.text = nil
+        rateLabel.text = nil
+    }
+    
+    func configure(indexPath: IndexPath, modelItem: MockLeaderData) {
+        avatar.image = UIImage(named: modelItem.avatar)
+        nameLabel.text = modelItem.name
+        matchLabel.text = modelItem.match.description
+        rateLabel.text = modelItem.rate.description + "%"
         
         switch indexPath.row {
         case 0:
+            badges.image = .goldBadge
             nameLabel.textColor = .init(
                 red: 252/255,
                 green: 189/255,
                 blue: 17/255,
                 alpha: 1
             )
-            contentView.backgroundColor = .init(
+            background.backgroundColor = .init(
                 red: 251/255,
                 green: 212/255,
                 blue: 58/255,
                 alpha: 0.44
             )
         case 1:
+            badges.image = .silverBadge
             nameLabel.textColor = .init(
                 red: 195/255,
                 green: 196/255,
                 blue: 203/255,
                 alpha: 1
             )
-            contentView.backgroundColor = .init(
+            background.backgroundColor = .init(
                 red: 244/255,
                 green: 245/255,
                 blue: 249/255,
                 alpha: 1
             )
         case 2:
+            badges.image = .bronzeBadge
             nameLabel.textColor = .init(
                 red: 208/255,
                 green: 161/255,
                 blue: 143/255,
                 alpha: 1
             )
-            contentView.backgroundColor = .init(
+            background.backgroundColor = .init(
                 red: 245/255,
                 green: 238/255,
                 blue: 229/255,
                 alpha: 1
             )
         default:
-            contentView.backgroundColor = .clear
+            background.backgroundColor = .clear
             badges.isHidden = true
             matchLabel.textColor = .init(
                 red: 172/255,
@@ -147,9 +151,9 @@ final class TableCell: UITableViewCell {
 // MARK: - Set Views
 private extension TableCell {
     func setViews() {
-        contentView.layer.cornerRadius = 25
         selectionStyle = .none
         
+        addSubview(background)
         addSubview(avatar)
         addSubview(nameLabel)
         addSubview(badges)
@@ -161,9 +165,11 @@ private extension TableCell {
 // MARK: - Setup Constraints
 private extension TableCell {
     func setupConstraints() {
-        contentView.snp.makeConstraints {
-            $0.top.leading.bottom.equalToSuperview()
-            $0.trailing.equalTo(badges.snp.centerX)
+        background.snp.makeConstraints {
+            $0.bottom.equalToSuperview().offset(-4)
+            $0.top.equalToSuperview().offset(4)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-7)
         }
         
         avatar.snp.makeConstraints {
@@ -179,18 +185,19 @@ private extension TableCell {
         }
         
         matchLabel.snp.makeConstraints {
-            $0.leading.equalTo(nameLabel.snp.trailing).offset(21)
+            $0.leading.equalTo(rateLabel.snp.leading).offset(-65)
             $0.centerY.equalToSuperview()
         }
         
         rateLabel.snp.makeConstraints {
-            $0.leading.equalTo(matchLabel.snp.trailing).offset(20)
+            $0.leading.equalTo(badges.snp.leading).offset(-60)
             $0.centerY.equalToSuperview()
         }
         
         badges.snp.makeConstraints {
             $0.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
+            $0.width.height.equalTo(19)
         }
     }
 }

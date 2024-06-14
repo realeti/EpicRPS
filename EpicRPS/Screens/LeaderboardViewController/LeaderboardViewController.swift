@@ -149,7 +149,8 @@ extension LeaderboardViewController: UITableViewDataSource {
             print("return default cell")
             return UITableViewCell()
         }
-        cell.configure(indexPath: indexPath)
+        let modelItem = mockData[indexPath.row]
+        cell.configure(indexPath: indexPath, modelItem: modelItem)
         return cell
     }
 }
@@ -157,7 +158,7 @@ extension LeaderboardViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension LeaderboardViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        85
+        65
     }
 }
 

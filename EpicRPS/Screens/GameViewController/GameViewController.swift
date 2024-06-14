@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 import SwiftUI
 
-struct ViewControllerProvider: PreviewProvider {
-    static var previews: some View {
-        GameViewController().showPreview()
-    }
-}
+//struct ViewControllerProvider: PreviewProvider {
+//    static var previews: some View {
+//        GameViewController().showPreview()
+//    }
+//}
 
 final class GameViewController: UIViewController {
     

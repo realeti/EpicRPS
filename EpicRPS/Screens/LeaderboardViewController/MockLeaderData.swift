@@ -21,7 +21,7 @@ extension MockLeaderData {
                 avatar: K.GamerAvatar.AvatarName.char1,
                 name: "Tony Newman",
                 match: 15220,
-                rate: 91
+                rate: 100
             ),
             MockLeaderData(
                 avatar: K.GamerAvatar.AvatarName.char2,
