@@ -212,7 +212,6 @@ final class GameViewController: UIViewController {
                 )
             } completion: { [weak self] _ in
                 guard let self else { return }
-                toggleEnableRpsButtons()
                 gameView.gameStatusLabel.transform = CGAffineTransform(
                     scaleX: 1,
                     y: 1
