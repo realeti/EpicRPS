@@ -20,8 +20,10 @@ protocol GameAudioProtocol: AnyObject {
 }
 
 final class GameAudio: GameAudioProtocol {
+    // MARK: - Singleton Instance
     static let shared = GameAudio()
     
+    // MARK: - Properties
     var backgroundMusicPlayer: AVAudioPlayer?
     var selectSymbolMusicPlayer: AVAudioPlayer?
     var punchMusicPlayer: AVAudioPlayer?
@@ -29,7 +31,6 @@ final class GameAudio: GameAudioProtocol {
     private init() {}
     
     // MARK: - Prepeare loadings
-    
     func prepareLoadAudio() {
         prepareBackgroundMusic()
         prepareSelectSymbolMusic()
@@ -60,13 +61,11 @@ final class GameAudio: GameAudioProtocol {
     }
     
     // MARK: - Play Background music
-    
     func playBackgroundMusic() {
         backgroundMusicPlayer?.play()
     }
     
     // MARK: - Play Select Symbol music
-    
     func playSelectSymbolMusic() {
         selectSymbolMusicPlayer?.stop()
         selectSymbolMusicPlayer?.currentTime = 0.0
@@ -74,19 +73,16 @@ final class GameAudio: GameAudioProtocol {
     }
     
     // MARK: - Play Punch music
-    
     func playPunchMusic() {
         punchMusicPlayer?.play()
     }
     
     // MARK: - Stop Background music
-    
     func stopBackgroundMusic() {
         backgroundMusicPlayer?.stop()
     }
     
     // MARK: - Load Audio
-        
     private func loadAudio(fileName: String, fileType: GameAudioType, loops: Int = 0, volume: Float = 1.0) -> AVAudioPlayer? {
         let audioUrl = Bundle.main.url(forResource: fileName, withExtension: fileType.extension)
         

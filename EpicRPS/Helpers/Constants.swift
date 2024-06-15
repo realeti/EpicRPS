@@ -24,6 +24,11 @@ struct K {
     static let maxWins = 3
     static let maxRoundTime: Float = 30.0
     
+    // MARK: - Game Storage
+    
+    static let defaultPlayerName = "Player"
+    static let defaultOpponentName = "Ryan Gosling"
+    
     // MARK: - Game Sounds
     
     enum Sounds {
