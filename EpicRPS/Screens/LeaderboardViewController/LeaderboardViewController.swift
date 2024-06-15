@@ -37,6 +37,7 @@ final class LeaderboardViewController: UIViewController {
     }()
     private lazy var playerNameTextField: UITextField = {
         let element = UITextField()
+        element.delegate = self
         element.layer.borderColor = CGColor(
             red: 237/255,
             green: 237/255,
@@ -133,6 +134,14 @@ final class LeaderboardViewController: UIViewController {
         setViews()
         setupConstraints()
     }
+    
+    // MARK: - Actions
+    @objc private func avatarButtonPressed() {
+        let avatarVC = AvatarViewController()
+        avatarVC.modalPresentationStyle = .pageSheet
+        present(avatarVC, animated: true)
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -162,6 +171,16 @@ extension LeaderboardViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - UITextFieldDelegate
+extension LeaderboardViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let nicknameVC = NicknameViewController()
+        nicknameVC.modalPresentationStyle = .fullScreen
+        present(nicknameVC, animated: true)
+        return true
+    }
+}
+
 // MARK: - Set Views
 private extension LeaderboardViewController {
     func setViews() {
@@ -175,7 +194,9 @@ private extension LeaderboardViewController {
         view.addSubview(matchLabel)
         view.addSubview(rateLabel)
         view.addSubview(tableView)
-                
+        
+        avatarButton.addTarget(self, action: #selector(avatarButtonPressed), for: .touchUpInside)
+        
         navigationController?.navigationBar.tintColor = K.Colors.gray
         navigationTitleLabel.text = "Leaderboard"
         navigationItem.titleView = navigationTitleLabel
