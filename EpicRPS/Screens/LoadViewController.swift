@@ -130,6 +130,9 @@ private extension LoadViewController {
         playerLosesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
         opponentVictoriesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
         opponentLosesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
+        
+        navigationItem.backButtonTitle = ""
+        navigationItem.hidesBackButton = true
     }
 }
 
