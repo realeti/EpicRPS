@@ -20,10 +20,12 @@ final class GameSettings: GameSettingsProtocol {
     private let storage = UserDefaults.standard
     
     // MARK: - Keys
-    private let gameTimeKey = Key.roundTime.rawValue
+    private let settingsKey = Key.settings.rawValue
+    private let roundTimeKey = Key.roundTime.rawValue
     private let backgroundMusicKey = Key.backgroundMusic.rawValue
     
     enum Key: String {
+        case settings
         case roundTime
         case backgroundMusic
     }
@@ -35,11 +37,18 @@ final class GameSettings: GameSettingsProtocol {
 extension GameSettings {
     var roundTimeInSeconds: Float {
         get {
-            let roundTime = storage.float(forKey: gameTimeKey)
-            return roundTime > 0.0 ? roundTime : K.maxRoundTime
+            let settings = storage.dictionary(forKey: settingsKey) ?? [:]
+            
+            if let roundTime = settings[roundTimeKey] as? Float, roundTime > 0.0 {
+                return roundTime
+            } else {
+                return K.maxRoundTime
+            }
         }
-        set {
-            storage.set(newValue, forKey: gameTimeKey)
+        set (newTime) {
+            var settings = storage.dictionary(forKey: settingsKey) ?? [:]
+            settings[roundTimeKey] = newTime
+            storage.set(settings, forKey: settingsKey)
         }
     }
 }
@@ -48,10 +57,14 @@ extension GameSettings {
 extension GameSettings {
     var backgroundMusic: String {
         get {
-            return storage.string(forKey: backgroundMusicKey) ?? K.Sounds.background1
+            let settings = storage.dictionary(forKey: settingsKey) ?? [:]
+            let backgroundMusic = settings[backgroundMusicKey] as? String ?? K.Sounds.background1
+            return backgroundMusic
         }
-        set {
-            storage.set(newValue, forKey: backgroundMusicKey)
+        set (newMusic) {
+            var settings = storage.dictionary(forKey: settingsKey) ?? [:]
+            settings[backgroundMusicKey] = newMusic
+            storage.set(settings, forKey: settingsKey)
         }
     }
 }
