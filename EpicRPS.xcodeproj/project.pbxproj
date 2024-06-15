@@ -52,6 +52,7 @@
 		FAEFB5662C1C4DBC00C6C057 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFB5652C1C4DBC00C6C057 /* AvatarViewController.swift */; };
 		FAEFB5682C1C4E4500C6C057 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFB5672C1C4E4500C6C057 /* NicknameViewController.swift */; };
 		FAEFB56A2C1C617B00C6C057 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFB5692C1C617B00C6C057 /* UITextField + Extension.swift */; };
+		FAF0097D2C1E33510087229A /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0097C2C1E33510087229A /* AvatarCell.swift */; };
 		FCD86E4E2C1A297900F681C2 /* dela-gothic-one-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCD86E4D2C1A297900F681C2 /* dela-gothic-one-regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		FAEFB5652C1C4DBC00C6C057 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		FAEFB5672C1C4E4500C6C057 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		FAEFB5692C1C617B00C6C057 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
+		FAF0097C2C1E33510087229A /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		FCD86E4D2C1A297900F681C2 /* dela-gothic-one-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dela-gothic-one-regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -317,6 +319,7 @@
 				FA1BC1422C1C8B2F0053C96F /* TableCell.swift */,
 				FAEFB5632C1C41D200C6C057 /* LeaderboardViewController.swift */,
 				FAEFB5652C1C4DBC00C6C057 /* AvatarViewController.swift */,
+				FAF0097C2C1E33510087229A /* AvatarCell.swift */,
 				FAEFB5672C1C4E4500C6C057 /* NicknameViewController.swift */,
 			);
 			path = LeaderboardViewController;
@@ -416,6 +419,7 @@
 				C6428EAE2C1D983B00080CD0 /* GameStats.swift in Sources */,
 				DD9E1ED52C1A1DB000BC9694 /* ResultView.swift in Sources */,
 				DD9E1ED02C1A190F00BC9694 /* MainView.swift in Sources */,
+				FAF0097D2C1E33510087229A /* AvatarCell.swift in Sources */,
 				FAAF47B92C19B88C000CC955 /* UIButton + Extension.swift in Sources */,
 				C60668C12C18E4D60079CE1E /* ProgressProtocol.swift in Sources */,
 				FAEFB56A2C1C617B00C6C057 /* UITextField + Extension.swift in Sources */,

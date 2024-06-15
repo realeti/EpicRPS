@@ -21,7 +21,7 @@ final class LeaderboardViewController: UIViewController {
     private lazy var navigationTitleLabel: UILabel = {
         let element = UILabel()
         element.textColor = K.Colors.gray
-        element.font = .init(name: K.fontName, size: K.sizeTitleLabel)
+        element.font = UIFont(name: K.fontName, size: K.sizeTitleLabel)
         return element
     }()
     private lazy var avatarBackgroundView: UIView = {
@@ -48,13 +48,19 @@ final class LeaderboardViewController: UIViewController {
         element.layer.cornerRadius = 20
         element.backgroundColor = .white
         element.indent(size: 16)
-        element.font = .init(name: K.fontBold700, size: 16)
-        element.textColor = .init(
-            red: 74/255,
-            green: 100/255,
-            blue: 149/255,
-            alpha: 1
-        )
+        element.font = UIFont(name: K.fontBold700, size: 16)
+                element.textColor = UIColor(
+                    red: 74/255,
+                    green: 100/255,
+                    blue: 149/255,
+                    alpha: 1
+                )
+                element.tintColor = UIColor(
+                    red: 74/255,
+                    green: 100/255,
+                    blue: 149/255,
+                    alpha: 1
+                )
         element.tintColor = .init(
             red: 74/255,
             green: 100/255,
@@ -79,40 +85,40 @@ final class LeaderboardViewController: UIViewController {
     private lazy var playersLabel: UILabel = {
         let element = UILabel()
         element.text = "Players"
-        element.font = .init(name: K.fontBold700, size: 13)
+        element.font = UIFont(name: K.fontBold700, size: 13)
         element.alpha = 0.26
-        element.textColor = .init(
-            red: 74/255,
-            green: 100/255,
-            blue: 149/255,
-            alpha: 1
-        )
+        element.textColor = UIColor(
+                    red: 74/255,
+                    green: 100/255,
+                    blue: 149/255,
+                    alpha: 1
+                )
         return element
     }()
     private lazy var matchLabel: UILabel = {
         let element = UILabel()
         element.text = "Match"
-        element.font = .init(name: K.fontBold700, size: 13)
+        element.font = UIFont(name: K.fontBold700, size: 13)
         element.alpha = 0.26
-        element.textColor = .init(
-            red: 74/255,
-            green: 100/255,
-            blue: 149/255,
-            alpha: 1
-        )
+        element.textColor = UIColor(
+                    red: 74/255,
+                    green: 100/255,
+                    blue: 149/255,
+                    alpha: 1
+                )
         return element
     }()
     private lazy var rateLabel: UILabel = {
         let element = UILabel()
         element.text = "Rate"
-        element.font = .init(name: K.fontBold700, size: 13)
+        element.font = UIFont(name: K.fontBold700, size: 13)
         element.alpha = 0.26
-        element.textColor = .init(
-            red: 74/255,
-            green: 100/255,
-            blue: 149/255,
-            alpha: 1
-        )
+        element.textColor = UIColor(
+                    red: 74/255,
+                    green: 100/255,
+                    blue: 149/255,
+                    alpha: 1
+                )
         return element
     }()
     private lazy var tableView: UITableView = {
