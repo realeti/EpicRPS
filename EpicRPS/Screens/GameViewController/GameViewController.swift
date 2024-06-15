@@ -20,6 +20,11 @@ final class GameViewController: UIViewController {
     // MARK: - Private properties
     private var gameView: GameView!
     private let timer = RoundTimer()
+    private let game = RockPaperScissorsGame()
+    
+    // MARK: - Public properties
+    var player: PlayerProtocol?
+    var opponent: PlayerProtocol?
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -31,6 +36,7 @@ final class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupDelegates()
         toggleEnableRpsButtons()
         timer.startTimer(label: gameView.timerLabel, progress: gameView.timerProgress)
     }
@@ -91,7 +97,14 @@ final class GameViewController: UIViewController {
     
     /// Воспроизведение фоновой мелодии
     private func playBackgroundMusic() {
-        GameAudio.shared.playBackgroundMusic()
+        let currentMusic = GameSettings.shared.backgroundMusic
+        
+        switch currentMusic {
+        case K.Sounds.background2:
+            GameAudio.shared.playBackgroundMusic2()
+        default:
+            GameAudio.shared.playBackgroundMusic1()
+        }
     }
     
     /// Воспроизведение звука по нажатию RPS-кнопок

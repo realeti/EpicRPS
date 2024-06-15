@@ -7,7 +7,14 @@
 
 import Foundation
 
-class Player {
+protocol PlayerProtocol: AnyObject {
+    var name: String { get set }
+    var avatar: String { get set }
+    var wins: Int { get set }
+    var losses: Int { get set }
+}
+
+class Player: PlayerProtocol {
     var name: String
     var avatar: String
     var wins: Int
