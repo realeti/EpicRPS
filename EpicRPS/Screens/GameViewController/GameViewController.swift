@@ -262,7 +262,7 @@ private extension GameViewController {
         gameView.gameStatusLabel.text = "FIGHT!"
         gameView.gameStatusLabel.alpha = 0
         
-        gameView.timerLabel.text = "0:" + timer.roundDuration.description
+        gameView.timerLabel.text = "0:" + Int(timer.roundDuration).description
         
         gameView.rockButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         gameView.paperButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
