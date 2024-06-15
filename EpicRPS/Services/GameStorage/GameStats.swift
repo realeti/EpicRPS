@@ -12,7 +12,7 @@ protocol GameStatsProtocol {
     var opponentName: String { get set }
     
     func loadPlayerData(_ playerName: String) -> PlayerProtocol?
-    func savePlayerData(_ player: PlayerProtocol)
+    func savePlayerData(for player: PlayerProtocol)
     func loadAllPlayers() -> [PlayerProtocol]
 }
 
@@ -92,7 +92,7 @@ extension GameStats {
 
 // MARK: - Save Player data
 extension GameStats {
-    func savePlayerData(_ player: PlayerProtocol) {
+    func savePlayerData(for player: PlayerProtocol) {
         var playersDictionary = storage.dictionary(forKey: playersKey) as? [String: [String: Any]] ?? [:]
         
         playersDictionary[player.name] = [
