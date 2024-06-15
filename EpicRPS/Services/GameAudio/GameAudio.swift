@@ -8,12 +8,14 @@
 import AVFoundation
 
 protocol GameAudioProtocol: AnyObject {
-    var backgroundMusicPlayer: AVAudioPlayer? { get }
+    var backgroundMusicPlayer1: AVAudioPlayer? { get }
+    var backgroundMusicPlayer2: AVAudioPlayer? { get }
     var selectSymbolMusicPlayer: AVAudioPlayer? { get }
     var punchMusicPlayer: AVAudioPlayer? { get }
     
     func prepareLoadAudio()
-    func playBackgroundMusic()
+    func playBackgroundMusic1()
+    func playBackgroundMusic2()
     func playSelectSymbolMusic()
     func playPunchMusic()
     func stopBackgroundMusic()
@@ -24,7 +26,8 @@ final class GameAudio: GameAudioProtocol {
     static let shared = GameAudio()
     
     // MARK: - Properties
-    var backgroundMusicPlayer: AVAudioPlayer?
+    var backgroundMusicPlayer1: AVAudioPlayer?
+    var backgroundMusicPlayer2: AVAudioPlayer?
     var selectSymbolMusicPlayer: AVAudioPlayer?
     var punchMusicPlayer: AVAudioPlayer?
     
@@ -32,14 +35,24 @@ final class GameAudio: GameAudioProtocol {
     
     // MARK: - Prepeare loadings
     func prepareLoadAudio() {
-        prepareBackgroundMusic()
+        prepareBackgroundMusic1()
+        prepareBackgroundMusic2()
         prepareSelectSymbolMusic()
         preparePunchMusic()
     }
     
-    private func prepareBackgroundMusic() {
-        backgroundMusicPlayer = loadAudio(
+    private func prepareBackgroundMusic1() {
+        backgroundMusicPlayer1 = loadAudio(
             fileName: K.Sounds.background1,
+            fileType: .wav,
+            loops: -1,
+            volume: 0.65
+        )
+    }
+    
+    private func prepareBackgroundMusic2() {
+        backgroundMusicPlayer1 = loadAudio(
+            fileName: K.Sounds.background2,
             fileType: .wav,
             loops: -1,
             volume: 0.65
@@ -60,9 +73,14 @@ final class GameAudio: GameAudioProtocol {
         )
     }
     
-    // MARK: - Play Background music
-    func playBackgroundMusic() {
-        backgroundMusicPlayer?.play()
+    // MARK: - Play Background music 1
+    func playBackgroundMusic1() {
+        backgroundMusicPlayer1?.play()
+    }
+    
+    // MARK: - Play Background music 2
+    func playBackgroundMusic2() {
+        backgroundMusicPlayer2?.play()
     }
     
     // MARK: - Play Select Symbol music
@@ -79,9 +97,12 @@ final class GameAudio: GameAudioProtocol {
     
     // MARK: - Stop Background music
     func stopBackgroundMusic() {
-        backgroundMusicPlayer?.stop()
+        backgroundMusicPlayer1?.stop()
     }
-    
+}
+
+// MARK: - Load Audio
+extension GameAudio {
     // MARK: - Load Audio
     private func loadAudio(fileName: String, fileType: GameAudioType, loops: Int = 0, volume: Float = 1.0) -> AVAudioPlayer? {
         let audioUrl = Bundle.main.url(forResource: fileName, withExtension: fileType.extension)

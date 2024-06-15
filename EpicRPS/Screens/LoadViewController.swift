@@ -105,7 +105,7 @@ private extension LoadViewController {
         let playerLosses = player?.losses ?? 0
         
         let playerAvatarName = player?.avatar ?? K.defaultPlayerAvatar
-        let opponentAvatarName = player?.avatar ?? K.defaultOpponentAvatar
+        let opponentAvatarName = opponent?.avatar ?? K.defaultOpponentAvatar
         
         let opponentWins = opponent?.wins ?? 0
         let opponentsLosses = opponent?.losses ?? 0
@@ -216,6 +216,8 @@ private extension LoadViewController {
     
     func navigateToGame() {
         let gameVC = GameViewController()
+        gameVC.player = self.player
+        gameVC.opponent = self.opponent
         self.navigationController?.pushViewController(gameVC, animated: true)
     }
 }
