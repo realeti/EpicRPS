@@ -21,6 +21,7 @@ final class TableCell: UITableViewCell {
         element.contentMode = .scaleAspectFit
         return element
     }()
+    
     private lazy var nameLabel: UILabel = {
         let element = UILabel()
         element.font = .init(name: K.fontBold700, size: 14)
@@ -32,11 +33,13 @@ final class TableCell: UITableViewCell {
         )
         return element
     }()
+    
     private lazy var badges: UIImageView = {
         let element = UIImageView()
         element.contentMode = .scaleAspectFit
         return element
     }()
+    
     private lazy var matchLabel: UILabel = {
         let element = UILabel()
         element.font = .init(name: K.fontBold700, size: 13)
@@ -48,6 +51,7 @@ final class TableCell: UITableViewCell {
         )
         return element
     }()
+    
     private lazy var rateLabel: UILabel = {
         let element = UILabel()
         element.font = .init(name: K.fontMedium500, size: 18)
@@ -57,6 +61,21 @@ final class TableCell: UITableViewCell {
             blue: 92/255,
             alpha: 1
         )
+        return element
+    }()
+    
+    private lazy var indexLabel: UILabel = {
+        let element = UILabel()
+        element.isHidden = true
+        element.font = .init(name: K.fontBold700, size: 9)
+        element.textColor = .init(red: 208/255, green: 214/255, blue: 227/255, alpha: 1)
+        return element
+    }()
+    
+    private lazy var line: UIView = {
+        let element = UIView()
+        element.isHidden = true
+        element.backgroundColor = .init(red: 172/255, green: 180/255, blue: 195/255, alpha: 0.12)
         return element
     }()
     
@@ -85,6 +104,7 @@ final class TableCell: UITableViewCell {
         nameLabel.text = modelItem.name
         matchLabel.text = modelItem.match.formatted(.number.grouping(.automatic)).description
         rateLabel.text = modelItem.rate.description + "%"
+        indexLabel.text = (indexPath.row + 1).description
         
         switch indexPath.row {
         case 0:
@@ -130,6 +150,8 @@ final class TableCell: UITableViewCell {
                 alpha: 1
             )
         default:
+            line.isHidden = false
+            indexLabel.isHidden = false
             background.backgroundColor = .clear
             badges.isHidden = true
             matchLabel.textColor = .init(
@@ -159,6 +181,8 @@ private extension TableCell {
         addSubview(badges)
         addSubview(matchLabel)
         addSubview(rateLabel)
+        addSubview(indexLabel)
+        addSubview(line)
     }
 }
 
@@ -198,6 +222,18 @@ private extension TableCell {
             $0.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
             $0.width.height.equalTo(19)
+        }
+        
+        indexLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview()
+        }
+        
+        line.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.bottom.equalTo(avatar.snp.top).offset(-2.5)
+            $0.leading.equalToSuperview().offset(29.38)
+            $0.trailing .equalToSuperview().offset(-36.82)
         }
     }
 }

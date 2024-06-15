@@ -215,15 +215,15 @@ private extension LeaderboardViewController {
         
         playersLabel.snp.makeConstraints {
             $0.top.equalTo(top10ImageView.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().offset(34.5)
+            $0.leading.equalToSuperview().offset(40)
         }
         matchLabel.snp.makeConstraints {
             $0.top.equalTo(top10ImageView.snp.bottom).offset(10)
-            $0.trailing.equalTo(rateLabel.snp.leading).offset(-25)
+            $0.trailing.equalTo(rateLabel.snp.leading).offset(-27)
         }
         rateLabel.snp.makeConstraints {
             $0.top.equalTo(top10ImageView.snp.bottom).offset(10)
-            $0.trailing.equalToSuperview().offset(-49.5)
+            $0.trailing.equalTo(tableView.snp.trailing).offset(-48)
         }
         
         tableView.snp.makeConstraints {
