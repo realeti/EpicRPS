@@ -26,6 +26,8 @@ final class LeaderboardViewController: UIViewController {
     }()
     private lazy var avatarBackgroundView: UIView = {
         let element = UIView()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(goToAvatarVC))
+        element.addGestureRecognizer(tap)
         element.backgroundColor = .white
         element.layer.cornerRadius = 23
         return element
@@ -37,6 +39,10 @@ final class LeaderboardViewController: UIViewController {
     }()
     private lazy var playerNameTextField: UITextField = {
         let element = UITextField()
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(goToNicknameVC))
+        element.addGestureRecognizer(gesture)
+        
         element.delegate = self
         element.layer.borderColor = CGColor(
             red: 237/255,
@@ -49,25 +55,19 @@ final class LeaderboardViewController: UIViewController {
         element.backgroundColor = .white
         element.indent(size: 16)
         element.font = UIFont(name: K.fontBold700, size: 16)
-                element.textColor = UIColor(
-                    red: 74/255,
-                    green: 100/255,
-                    blue: 149/255,
-                    alpha: 1
-                )
-                element.tintColor = UIColor(
-                    red: 74/255,
-                    green: 100/255,
-                    blue: 149/255,
-                    alpha: 1
-                )
-        element.tintColor = .init(
+        element.textColor = UIColor(
             red: 74/255,
             green: 100/255,
             blue: 149/255,
             alpha: 1
         )
-        element.text = "Player 1 "
+        element.tintColor = UIColor(
+            red: 74/255,
+            green: 100/255,
+            blue: 149/255,
+            alpha: 1
+        )
+        element.text = "Player 1"
         return element
     }()
     private lazy var tableBackgroundView: UIView = {
@@ -88,11 +88,11 @@ final class LeaderboardViewController: UIViewController {
         element.font = UIFont(name: K.fontBold700, size: 13)
         element.alpha = 0.26
         element.textColor = UIColor(
-                    red: 74/255,
-                    green: 100/255,
-                    blue: 149/255,
-                    alpha: 1
-                )
+            red: 74/255,
+            green: 100/255,
+            blue: 149/255,
+            alpha: 1
+        )
         return element
     }()
     private lazy var matchLabel: UILabel = {
@@ -101,11 +101,11 @@ final class LeaderboardViewController: UIViewController {
         element.font = UIFont(name: K.fontBold700, size: 13)
         element.alpha = 0.26
         element.textColor = UIColor(
-                    red: 74/255,
-                    green: 100/255,
-                    blue: 149/255,
-                    alpha: 1
-                )
+            red: 74/255,
+            green: 100/255,
+            blue: 149/255,
+            alpha: 1
+        )
         return element
     }()
     private lazy var rateLabel: UILabel = {
@@ -114,11 +114,11 @@ final class LeaderboardViewController: UIViewController {
         element.font = UIFont(name: K.fontBold700, size: 13)
         element.alpha = 0.26
         element.textColor = UIColor(
-                    red: 74/255,
-                    green: 100/255,
-                    blue: 149/255,
-                    alpha: 1
-                )
+            red: 74/255,
+            green: 100/255,
+            blue: 149/255,
+            alpha: 1
+        )
         return element
     }()
     private lazy var tableView: UITableView = {
@@ -142,9 +142,14 @@ final class LeaderboardViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @objc private func avatarButtonPressed() {
+    @objc private func goToAvatarVC() {
         let avatarVC = AvatarViewController()
         present(avatarVC, animated: true)
+    }
+    
+    @objc private func goToNicknameVC() {
+        let nicknameVC = NicknameViewController()
+        present(nicknameVC, animated: true)
     }
     
 }
@@ -178,18 +183,18 @@ extension LeaderboardViewController: UITableViewDelegate {
 
 // MARK: - UITextFieldDelegate
 extension LeaderboardViewController: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        let nicknameVC = NicknameViewController()
-        nicknameVC.modalPresentationStyle = .fullScreen
-        present(nicknameVC, animated: true)
-        return true
-    }
+    
 }
 
 // MARK: - Set Views
 private extension LeaderboardViewController {
     func setViews() {
-        view.backgroundColor = UIColor(resource: .snow)
+        view.backgroundColor = UIColor(
+            red: 244/255,
+            green: 245/255,
+            blue: 249/255,
+            alpha: 1
+        )
         view.addSubview(avatarBackgroundView)
         avatarBackgroundView.addSubview(avatarButton)
         view.addSubview(playerNameTextField)
@@ -200,7 +205,7 @@ private extension LeaderboardViewController {
         view.addSubview(rateLabel)
         view.addSubview(tableView)
         
-        avatarButton.addTarget(self, action: #selector(avatarButtonPressed), for: .touchUpInside)
+        avatarButton.addTarget(self, action: #selector(goToAvatarVC), for: .touchUpInside)
         
         navigationController?.navigationBar.tintColor = K.Colors.gray
         navigationTitleLabel.text = "Leaderboard"
@@ -253,7 +258,7 @@ private extension LeaderboardViewController {
         }
         
         tableView.snp.makeConstraints {
-            $0.top.equalTo(playersLabel.snp.bottom).offset(25)
+            $0.top.equalTo(playersLabel.snp.bottom).offset(10)
             $0.bottom.equalToSuperview()
             $0.leading.equalToSuperview().offset(19)
             $0.trailing.equalToSuperview().offset(-12)

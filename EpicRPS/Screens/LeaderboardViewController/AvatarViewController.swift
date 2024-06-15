@@ -24,6 +24,8 @@ final class AvatarViewController: UIViewController {
     // MARK: - UI
     private lazy var backgroundView: UIView = {
         let element = UIView()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(closeScreen))
+        element.addGestureRecognizer(tap)
         element.backgroundColor = .black
         element.alpha = 0.59
         return element
@@ -138,7 +140,7 @@ extension AvatarViewController: UICollectionViewDataSource {
         }
         
         let avatarIndex = avatars[indexPath.item]
-        cell.configCell(imageName: avatarIndex)
+        cell.configCell(imageName: avatarIndex, index: indexPath.item)
         
         return cell
     }
@@ -146,8 +148,9 @@ extension AvatarViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension AvatarViewController: UICollectionViewDelegateFlowLayout {
-    
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }
 
 // MARK: - Set Views

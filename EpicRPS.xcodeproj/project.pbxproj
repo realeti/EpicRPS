@@ -299,6 +299,15 @@
 			path = GameViewController;
 			sourceTree = "<group>";
 		};
+		FA6352942C1E45FF00ABBECF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FA1BC1422C1C8B2F0053C96F /* TableCell.swift */,
+				FAF0097C2C1E33510087229A /* AvatarCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		FAAF47B82C19B88C000CC955 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,10 +325,9 @@
 			isa = PBXGroup;
 			children = (
 				FA1BC1442C1C8C340053C96F /* MockLeaderData.swift */,
-				FA1BC1422C1C8B2F0053C96F /* TableCell.swift */,
+				FA6352942C1E45FF00ABBECF /* Cells */,
 				FAEFB5632C1C41D200C6C057 /* LeaderboardViewController.swift */,
 				FAEFB5652C1C4DBC00C6C057 /* AvatarViewController.swift */,
-				FAF0097C2C1E33510087229A /* AvatarCell.swift */,
 				FAEFB5672C1C4E4500C6C057 /* NicknameViewController.swift */,
 			);
 			path = LeaderboardViewController;

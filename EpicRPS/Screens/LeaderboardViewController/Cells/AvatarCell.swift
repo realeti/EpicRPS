@@ -59,7 +59,7 @@ final class AvatarCell: UICollectionViewCell {
         fatalError()
     }
     
-    func configCell(imageName: String) {
+    func configCell(imageName: String, index: Int) {
         avatar.image = UIImage(named: imageName)
     }
 }
