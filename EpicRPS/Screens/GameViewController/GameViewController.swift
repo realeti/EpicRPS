@@ -9,19 +9,17 @@ import UIKit
 import SnapKit
 import SwiftUI
 
-/*struct ViewControllerProvider: PreviewProvider {
-    static var previews: some View {
-        GameViewController().showPreview()
-    }
-}*/
+//struct ViewControllerProvider: PreviewProvider {
+//    static var previews: some View {
+//        GameViewController().showPreview()
+//    }
+//}
 
 final class GameViewController: UIViewController {
     
     // MARK: - Private properties
     private var gameView: GameView!
     private let timer = RoundTimer()
-    private let game = RockPaperScissorsGame()
-    //private var player: Player?
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -33,8 +31,6 @@ final class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupDelegates()
-        //createPlayer()
         toggleEnableRpsButtons()
         timer.startTimer(label: gameView.timerLabel, progress: gameView.timerProgress)
     }
@@ -46,7 +42,7 @@ final class GameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //playBackgroundMusic()
+        playBackgroundMusic()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,12 +64,13 @@ final class GameViewController: UIViewController {
     
     /// Выбор руки (камень / ножницы / бумага)
     private func choiceHand(_ hand: GameSymbol) {
-        let possibleHands: [GameSymbol] = [.rock, .paper, .scissors]
+        let randomHandOpponent = [
+            K.Hands.Opponent.rock,
+            K.Hands.Opponent.paper,
+            K.Hands.Opponent.scissors
+        ]
         
-        let playerSymbol: GameSymbol = hand
-        let opponentSymbol: GameSymbol = possibleHands.randomElement() ?? .rock
-        
-        switch playerSymbol {
+        switch hand {
         case .rock:
             gameView.playerHand.image = K.Hands.Player.rock
         case .paper:
@@ -82,17 +79,7 @@ final class GameViewController: UIViewController {
             gameView.playerHand.image = K.Hands.Player.scissors
         }
         
-        switch opponentSymbol {
-        case .rock:
-            gameView.opponentHand.image = K.Hands.Opponent.rock
-        case .paper:
-            gameView.opponentHand.image = K.Hands.Opponent.paper
-        case .scissors:
-            gameView.opponentHand.image = K.Hands.Opponent.scissors
-        }
-        
-        let result = game.play(playerSymbol: playerSymbol, opponentSymbol: opponentSymbol)
-        print(game.playerScore, game.opponentScore, "\(result)")
+        gameView.opponentHand.image = randomHandOpponent.randomElement() ?? K.Hands.Opponent.rock
     }
     
     /// Включает/выключает доступность RPS-кнопок (Rock, Paper, Scissors) после нажатия
@@ -102,10 +89,12 @@ final class GameViewController: UIViewController {
         gameView.scissorsButton.isUserInteractionEnabled.toggle()
     }
     
+    /// Воспроизведение фоновой мелодии
     private func playBackgroundMusic() {
         GameAudio.shared.playBackgroundMusic()
     }
     
+    /// Воспроизведение звука по нажатию RPS-кнопок
     private func playSelectSymbolSound() {
         GameAudio.shared.playSelectSymbolMusic()
     }
@@ -252,41 +241,5 @@ private extension GameViewController {
         
         gameView.pauseButton.target = self
         gameView.pauseButton.action = #selector(pauseButtonPressed)
-    }
-}
-
-// MARK: - Setup Delegates
-private extension GameViewController {
-    func setupDelegates() {
-        game.delegate = self
-        timer.delegate = self
-    }
-}
-
-extension GameViewController: TimerProtocol {
-    func timerDidEnded() {
-        game.roundTimeout()
-    }
-}
-
-extension GameViewController: GameOverProtocol {
-    func gameDidEnd(_ playerScore: Int, _ opponentScore: Int, _ finalResult: GameResult) {
-        print("Game Over (\(finalResult))")
-        /// Method #1
-
-        /*let gameOverVC = GameOverViewController(
-            playerScore: playerScore,
-            opponentScore: opponentScore,
-            finalResult: finalResult
-        )*/
-        
-        /// Method #2
-
-        /*let gameOverVC = GameOverViewController()
-        gameOverVC.playerScore = playerScore
-        gameOverVC.opponentScore = opponentScore
-        gameOverVC.finalResult = finalResult*/
-        
-        //navigationController?.pushViewController(gameOverVC, animated: true)
     }
 }

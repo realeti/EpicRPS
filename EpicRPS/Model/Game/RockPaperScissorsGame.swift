@@ -22,24 +22,19 @@ class RockPaperScissorsGame {
     
     // MARK: - Play Game
     
-    func play(playerSymbol: GameSymbol, opponentSymbol: GameSymbol) -> GameRoundResult {
-        let result: GameRoundResult
-        
+    func play(playerSymbol: GameSymbol, opponentSymbol: GameSymbol) {
         if playerSymbol == opponentSymbol {
-            return .draw
+            return
         }
         
         switch (playerSymbol, opponentSymbol) {
         case (.rock, .scissors), (.paper, .rock), (.scissors, .paper):
             playerScore += 1
-            result = .win
         default:
             opponentScore += 1
-            result = .lose
         }
         
         checkPlayersScore()
-        return result
     }
     
     func roundTimeout() {
@@ -61,7 +56,7 @@ class RockPaperScissorsGame {
         resetGame()
     }
     
-    private func getResult() -> GameResult {
+    private func getResult() -> GameResult {        
         return playerScore > opponentScore ? .win : .lose
     }
     

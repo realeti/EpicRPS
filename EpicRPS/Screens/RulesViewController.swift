@@ -12,8 +12,6 @@ import SwiftUI
 
 class RulesViewController: UIViewController {
     
-   
-    
     private lazy var mainStackView: UIStackView = {
         let element = UIStackView()
         element.axis = .vertical
@@ -109,16 +107,8 @@ class RulesViewController: UIViewController {
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
-    var colorTextfifthUilabel: String = ""
     
-    // colorTextfifthUilabel
-
-    private lazy var fifthTextUIlabel = UILabel (textUilabel: "За каждую победу игрок получает 500 баллов, которые можно посмотреть на доске лидеров. ")
-   
-  
-
-  
-    
+    private lazy var fifthTextUIlabel = UILabel (textUilabel: "За каждую победу игрок получает 500 баллов, которые можно посмотреть на доске лидеров.")
     
     //MARK: - Строка с иконками
     
@@ -177,11 +167,7 @@ extension RulesViewController {
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(mainStackView)
-        
-        navigationItem.titleView = rulesLabel
-        navigationController?.navigationBar.tintColor = K.Colors.gray
-        
-        //mainStackView.addArrangedSubview(rulesLabel)
+        mainStackView.addArrangedSubview(rulesLabel)
         
         mainStackView.addArrangedSubview(firstStackView)
         mainStackView.addArrangedSubview(secondStackView)
@@ -191,7 +177,6 @@ extension RulesViewController {
         mainStackView.addArrangedSubview(thirdStackView)
         mainStackView.addArrangedSubview(fourthStackView)
         mainStackView.addArrangedSubview(fifthStackView)
-        
         
         firstStackView.addArrangedSubview(firstView)
         secondStackView.addArrangedSubview(secondView)
@@ -219,7 +204,6 @@ extension RulesViewController {
         thirdStackView.addArrangedSubview(thirdTextUIlabel)
         fourthStackView.addArrangedSubview(fourthTextUIlabel)
         fifthStackView.addArrangedSubview(fifthTextUIlabel)
-        
 
         
         
@@ -231,25 +215,20 @@ extension RulesViewController {
         NSLayoutConstraint.activate([
             
             mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 26),
-            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
+            mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 26),
+            mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -10),
             
             
-            //Констрейны 1,2 разделов
             firstView.heightAnchor.constraint(equalToConstant: 29),
             firstView.widthAnchor.constraint(equalToConstant: 29),
-            firstView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             firstUIlabel.centerXAnchor.constraint(equalTo: firstView.centerXAnchor),
             firstUIlabel.centerYAnchor.constraint(equalTo: firstView.centerYAnchor),
             
-            
             secondView.heightAnchor.constraint(equalToConstant: 29),
             secondView.widthAnchor.constraint(equalToConstant: 29),
-            secondView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             secondUIlbel.centerXAnchor.constraint(equalTo: secondView.centerXAnchor),
             secondUIlbel.centerYAnchor.constraint(equalTo: secondView.centerYAnchor),
             
-            //Констрейны иконок (камень, ножницы, бумага )
             
             rockStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 65),
             rockStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 197),
@@ -278,25 +257,21 @@ extension RulesViewController {
             scissorsImageView.trailingAnchor.constraint(equalTo: scissorsView.trailingAnchor,constant: -7),
             scissorsImageView.bottomAnchor.constraint(equalTo: scissorsView.bottomAnchor,constant: -5),
             
-            //Констрейны 3,4,5 разделов
+            
             thirdView.heightAnchor.constraint(equalToConstant: 29),
             thirdView.widthAnchor.constraint(equalToConstant: 29),
-            thirdView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             thirdUIlbel.centerXAnchor.constraint(equalTo: thirdView.centerXAnchor),
             thirdUIlbel.centerYAnchor.constraint(equalTo: thirdView.centerYAnchor),
             
             fourthView.heightAnchor.constraint(equalToConstant: 29),
             fourthView.widthAnchor.constraint(equalToConstant: 29),
-            fourthView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             fourthUIlbel.centerXAnchor.constraint(equalTo: fourthView.centerXAnchor),
             fourthUIlbel.centerYAnchor.constraint(equalTo: fourthView.centerYAnchor),
             
             fifthView.heightAnchor.constraint(equalToConstant: 29),
             fifthView.widthAnchor.constraint(equalToConstant: 29),
-            fifthView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             fifthUIlbel.centerXAnchor.constraint(equalTo: fifthView.centerXAnchor),
             fifthUIlbel.centerYAnchor.constraint(equalTo: fifthView.centerYAnchor),
-            fifthStackView.heightAnchor.constraint(equalToConstant: 70),
             
             
             
@@ -328,7 +303,7 @@ extension UIStackView {
         self.axis = .horizontal
         self.spacing = 20
         self.alignment = .center
-//        self.backgroundColor = .red
+       //self.backgroundColor = .red
         self.translatesAutoresizingMaskIntoConstraints = false
         
     }
@@ -338,17 +313,16 @@ extension UILabel {
     convenience init(textUilabel: String) {
         self.init()
         self.text = "\(textUilabel)"
-        self.numberOfLines = 4
-        //self.backgroundColor = .white
-        self.attributedText = NSMutableAttributedString(string: textUilabel)
+        self.numberOfLines = 3
+        self.backgroundColor = .white
         self.font = UIFont(name: "Rubik", size: 16)
         self.textAlignment = .left
-//        self.layer.masksToBounds = true
+        self.layer.masksToBounds = true
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.shadowOffset = CGSize(width: 1, height: 0)
+        self.shadowOffset = CGSize(width: 2, height: 2)
         self.shadowColor = UIColor.black.withAlphaComponent(0.25)
-        self.layer.shadowOpacity = 0.15
-        self.layer.shadowRadius = 6
+//        self.layer.shadowOpacity = 0.25
+//        self.layer.shadowRadius = 4
         
     }
 }
@@ -364,18 +338,6 @@ extension UIImageView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }
-
-extension String{
-
-func attributedString(subStr: String) -> NSMutableAttributedString{
-    let range = (self as NSString).range(of: subStr)
-    let attributedString = NSMutableAttributedString(string:self)
-    attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red , range: range)
-    
-    return attributedString
-  }
-}
- 
 
 //MARK: - Превью
 

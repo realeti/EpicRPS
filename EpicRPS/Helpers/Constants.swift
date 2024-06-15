@@ -41,6 +41,12 @@ struct K {
         static let leadingTrailingOffsetRpsButton: CGFloat = 16
         static let bottomOffsetPaperButton: CGFloat = 80
         static let bottomOffsetRockScissorsButton: CGFloat = 30
+        
+        enum Image {
+            static let rock: UIImage = .rock
+            static let paper: UIImage = .paper
+            static let scissors: UIImage = .scissors
+        }
     }
     
     enum TimerProgress {
@@ -80,6 +86,17 @@ struct K {
             static let player = UIImage(named: "player")
             static let opponent = UIImage(named: "opponent")
         }
+        
+        enum AvatarName {
+            static let char1 = "character"
+            static let char2 = "character-2"
+            static let char3 = "character-3"
+            static let char4 = "character-4"
+            static let char5 = "character-5"
+            static let char6 = "character-6"
+            static let char7 = "character-7"
+            static let char8 = "character-8"
+        }
     }
     
     enum Hands {
@@ -107,6 +124,7 @@ struct K {
         static let gray: UIColor = .grayRPS
         static let green: UIColor = .greenRPS
         static let yellow: UIColor = .yellowRPS
+        static let marine: UIColor = .marine
     }
     
     private init() {}

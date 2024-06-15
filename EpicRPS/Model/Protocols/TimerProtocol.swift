@@ -5,8 +5,9 @@
 //  Created by Apple M1 on 11.06.2024.
 //
 
-import UIKit
+import Foundation
 
 protocol TimerProtocol: AnyObject {
-    func timerDidEnded()
+    func startTimer()
+    func resetTimer()
 }
