@@ -298,7 +298,29 @@ extension GameViewController: GameOverProtocol {
         gameOverVC.opponentScore = opponentScore
         gameOverVC.finalResult = finalResult*/
         
+        updatePlayerStats(for: finalResult)
+        
         //navigationController?.pushViewController(gameOverVC, animated: true)
     }
 }
 
+private extension GameViewController {
+    func updatePlayerStats(for finalResult: GameResult) {
+        switch finalResult {
+        case .win:
+            player?.wins += 1
+            opponent?.losses += 1
+        case .lose:
+            player?.losses += 1
+            opponent?.wins += 1
+        }
+        
+        if let player {
+            GameStats.shared.savePlayerData(for: player)
+        }
+        
+        if let opponent {
+            GameStats.shared.savePlayerData(for: opponent)
+        }
+    }
+}
