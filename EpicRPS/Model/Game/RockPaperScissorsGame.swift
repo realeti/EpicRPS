@@ -23,13 +23,11 @@ class RockPaperScissorsGame {
     // MARK: - Play Game
     
     func play(playerSymbol: GameSymbol, opponentSymbol: GameSymbol) -> GameRoundResult {
-        guard !isGameEnded else { return .gameEnded}
-        
         if playerSymbol == opponentSymbol {
             return .draw
         }
         
-        let result: GameRoundResult
+        var result: GameRoundResult
         
         switch (playerSymbol, opponentSymbol) {
         case (.rock, .scissors), (.paper, .rock), (.scissors, .paper):

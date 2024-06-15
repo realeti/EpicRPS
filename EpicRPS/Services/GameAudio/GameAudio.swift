@@ -26,6 +26,8 @@ final class GameAudio: GameAudioProtocol {
     var selectSymbolMusicPlayer: AVAudioPlayer?
     var punchMusicPlayer: AVAudioPlayer?
     
+    private init() {}
+    
     // MARK: - Prepeare loadings
     
     func prepareLoadAudio() {
