@@ -138,7 +138,6 @@ final class LeaderboardViewController: UIViewController {
     // MARK: - Actions
     @objc private func avatarButtonPressed() {
         let avatarVC = AvatarViewController()
-        avatarVC.modalPresentationStyle = .pageSheet
         present(avatarVC, animated: true)
     }
     
