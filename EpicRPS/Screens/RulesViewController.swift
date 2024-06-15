@@ -296,7 +296,6 @@ extension RulesViewController {
             fifthView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             fifthUIlbel.centerXAnchor.constraint(equalTo: fifthView.centerXAnchor),
             fifthUIlbel.centerYAnchor.constraint(equalTo: fifthView.centerYAnchor),
-            fifthStackView.heightAnchor.constraint(equalToConstant: 70),
             
             
             
