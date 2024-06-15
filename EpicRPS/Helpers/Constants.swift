@@ -23,6 +23,10 @@ struct K {
     
     static let maxWins = 3
     static let maxRoundTime: Float = 30.0
+    static let gameTitle = "Игра"
+    static let gameFight = "FIGHT!"
+    static let gamePause = "PAUSE"
+    static let gameDraw = "DRAW"
     
     // MARK: - Game Storage
     
