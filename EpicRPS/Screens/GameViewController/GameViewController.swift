@@ -105,7 +105,14 @@ final class GameViewController: UIViewController {
     }
     
     private func playBackgroundMusic() {
-        GameAudio.shared.playBackgroundMusic1()
+        let currentMusic = GameSettings.shared.backgroundMusic
+        
+        switch currentMusic {
+        case K.Sounds.background2:
+            GameAudio.shared.playBackgroundMusic2()
+        default:
+            GameAudio.shared.playBackgroundMusic1()
+        }
     }
     
     private func playSelectSymbolSound() {
