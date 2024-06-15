@@ -46,13 +46,14 @@ struct K {
     enum TimerProgress {
         static let heightTimerProgress: CGFloat = 10
         static let widthTimerProgress: CGFloat = 166
-        static let leadingTimerProgress: CGFloat = 48
+        static let leadingTimerProgress: CGFloat = 48.25
     }
     
     enum TimerLabel {
         static let sizeTimerLabel: CGFloat = 12
-        static let leadingOffsetTimerLabel: CGFloat = 22
+        static let leadingOffsetTimerLabel: CGFloat = 20
         static let topOffsetTimerLabel: CGFloat = 85
+        static let widthTimerLabel: CGFloat = 30
     }
     
     enum ScoreProgress {

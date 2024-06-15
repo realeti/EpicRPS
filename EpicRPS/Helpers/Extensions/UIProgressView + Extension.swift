@@ -13,4 +13,10 @@ extension UIProgressView {
         self.progressTintColor = progressColor
         self.trackTintColor = trackColor
     }
+    
+    convenience init(timerProgressColor: UIColor, timerTrackColor: UIColor = K.Colors.green) {
+        self.init()
+        self.progressTintColor = timerProgressColor
+        self.trackTintColor = timerTrackColor
+    }
 }

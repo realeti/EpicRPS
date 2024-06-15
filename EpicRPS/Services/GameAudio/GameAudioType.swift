@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum GameAudioType: String {
-    case wav = "wav"
-    case mp3 = "mp3"
+enum GameAudioType {
+    case wav
+    case mp3
     
     var `extension`: String {
         switch self {
