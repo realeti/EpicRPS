@@ -14,6 +14,8 @@ final class RoundTimer {
     private var totalProgressTime = 30
     private var progressTime: Float = 0
     
+    weak var delegate: TimerProtocol?
+    
     func startTimer(label: UILabel, progress: UIProgressView) {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
             guard let self else { return }
@@ -26,6 +28,7 @@ final class RoundTimer {
            
             if roundDuration <= 0 {
                 timer?.invalidate()
+                delegate?.timerDidEnded()
                 timer = nil
                 progressTime = 0
             }
