@@ -96,7 +96,10 @@ final class GameViewController: UIViewController {
         }
         
         let result = game.play(playerSymbol: playerSymbol, opponentSymbol: opponentSymbol)
-        print(game.playerScore, game.opponentScore, "\(result)")
+        
+        if result == .draw {
+            showDrawLabel()
+        }
         updateGameProgress(result: result)
     }
         
@@ -150,6 +153,39 @@ final class GameViewController: UIViewController {
             )
         }) { _ in
             UIView.animate(withDuration: 0.25, delay: 1) { [weak self] in
+                guard let self else { return }
+                gameView.gameStatusLabel.alpha = 0
+                gameView.gameStatusLabel.transform = CGAffineTransform(
+                    scaleX: 0.5,
+                    y: 0.5
+                )
+            } completion: { [weak self] _ in
+                guard let self else { return }
+                toggleEnableRpsButtons()
+                gameView.gameStatusLabel.transform = CGAffineTransform(
+                    scaleX: 1,
+                    y: 1
+                )
+            }
+
+        }
+    }
+    
+    /// Показываем лейбл "DRAW"
+    private func showDrawLabel() {
+        gameView.gameStatusLabel.text = "DRAW"
+        UIView.animate(withDuration: 0.25,
+                       delay: 0,
+                       animations: {
+            [weak self] in
+            guard let self else { return }
+            gameView.gameStatusLabel.alpha = 1
+            gameView.gameStatusLabel.transform = CGAffineTransform(
+                scaleX: 1.25,
+                y: 1.25
+            )
+        }) { _ in
+            UIView.animate(withDuration: 0.25, delay: 0.5) { [weak self] in
                 guard let self else { return }
                 gameView.gameStatusLabel.alpha = 0
                 gameView.gameStatusLabel.transform = CGAffineTransform(
