@@ -7,7 +7,7 @@
 
 import AVFoundation
 
-protocol GameAudioProtocol: AnyObject {
+protocol GameAudioProtocol {
     var backgroundMusicPlayer1: AVAudioPlayer? { get }
     var backgroundMusicPlayer2: AVAudioPlayer? { get }
     var selectSymbolMusicPlayer: AVAudioPlayer? { get }
