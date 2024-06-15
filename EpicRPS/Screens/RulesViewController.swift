@@ -13,7 +13,7 @@ import SwiftUI
 class RulesViewController: UIViewController {
     
    
-    
+
     private lazy var mainStackView: UIStackView = {
         let element = UIStackView()
         element.axis = .vertical
@@ -109,14 +109,11 @@ class RulesViewController: UIViewController {
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
-    var colorTextfifthUilabel: String = ""
     
-    // colorTextfifthUilabel
+    
+    
 
-    private lazy var fifthTextUIlabel = UILabel (textUilabel: "За каждую победу игрок получает 500 баллов, которые можно посмотреть на доске лидеров. ")
-   
-  
-
+    private lazy var fifthTextUIlabel = UILabel (textUilabel: "За каждую победу игрок получает 500 баллов, которые можно посмотреть на доске лидеров.")
   
     
     
@@ -171,12 +168,14 @@ class RulesViewController: UIViewController {
 }
 
 
-// MARK: - Setup UI
+//MARK: - Serup UI
 
 extension RulesViewController {
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(mainStackView)
+     
+        
         
         navigationItem.titleView = rulesLabel
         navigationController?.navigationBar.tintColor = K.Colors.gray
@@ -291,17 +290,20 @@ extension RulesViewController {
             fourthUIlbel.centerXAnchor.constraint(equalTo: fourthView.centerXAnchor),
             fourthUIlbel.centerYAnchor.constraint(equalTo: fourthView.centerYAnchor),
             
+            
             fifthView.heightAnchor.constraint(equalToConstant: 29),
             fifthView.widthAnchor.constraint(equalToConstant: 29),
-            fifthView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
+            fifthView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
             fifthUIlbel.centerXAnchor.constraint(equalTo: fifthView.centerXAnchor),
             fifthUIlbel.centerYAnchor.constraint(equalTo: fifthView.centerYAnchor),
-            fifthStackView.heightAnchor.constraint(equalToConstant: 70),
+<<<<<<< HEAD
+=======
             
             
             
             
             
+>>>>>>> 08bae60d1810aaa0df3c41e1296c3b89bfa4e7bb
             
         ])
         
@@ -328,7 +330,7 @@ extension UIStackView {
         self.axis = .horizontal
         self.spacing = 20
         self.alignment = .center
-//        self.backgroundColor = .red
+    //self.backgroundColor = .red
         self.translatesAutoresizingMaskIntoConstraints = false
         
     }
@@ -339,7 +341,7 @@ extension UILabel {
         self.init()
         self.text = "\(textUilabel)"
         self.numberOfLines = 4
-        //self.backgroundColor = .white
+        //self.backgroundColor = .red
         self.attributedText = NSMutableAttributedString(string: textUilabel)
         self.font = UIFont(name: "Rubik", size: 16)
         self.textAlignment = .left
@@ -387,4 +389,3 @@ struct ViewControllerProvider1: PreviewProvider {
       
     }
 }
-

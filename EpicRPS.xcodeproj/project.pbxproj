@@ -45,6 +45,7 @@
 		FAAF47BF2C19B89C000CC955 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAF47BD2C19B89C000CC955 /* Rubik-Medium.ttf */; };
 		FAAF47C02C19B89C000CC955 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAF47BE2C19B89C000CC955 /* Rubik-Bold.ttf */; };
 		FCD86E4E2C1A297900F681C2 /* dela-gothic-one-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCD86E4D2C1A297900F681C2 /* dela-gothic-one-regular.ttf */; };
+		FCDF5BF22C1DB6D000157705 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF5BF12C1DB6D000157705 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		FAAF47BD2C19B89C000CC955 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		FAAF47BE2C19B89C000CC955 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		FCD86E4D2C1A297900F681C2 /* dela-gothic-one-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dela-gothic-one-regular.ttf"; sourceTree = "<group>"; };
+		FCDF5BF12C1DB6D000157705 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				DD9E1ECE2C1A190100BC9694 /* MainViewController */,
 				FA1ECFA02C1AF80C0037A620 /* GameViewController */,
 				C68679AB2C176A7800F40860 /* RulesViewController.swift */,
+				FCDF5BF12C1DB6D000157705 /* SettingsViewController.swift */,
 				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
 				BF5126142C1B7EE8008B13B5 /* LoadViewController.swift */,
 			);
@@ -389,6 +392,7 @@
 				DD9E1ED32C1A1D8E00BC9694 /* ResultViewController.swift in Sources */,
 				C6AD1E482C18DCFB003E5C92 /* TimerProtocol.swift in Sources */,
 				C6F58BB12C1B735C009D4944 /* GameAudio.swift in Sources */,
+				FCDF5BF22C1DB6D000157705 /* SettingsViewController.swift in Sources */,
 				C6F58BB42C1B7391009D4944 /* GameAudioType.swift in Sources */,
 				C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */,
 				C631BE402C165CAD00A0D736 /* Constants.swift in Sources */,

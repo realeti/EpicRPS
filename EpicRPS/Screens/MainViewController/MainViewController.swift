@@ -33,9 +33,11 @@ class MainViewController: UIViewController {
         view.backgroundColor = UIColor(resource: .snow)
         navigationItem.rightBarButtonItem = rulesButton
         navigationItem.leftBarButtonItem = settingsButton
+        navigationItem.backButtonTitle = ""
         settingsButton.tintColor = .black
         
         mainView.startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
+        mainView.resultButton.addTarget(self, action: #selector(resultButtonPressed), for: .touchUpInside)
     }
     
     //MARK: - Objc func
@@ -45,12 +47,17 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(loadGameVC, animated: true)
     }
     
+    @objc func resultButtonPressed() {
+        let leaderboardVC = LeaderboardViewController()
+        navigationController?.pushViewController(leaderboardVC, animated: true)
+    }
+    
     @objc func rulesButtonPressed(_ sender: UIButton) {
         let rulesVC = RulesViewController()
         self.navigationController?.pushViewController(rulesVC, animated: true)
     }
     
     @objc func settingsButtonPressed(_ sender: UIButton) {
-        print("press press")
+        print("press settings")
     }
 }

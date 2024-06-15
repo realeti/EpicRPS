@@ -21,7 +21,12 @@ final class GameViewController: UIViewController {
     private var gameView: GameView!
     private let timer = RoundTimer()
     private let game = RockPaperScissorsGame()
-    //private var player: Player?
+    private var scoreProgressPlayer = Float(0)
+    private var scoreProgressOponnent = Float(0)
+    
+    // MARK: - Public properties
+    var player: PlayerProtocol?
+    var opponent: PlayerProtocol?
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -34,9 +39,10 @@ final class GameViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupDelegates()
-        //createPlayer()
         toggleEnableRpsButtons()
         timer.startTimer(label: gameView.timerLabel, progress: gameView.timerProgress)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: gameView.navigationBackButton)
     }
     
     override func viewWillLayoutSubviews() {
@@ -46,7 +52,7 @@ final class GameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //playBackgroundMusic()
+        playBackgroundMusic()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,7 +98,22 @@ final class GameViewController: UIViewController {
         }
         
         let result = game.play(playerSymbol: playerSymbol, opponentSymbol: opponentSymbol)
-        print(game.playerScore, game.opponentScore, "\(result)")
+        
+        if result == .draw {
+            showDrawLabel()
+        }
+        updateGameProgress(result: result)
+    }
+        
+    private func updateGameProgress(result: GameRoundResult) {
+        switch result {
+        case .win:
+            updatePlayerProgress()
+        case .lose:
+            updateOpponentProgress()
+        case .draw:
+            break
+        }
     }
     
     /// Включает/выключает доступность RPS-кнопок (Rock, Paper, Scissors) после нажатия
@@ -102,12 +123,32 @@ final class GameViewController: UIViewController {
         gameView.scissorsButton.isUserInteractionEnabled.toggle()
     }
     
+    /// Воспроизведение фоновой мелодии
     private func playBackgroundMusic() {
-        GameAudio.shared.playBackgroundMusic()
+        let currentMusic = GameSettings.shared.backgroundMusic
+        
+        switch currentMusic {
+        case K.Sounds.background2:
+            GameAudio.shared.playBackgroundMusic2()
+        default:
+            GameAudio.shared.playBackgroundMusic1()
+        }
     }
     
+    /// Воспроизведение звука по нажатию RPS-кнопок
     private func playSelectSymbolSound() {
         GameAudio.shared.playSelectSymbolMusic()
+    }
+    
+    private func restartTimer() {
+        timer.resetTimer(
+            label: gameView.timerLabel,
+            progress: gameView.timerProgress
+        )
+        timer.startTimer(
+            label: gameView.timerLabel,
+            progress: gameView.timerProgress
+        )
     }
     
     // MARK: - Animations
@@ -143,12 +184,45 @@ final class GameViewController: UIViewController {
         }
     }
     
+    /// Показываем лейбл "DRAW"
+    private func showDrawLabel() {
+        gameView.gameStatusLabel.text = K.gameDraw
+        UIView.animate(withDuration: 0.25,
+                       delay: 0,
+                       animations: {
+            [weak self] in
+            guard let self else { return }
+            gameView.gameStatusLabel.alpha = 1
+            gameView.gameStatusLabel.transform = CGAffineTransform(
+                scaleX: 1.25,
+                y: 1.25
+            )
+        }) { _ in
+            UIView.animate(withDuration: 0.25, delay: 0.5) { [weak self] in
+                guard let self else { return }
+                gameView.gameStatusLabel.alpha = 0
+                gameView.gameStatusLabel.transform = CGAffineTransform(
+                    scaleX: 0.5,
+                    y: 0.5
+                )
+            } completion: { [weak self] _ in
+                guard let self else { return }
+                toggleEnableRpsButtons()
+                gameView.gameStatusLabel.transform = CGAffineTransform(
+                    scaleX: 1,
+                    y: 1
+                )
+            }
+
+        }
+    }
+    
     /// Анимация лейбла "Pause" при нажатии на кнопку паузы
     private func pauseLabelAnimate() {
         if gameView.gameStatusLabel.alpha == 0 {
             UIView.animate(withDuration: 0.25) { [weak self] in
                 guard let self else { return }
-                gameView.gameStatusLabel.text = "PAUSE"
+                gameView.gameStatusLabel.text = K.gamePause
                 gameView.gameStatusLabel.alpha = 1
             }
         } else {
@@ -213,14 +287,12 @@ final class GameViewController: UIViewController {
             toggleEnableRpsButtons()
         }
         
-        timer.resetTimer(
-            label: gameView.timerLabel,
-            progress: gameView.timerProgress
-        )
-        timer.startTimer(
-            label: gameView.timerLabel,
-            progress: gameView.timerProgress
-        )
+        restartTimer()
+    }
+    
+    /// Действие по клику на кнопку Назад в leftBarButtonItem
+    @objc private func backButtonPressed(_ sender: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -228,25 +300,24 @@ final class GameViewController: UIViewController {
 private extension GameViewController {
     func setupUI() {
         gameView.playerAvatar.image = K.GamerAvatar.Image.player
-        gameView.playerScoreProgress.progress = 0.66
         
         gameView.opponentAvatar.image = K.GamerAvatar.Image.opponent
-        gameView.opponentScoreProgress.progress = 0.33
         
         gameView.playerHand.image = K.Hands.Player.start
         gameView.opponentHand.image = K.Hands.Opponent.start
         
-        gameView.gameStatusLabel.text = "FIGHT!"
+        gameView.gameStatusLabel.text = K.gameFight
         gameView.gameStatusLabel.alpha = 0
         
-        gameView.timerLabel.text = "0:" + timer.roundDuration.description
+        gameView.timerLabel.text = "0:" + Int(timer.roundDuration).description
         
         gameView.rockButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         gameView.paperButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         gameView.scissorsButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
+        gameView.navigationBackButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
         
         navigationController?.navigationBar.tintColor = K.Colors.gray
-        gameView.navigationTitleLabel.text = "Игра"
+        gameView.navigationTitleLabel.text = K.gameTitle
         navigationItem.titleView = gameView.navigationTitleLabel
         navigationItem.rightBarButtonItem = gameView.pauseButton
         
@@ -266,27 +337,63 @@ private extension GameViewController {
 extension GameViewController: TimerProtocol {
     func timerDidEnded() {
         game.roundTimeout()
+        updateOpponentProgress()
+        restartTimer()
     }
 }
 
 extension GameViewController: GameOverProtocol {
     func gameDidEnd(_ playerScore: Int, _ opponentScore: Int, _ finalResult: GameResult) {
-        print("Game Over (\(finalResult))")
-        /// Method #1
-
-        /*let gameOverVC = GameOverViewController(
-            playerScore: playerScore,
-            opponentScore: opponentScore,
-            finalResult: finalResult
-        )*/
+        let resultVC = ResultViewController()
+        resultVC.playerScore = playerScore
+        resultVC.opponentScore = opponentScore
+        resultVC.finalResult = finalResult
+        resultVC.playerAvatar = player?.avatar
+        resultVC.opponentAvatar = opponent?.avatar
         
-        /// Method #2
+        updatePlayerStats(for: finalResult)
+        navigationController?.pushViewController(resultVC, animated: true)
+    }
+}
 
-        /*let gameOverVC = GameOverViewController()
-        gameOverVC.playerScore = playerScore
-        gameOverVC.opponentScore = opponentScore
-        gameOverVC.finalResult = finalResult*/
+// MARK: - Update Player stats
+private extension GameViewController {
+    func updatePlayerStats(for finalResult: GameResult) {
+        switch finalResult {
+        case .win:
+            player?.wins += 1
+            opponent?.losses += 1
+        case .lose:
+            player?.losses += 1
+            opponent?.wins += 1
+        }
         
-        //navigationController?.pushViewController(gameOverVC, animated: true)
+        if let player {
+            GameStats.shared.savePlayerData(for: player)
+        }
+        
+        if let opponent {
+            GameStats.shared.savePlayerData(for: opponent)
+        }
+    }
+}
+
+// MARK: - Update Players progress
+extension GameViewController: ProgressProtocol {
+    func updatePlayerProgress() {
+        scoreProgressPlayer += 1
+        let percentProgress = scoreProgressPlayer/Float(3)
+        gameView.playerScoreProgress.setProgress(percentProgress, animated: true)
+    }
+    
+    func updateOpponentProgress() {
+        scoreProgressOponnent += 1
+        let percentProgress = scoreProgressOponnent/Float(3)
+        gameView.opponentScoreProgress.setProgress(percentProgress, animated: true)
+    }
+    
+    func resetProgress() {
+        gameView.playerScoreProgress.progress = 0
+        gameView.opponentScoreProgress.progress = 0
     }
 }

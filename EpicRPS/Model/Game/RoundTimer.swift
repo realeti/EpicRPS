@@ -10,8 +10,8 @@ import UIKit
 final class RoundTimer {
     var timer: Timer?
     var isPaused = false
-    var roundDuration = 30
-    private var totalProgressTime = 30
+    var roundDuration = GameSettings.shared.roundTimeInSeconds
+    private var totalProgressTime = GameSettings.shared.roundTimeInSeconds
     private var progressTime: Float = 0
     
     weak var delegate: TimerProtocol?
@@ -20,7 +20,7 @@ final class RoundTimer {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
             guard let self else { return }
             roundDuration -= 1
-            label.text = "0:\(roundDuration)"
+            label.text = "0:\(Int(roundDuration))"
             
             progressTime += 1
             let percentageProgress = progressTime / Float(totalProgressTime)
@@ -28,18 +28,19 @@ final class RoundTimer {
            
             if roundDuration <= 0 {
                 timer?.invalidate()
-                delegate?.timerDidEnded()
                 timer = nil
                 progressTime = 0
+                delegate?.timerDidEnded()
             }
+            
         })
     }
     
     func resetTimer(label: UILabel, progress: UIProgressView) {
         timer?.invalidate()
-        roundDuration = 30
+        roundDuration = GameSettings.shared.roundTimeInSeconds
         progressTime = 0
-        label.text = "0:" + roundDuration.description
+        label.text = "0:" + Int(roundDuration).description
         progress.progress = 0
     }
 }
