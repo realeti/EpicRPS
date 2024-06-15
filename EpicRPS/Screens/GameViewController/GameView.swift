@@ -18,6 +18,12 @@ final class GameView: UIView {
         return element
     }()
     
+    lazy var navigationBackButton: UIButton = {
+        let element = UIButton(type: .system)
+        element.setBackgroundImage(.backButton, for: .normal)
+        return element
+    }()
+    
     lazy var navigationTitleLabel: UILabel = {
         let element = UILabel()
         element.textColor = K.Colors.gray

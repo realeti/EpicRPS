@@ -146,7 +146,6 @@ extension LeaderboardViewController: UITableViewDataSource {
             withIdentifier: TableCell.description(),
             for: indexPath
         ) as? TableCell else {
-            print("return default cell")
             return UITableViewCell()
         }
         let modelItem = mockData[indexPath.row]

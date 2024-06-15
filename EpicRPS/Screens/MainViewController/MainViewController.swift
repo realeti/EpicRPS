@@ -58,6 +58,6 @@ class MainViewController: UIViewController {
     }
     
     @objc func settingsButtonPressed(_ sender: UIButton) {
-        print("press press")
+        print("press settings")
     }
 }

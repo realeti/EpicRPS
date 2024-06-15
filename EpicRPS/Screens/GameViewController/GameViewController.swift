@@ -41,6 +41,8 @@ final class GameViewController: UIViewController {
         setupDelegates()
         toggleEnableRpsButtons()
         timer.startTimer(label: gameView.timerLabel, progress: gameView.timerProgress)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: gameView.navigationBackButton)
     }
     
     override func viewWillLayoutSubviews() {
@@ -283,6 +285,11 @@ final class GameViewController: UIViewController {
             progress: gameView.timerProgress
         )
     }
+    
+    /// Действие по клику на кнопку Назад в leftBarButtonItem
+    @objc private func backButtonPressed(_ sender: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
+    }
 }
 
 // MARK: - Setup UI
@@ -303,6 +310,7 @@ private extension GameViewController {
         gameView.rockButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         gameView.paperButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
         gameView.scissorsButton.addTarget(self, action: #selector(rpsButtonPressed), for: .touchUpInside)
+        gameView.navigationBackButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
         
         navigationController?.navigationBar.tintColor = K.Colors.gray
         gameView.navigationTitleLabel.text = "Игра"
@@ -330,21 +338,15 @@ extension GameViewController: TimerProtocol {
 
 extension GameViewController: GameOverProtocol {
     func gameDidEnd(_ playerScore: Int, _ opponentScore: Int, _ finalResult: GameResult) {
-   //     print("Game Over (\(finalResult))")
-
-        let gameOverVC = ResultViewController()
-        gameOverVC.playerScore = playerScore
-        gameOverVC.opponentScore = opponentScore
-        gameOverVC.finalResult = finalResult
-        gameOverVC.playerAvatar = player?.avatar
-        gameOverVC.opponentAvatar = opponent?.avatar
-        
-        print(playerScore)
-        print(opponentScore)
+        let resultVC = ResultViewController()
+        resultVC.playerScore = playerScore
+        resultVC.opponentScore = opponentScore
+        resultVC.finalResult = finalResult
+        resultVC.playerAvatar = player?.avatar
+        resultVC.opponentAvatar = opponent?.avatar
         
         updatePlayerStats(for: finalResult)
-        
-        navigationController?.pushViewController(gameOverVC, animated: true)
+        navigationController?.pushViewController(resultVC, animated: true)
     }
 }
 
@@ -372,14 +374,12 @@ extension GameViewController: ProgressProtocol {
     func updatePlayerProgress() {
         scoreProgressPlayer += 1
         let percentProgress = scoreProgressPlayer/Float(3)
-        print("percentProgressPlayer+\(percentProgress)")
         gameView.playerScoreProgress.setProgress(percentProgress, animated: true)
     }
     
     func updateOpponentProgress() {
         scoreProgressOponnent += 1
         let percentProgress = scoreProgressOponnent/Float(3)
-        print("percentProgressOponnent+\(percentProgress)")
         gameView.opponentScoreProgress.setProgress(percentProgress, animated: true)
     }
     
