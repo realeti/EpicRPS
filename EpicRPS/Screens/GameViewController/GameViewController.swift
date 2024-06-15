@@ -21,6 +21,8 @@ final class GameViewController: UIViewController {
     private var gameView: GameView!
     private let timer = RoundTimer()
     private let game = RockPaperScissorsGame()
+    private var scoreProgressPlayer = Float(0)
+    private var scoreProgressOponnent = Float(0)
     
     // MARK: - Public properties
     var player: PlayerProtocol?
@@ -95,7 +97,19 @@ final class GameViewController: UIViewController {
         
         let result = game.play(playerSymbol: playerSymbol, opponentSymbol: opponentSymbol)
         print(game.playerScore, game.opponentScore, "\(result)")
+        updateGameProgress(result: result)
     }
+        
+    private func updateGameProgress(result: GameRoundResult) {
+            switch result {
+            case .win:
+                updatePlayerProgress()
+            case .lose:
+                updateOpponentProgress()
+            case .draw:
+                break
+            }
+        }
     
     /// Включает/выключает доступность RPS-кнопок (Rock, Paper, Scissors) после нажатия
     private func toggleEnableRpsButtons() {
@@ -239,10 +253,8 @@ final class GameViewController: UIViewController {
 private extension GameViewController {
     func setupUI() {
         gameView.playerAvatar.image = K.GamerAvatar.Image.player
-        gameView.playerScoreProgress.progress = 0.66
         
         gameView.opponentAvatar.image = K.GamerAvatar.Image.opponent
-        gameView.opponentScoreProgress.progress = 0.33
         
         gameView.playerHand.image = K.Hands.Player.start
         gameView.opponentHand.image = K.Hands.Opponent.start
@@ -323,4 +335,26 @@ private extension GameViewController {
             GameStats.shared.savePlayerData(for: opponent)
         }
     }
+}
+extension GameViewController: ProgressProtocol {
+    func updatePlayerProgress() {
+        scoreProgressPlayer += 1
+        let percentProgress = scoreProgressPlayer/Float(3)
+        print("percentProgressPlayer+\(percentProgress)")
+        gameView.playerScoreProgress.setProgress(percentProgress, animated: true)
+    }
+    
+    func updateOpponentProgress() {
+        scoreProgressOponnent += 1
+        let percentProgress = scoreProgressOponnent/Float(3)
+        print("percentProgressOponnent+\(percentProgress)")
+        gameView.opponentScoreProgress.setProgress(percentProgress, animated: true)
+    }
+    
+    func resetProgress() {
+        gameView.playerScoreProgress.progress = 0
+        gameView.opponentScoreProgress.progress = 0
+    }
+    
+    
 }

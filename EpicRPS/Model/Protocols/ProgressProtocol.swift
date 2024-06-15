@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol ProgressProtocol: AnyObject {
-    func updatePlayerProgress(_ progress: Float)
-    func updateOpponentProgress(_ progress: Float)
+protocol ProgressProtocol {
+    func updatePlayerProgress()
+    func updateOpponentProgress()
     func resetProgress()
 }
