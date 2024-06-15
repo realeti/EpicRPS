@@ -29,6 +29,11 @@ struct K {
     static let defaultPlayerName = "Player"
     static let defaultOpponentName = "Ryan Gosling"
     
+    // MARK: - Player avatars
+    
+    static let defaultPlayerAvatar = "player"
+    static let defaultOpponentAvatar = "opponent"
+    
     // MARK: - Game Sounds
     
     enum Sounds {

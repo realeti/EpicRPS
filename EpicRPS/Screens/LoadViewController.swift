@@ -65,9 +65,15 @@ class LoadViewController: UIViewController {
         stackView.axis = .vertical
         return stackView
     }()
+    
+    // MARK: - Private properties
+    private var player: PlayerProtocol?
+    private var opponent: PlayerProtocol?
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPlayers()
         setupUI()
         setupConstraints()
         startTimer()
@@ -95,21 +101,30 @@ private extension LoadViewController {
         oponentStackView.addSubview(opponentLosesLabel)
         verticalStackView.addSubview(getReadyLabel)
         
-        playerImage.image = .player
-        opponentImage.image = .opponent
-        playerVictoriesLabel.text = "10 Victories/"
-        playerVictoriesLabel.textColor = .white
-        playerVictoriesLabel.setSubTextColor(pSubString: "10", pColor: .yellowRPS)
-        playerLosesLabel.text = "2 Lose"
-        playerLosesLabel.textColor = .white
-        playerLosesLabel.setSubTextColor(pSubString: "2", pColor: .red)
+        let playerWins = player?.wins ?? 0
+        let playerLosses = player?.losses ?? 0
         
-        opponentVictoriesLabel.text = "21 Victories/"
+        let playerAvatarName = player?.avatar ?? K.defaultPlayerAvatar
+        let opponentAvatarName = player?.avatar ?? K.defaultOpponentAvatar
+        
+        let opponentWins = opponent?.wins ?? 0
+        let opponentsLosses = opponent?.losses ?? 0
+        
+        playerImage.image = UIImage(named: playerAvatarName)
+        opponentImage.image = UIImage(named: opponentAvatarName)
+        playerVictoriesLabel.text = "\(playerWins) Victories/"
+        playerVictoriesLabel.textColor = .white
+        playerVictoriesLabel.setSubTextColor(pSubString: "\(playerWins)", pColor: .yellowRPS)
+        playerLosesLabel.text = "\(playerLosses) Lose"
+        playerLosesLabel.textColor = .white
+        playerLosesLabel.setSubTextColor(pSubString: "\(playerLosses)", pColor: .red)
+        
+        opponentVictoriesLabel.text = "\(opponentWins) Victories/"
         opponentVictoriesLabel.textColor = .white
-        opponentVictoriesLabel.setSubTextColor(pSubString: "21", pColor: .yellowRPS)
-        opponentLosesLabel.text = "3 Lose"
+        opponentVictoriesLabel.setSubTextColor(pSubString: "\(opponentWins)", pColor: .yellowRPS)
+        opponentLosesLabel.text = "\(opponentsLosses) Lose"
         opponentLosesLabel.textColor = .white
-        opponentLosesLabel.setSubTextColor(pSubString: "3", pColor: .red)
+        opponentLosesLabel.setSubTextColor(pSubString: "\(opponentsLosses)", pColor: .red)
         
         playerVictoriesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
         playerLosesLabel.font = .init(name: K.fontBold700, size: K.playerLabelFontSize)
@@ -170,6 +185,17 @@ private extension LoadViewController {
             $0.bottom.equalToSuperview().inset(30)
             $0.centerX.equalToSuperview()
         }
+    }
+}
+
+// MARK: - Setup Players
+private extension LoadViewController {
+    func setupPlayers() {
+        let playerName = GameStats.shared.playerName
+        let opponentName = GameStats.shared.opponentName
+        
+        player = GameStats.shared.loadPlayerData(playerName)
+        opponent = GameStats.shared.loadPlayerData(opponentName)
     }
 }
 
