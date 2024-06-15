@@ -12,9 +12,9 @@ class RockPaperScissorsGame {
     // MARK: - Game Properties
     
     var maxWins = K.maxWins
-    
     var playerScore = 0
     var opponentScore = 0
+    var isGameEnded = false
     
     // MARK: - Game delegates
     
@@ -23,11 +23,13 @@ class RockPaperScissorsGame {
     // MARK: - Play Game
     
     func play(playerSymbol: GameSymbol, opponentSymbol: GameSymbol) -> GameRoundResult {
-        let result: GameRoundResult
+        guard !isGameEnded else { return .gameEnded}
         
         if playerSymbol == opponentSymbol {
             return .draw
         }
+        
+        let result: GameRoundResult
         
         switch (playerSymbol, opponentSymbol) {
         case (.rock, .scissors), (.paper, .rock), (.scissors, .paper):
@@ -43,6 +45,8 @@ class RockPaperScissorsGame {
     }
     
     func roundTimeout() {
+        guard !isGameEnded else { return }
+        
         opponentScore += 1
         checkPlayersScore()
     }
@@ -57,6 +61,8 @@ class RockPaperScissorsGame {
     
     private func endGame() {
         let finalResult = getResult()
+        isGameEnded = true
+        
         delegate?.gameDidEnd(playerScore, opponentScore, finalResult)
         resetGame()
     }
@@ -68,5 +74,6 @@ class RockPaperScissorsGame {
     private func resetGame() {
         playerScore = 0
         opponentScore = 0
+        isGameEnded = false
     }
 }

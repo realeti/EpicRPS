@@ -16,4 +16,5 @@ enum GameRoundResult {
     case win
     case lose
     case draw
+    case gameEnded
 }
