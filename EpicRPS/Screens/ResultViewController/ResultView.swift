@@ -10,13 +10,9 @@ import SnapKit
 
 class ResultView: UIView {
     
-    var winCoin: Int = 0
-    var loseCoin: Int = 0
-    
     lazy var backgroundView: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .brown
-        view.image = UIImage(resource: .backgroundLose)
         view.isUserInteractionEnabled = true
         return view
     }()
@@ -29,29 +25,26 @@ class ResultView: UIView {
         return stack
     }()
     
-    lazy var switchOn: UISwitch = {
-        let switchOn = UISwitch()
-        switchOn.isOn = false
-        switchOn.onTintColor = .green
-        
-        return switchOn
-    }()
-    
     //MARK: - Stack Image and text
     
     lazy var roundedView: UIImageView = {
         let view = UIImageView()
         view.clipsToBounds = true
-        view.image = UIImage(resource: .loseYou)
+        view.image = UIImage(resource: .backgroundView)
         view.layer.cornerRadius = 90
         return view
+    }()
+    
+    lazy var avatarImageView: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
     }()
     
     lazy var loseOrWinLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "You Lose"
-        label.textColor = UIColor(red: 27/255, green: 18/255, blue: 46/255, alpha: 1.0)
         label.font = UIFont(name: "Rubik-Medium", size: 21)
         return label
     }()
@@ -68,7 +61,6 @@ class ResultView: UIView {
     
     lazy var countLabel: UILabel = {
         let label = UILabel()
-        label.text = "\(winCoin) - \(loseCoin)"
         label.textColor = .white
         label.font = UIFont(name: "Rubik", size: 41)
         return label
@@ -101,6 +93,7 @@ class ResultView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        
         setupViews()
         
         setupUI()
@@ -116,12 +109,12 @@ class ResultView: UIView {
         addSubview(backgroundView)
         
         backgroundView.addSubview(mainStack)
-        backgroundView.addSubview(switchOn)
         
         mainStack.addArrangedSubview(stackImageAndText)
         mainStack.addArrangedSubview(countLabel)
         mainStack.addArrangedSubview(stackButtons)
         
+        roundedView.addSubview(avatarImageView)
         stackImageAndText.addArrangedSubview(roundedView)
         stackImageAndText.addArrangedSubview(loseOrWinLabel)
         
@@ -135,12 +128,6 @@ class ResultView: UIView {
             
         }
         
-        switchOn.snp.makeConstraints { make in
-            make.top.equalTo(backgroundView.safeAreaLayoutGuide.snp.top)
-            make.centerX.equalTo(backgroundView.snp.centerX)
-            make.width.equalTo(80)
-        }
-        
         mainStack.snp.makeConstraints { make in
             make.width.equalTo(300)
             make.centerX.equalTo(backgroundView.snp.centerX)
@@ -148,6 +135,13 @@ class ResultView: UIView {
         }
         
         //MARK: - Setup Stack Image and Result
+        
+        avatarImageView.snp.makeConstraints { make in
+            make.centerX.equalTo(roundedView.snp.centerX)
+            make.centerY.equalTo(roundedView.snp.centerY)
+            make.width.equalTo(70)
+            make.height.equalTo(80)
+        }
         
         roundedView.snp.makeConstraints { make in
             make.width.height.equalTo(176)

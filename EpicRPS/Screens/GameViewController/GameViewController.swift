@@ -294,25 +294,21 @@ extension GameViewController: TimerProtocol {
 
 extension GameViewController: GameOverProtocol {
     func gameDidEnd(_ playerScore: Int, _ opponentScore: Int, _ finalResult: GameResult) {
-        print("Game Over (\(finalResult))")
-        /// Method #1
+   //     print("Game Over (\(finalResult))")
 
-        /*let gameOverVC = GameOverViewController(
-            playerScore: playerScore,
-            opponentScore: opponentScore,
-            finalResult: finalResult
-        )*/
-        
-        /// Method #2
-
-        /*let gameOverVC = GameOverViewController()
+        let gameOverVC = ResultViewController()
         gameOverVC.playerScore = playerScore
         gameOverVC.opponentScore = opponentScore
-        gameOverVC.finalResult = finalResult*/
+        gameOverVC.finalResult = finalResult
+        gameOverVC.playerAvatar = player?.avatar
+        gameOverVC.opponentAvatar = opponent?.avatar
+        
+        print(playerScore)
+        print(opponentScore)
         
         updatePlayerStats(for: finalResult)
         
-        //navigationController?.pushViewController(gameOverVC, animated: true)
+        navigationController?.pushViewController(gameOverVC, animated: true)
     }
 }
 
