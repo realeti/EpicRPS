@@ -7,7 +7,12 @@
 
 import Foundation
 
-final class GameSettings {
+protocol GameSettingsProtocol {
+    var roundTimeInSeconds: Float { get set }
+    var backgroundMusic: String { get set }
+}
+
+final class GameSettings: GameSettingsProtocol {
     // MARK: - Singleton Instance
     static let shared = GameSettings()
     
@@ -24,8 +29,10 @@ final class GameSettings {
     }
     
     private init() {}
-    
-    // MARK: - Round time
+}
+
+// MARK: - Load & save Round time
+extension GameSettings {
     var roundTimeInSeconds: Float {
         get {
             let roundTime = storage.float(forKey: gameTimeKey)
@@ -35,8 +42,10 @@ final class GameSettings {
             storage.set(newValue, forKey: gameTimeKey)
         }
     }
-    
-    // MARK: - Background music
+}
+
+// MARK: - Load & save Background music
+extension GameSettings {
     var backgroundMusic: String {
         get {
             return storage.string(forKey: backgroundMusicKey) ?? K.Sounds.background1

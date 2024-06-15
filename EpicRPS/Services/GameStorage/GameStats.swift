@@ -7,7 +7,16 @@
 
 import Foundation
 
-final class GameStats {
+protocol GameStatsProtocol {
+    var playerName: String { get set }
+    var opponentName: String { get set }
+    
+    func loadPlayerData(_ playerName: String) -> PlayerProtocol?
+    func savePlayerData(_ player: PlayerProtocol)
+    func loadAllPlayers() -> [PlayerProtocol]
+}
+
+final class GameStats: GameStatsProtocol {
     // MARK: - Singleton Instance
     static let shared = GameStats()
     
@@ -36,8 +45,10 @@ final class GameStats {
         case wins
         case losses
     }
-    
-    // MARK: - Local Player name
+}
+
+// MARK: - Load & save Player name
+extension GameStats {
     var playerName: String {
         get {
             return storage.string(forKey: playerNameKey) ?? K.defaultPlayerName
@@ -46,8 +57,10 @@ final class GameStats {
             storage.set(newName, forKey: playerNameKey)
         }
     }
-    
-    // MARK: - Local Opponent name
+}
+
+// MARK: - Load & save Opponent name
+extension GameStats {
     var opponentName: String {
         get {
             return storage.string(forKey: opponentNameKey) ?? K.defaultOpponentName
@@ -56,8 +69,10 @@ final class GameStats {
             storage.set(newName, forKey: opponentNameKey)
         }
     }
-    
-    // MARK: - Load Player data
+}
+
+// MARK: - Load Player data
+extension GameStats {
     func loadPlayerData(_ playerName: String) -> PlayerProtocol? {
         guard let playerData = storage.dictionary(forKey: playersKey)?[playerName] as? [String: Any] else {
             return nil
@@ -73,8 +88,10 @@ final class GameStats {
         let player = Player(name: name, avatar: avatar, wins: wins, losses: losses)
         return player
     }
-    
-    // MARK: - Save Player data
+}
+
+// MARK: - Save Player data
+extension GameStats {
     func savePlayerData(_ player: PlayerProtocol) {
         var playersDictionary = storage.dictionary(forKey: playersKey) as? [String: [String: Any]] ?? [:]
         
@@ -87,8 +104,10 @@ final class GameStats {
         
         storage.set(playersDictionary, forKey: playersKey)
     }
-    
-    // MARK: - Load all Players
+}
+
+// MARK: - Load all Players
+extension GameStats {
     func loadAllPlayers() -> [PlayerProtocol] {
         guard let playersDictionary = storage.dictionary(forKey: playersKey) as? [String: [String: Any]] else {
             return []
