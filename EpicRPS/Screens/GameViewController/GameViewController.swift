@@ -60,6 +60,11 @@ final class GameViewController: UIViewController {
         gameStatusLabelAnimate()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        GameAudio.shared.stopBackgroundMusic()
+    }
+    
     // MARK: - Private methods
     /// Поворачивает progressViews на +/– 90 градусов
     private func rotateProgressView() {
