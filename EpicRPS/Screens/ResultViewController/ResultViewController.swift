@@ -47,12 +47,11 @@ class ResultViewController: UIViewController {
     //MARK: - Obj-c functions
     
     @objc func goHome() {
-        navigationController?.pushViewController(MainViewController(), animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func restartGame() {
         navigationController?.pushViewController(LoadViewController(), animated: true)
-        navigationController?.navigationBar.isHidden = true
     }
     
     

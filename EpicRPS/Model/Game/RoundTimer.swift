@@ -28,9 +28,9 @@ final class RoundTimer {
            
             if roundDuration <= 0 {
                 timer?.invalidate()
-                delegate?.timerDidEnded()
                 timer = nil
                 progressTime = 0
+                delegate?.timerDidEnded()
             }
             
         })

@@ -23,7 +23,6 @@
 		C68679AC2C176A7800F40860 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68679AB2C176A7800F40860 /* RulesViewController.swift */; };
 		C68679B12C1773E100F40860 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C68679B02C1773E100F40860 /* Rubik-Regular.ttf */; };
 		C6AD1E412C18CF12003E5C92 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E402C18CF12003E5C92 /* Player.swift */; };
-		C6AD1E442C18DCD1003E5C92 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E432C18DCD1003E5C92 /* GameProtocol.swift */; };
 		C6AD1E462C18DCEA003E5C92 /* GameOverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E452C18DCEA003E5C92 /* GameOverProtocol.swift */; };
 		C6AD1E482C18DCFB003E5C92 /* TimerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E472C18DCFB003E5C92 /* TimerProtocol.swift */; };
 		C6AD1E4B2C18DD46003E5C92 /* GameSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD1E4A2C18DD46003E5C92 /* GameSymbol.swift */; };
@@ -73,7 +72,6 @@
 		C68679AB2C176A7800F40860 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		C68679B02C1773E100F40860 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		C6AD1E402C18CF12003E5C92 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		C6AD1E432C18DCD1003E5C92 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
 		C6AD1E452C18DCEA003E5C92 /* GameOverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverProtocol.swift; sourceTree = "<group>"; };
 		C6AD1E472C18DCFB003E5C92 /* TimerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProtocol.swift; sourceTree = "<group>"; };
 		C6AD1E4A2C18DD46003E5C92 /* GameSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSymbol.swift; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 		C6AD1E422C18DCC7003E5C92 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				C6AD1E432C18DCD1003E5C92 /* GameProtocol.swift */,
 				C6AD1E452C18DCEA003E5C92 /* GameOverProtocol.swift */,
 				C6AD1E472C18DCFB003E5C92 /* TimerProtocol.swift */,
 				C60668C02C18E4D60079CE1E /* ProgressProtocol.swift */,
@@ -412,7 +409,6 @@
 				C64800572C18BB0E00D25822 /* RockPaperScissorsGame.swift in Sources */,
 				C6AD1E4B2C18DD46003E5C92 /* GameSymbol.swift in Sources */,
 				FA1ECFA22C1B38B90037A620 /* RoundTimer.swift in Sources */,
-				C6AD1E442C18DCD1003E5C92 /* GameProtocol.swift in Sources */,
 				C6428EAE2C1D983B00080CD0 /* GameStats.swift in Sources */,
 				DD9E1ED52C1A1DB000BC9694 /* ResultView.swift in Sources */,
 				DD9E1ED02C1A190F00BC9694 /* MainView.swift in Sources */,

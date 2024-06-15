@@ -46,7 +46,7 @@ final class GameAudio: GameAudioProtocol {
             fileName: K.Sounds.background1,
             fileType: .wav,
             loops: -1,
-            volume: 0.65
+            volume: 0.6
         )
     }
     
@@ -55,7 +55,7 @@ final class GameAudio: GameAudioProtocol {
             fileName: K.Sounds.background2,
             fileType: .wav,
             loops: -1,
-            volume: 0.65
+            volume: 0.6
         )
     }
     
