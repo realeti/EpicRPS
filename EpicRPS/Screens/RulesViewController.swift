@@ -12,7 +12,7 @@ class RulesViewController: UIViewController {
         let element = UIStackView()
         element.axis = .vertical
         element.spacing = 10
-        element.distribution = .fillEqually
+        element.distribution = .fill
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
