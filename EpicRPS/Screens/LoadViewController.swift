@@ -198,7 +198,7 @@ private extension LoadViewController {
         let opponentName = GameStats.shared.opponentName
         
         player = GameStats.shared.loadPlayerData(playerName)
-        opponent = GameStats.shared.loadPlayerData(opponentName)
+        opponent = GameStats.shared.loadPlayerData(opponentName, isOpponent: true)
     }
 }
 

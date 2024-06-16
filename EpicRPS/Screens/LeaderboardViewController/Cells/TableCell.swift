@@ -109,12 +109,24 @@ final class TableCell: UITableViewCell {
         rateLabel.text = nil
     }
     
-    func configure(indexPath: IndexPath, modelItem: MockLeaderData) {
+    func configure(indexPath: IndexPath, modelItem: PlayerProtocol) {
         avatar.image = UIImage(named: modelItem.avatar)
         nameLabel.text = modelItem.name
-        matchLabel.text = modelItem.match.formatted(.number.grouping(.automatic)).description
-        rateLabel.text = modelItem.rate.description + "%"
+//        matchLabel.text = modelItem.match.formatted(.number.grouping(.automatic)).description
+        matchLabel.text = (modelItem.wins + modelItem.losses).description
+//        rateLabel.text = modelItem.rate.description + "%"
+//        let losses = modelItem.losses > 0 ? modelItem.losses : 1
+//        let wins = modelItem.wins > 0 ? modelItem.wins : 1
+        let totalMatches = (Float(modelItem.losses) + Float(modelItem.wins))
+        let devider: Float = totalMatches == 0 ? 1 : totalMatches
+        // (Количество побед / Количество матчей) x 100%
+        let result = ((Float(modelItem.wins) / devider) * 100)
+        let resultFormat = String(format: "%.0f", result)
+        rateLabel.text = resultFormat + "%"
         indexLabel.text = (indexPath.row + 1).description
+        
+        print(modelItem.name, modelItem.wins, modelItem.losses, devider, result)
+    
         
         switch indexPath.row {
         case 0:
