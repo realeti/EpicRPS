@@ -6,21 +6,12 @@
 //
 
 import UIKit
-import SwiftUI
-
-
 
 class RulesViewController: UIViewController {
-    
-   
-    
     private lazy var mainStackView: UIStackView = {
         let element = UIStackView()
         element.axis = .vertical
-        element.spacing = 20
-        element.distribution = .fillEqually
-        //        element.backgroundColor = .white
-        element.spacing = 1
+        element.spacing = 10
         element.distribution = .fillEqually
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
@@ -109,54 +100,46 @@ class RulesViewController: UIViewController {
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
-    var colorTextfifthUilabel: String = ""
     
-    // colorTextfifthUilabel
-
     private lazy var fifthTextUIlabel = UILabel (textUilabel: "За каждую победу игрок получает 500 баллов, которые можно посмотреть на доске лидеров. ")
-   
-  
-
-  
-    
     
     //MARK: - Строка с иконками
     
     private lazy var rockStackView = UIStackView (text: "rockStackView")
+    private lazy var rockContainerView = UIView()
     private lazy var rockImageView = UIImageView (imageName: "rock" )
     private lazy var rockTextUIlabel = UILabel (textUilabel: "Кулак > Ножницы")
     private lazy var rockView: UIView = {
         let element = UIView()
-        element.backgroundColor = UIColor(red: 0.14, green: 0.15, blue: 0.53, alpha: 1.00)
+        element.backgroundColor = UIColor(red: 0.14, green: 0.15, blue: 0.53, alpha: 0.74)
         element.layer.cornerRadius = 14.5
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
     
     private lazy var paperStackView = UIStackView (text: "paperStackView")
+    private lazy var paperContainerView = UIView()
     private lazy var paperImageView = UIImageView (imageName: "paper" )
     private lazy var paperTextUIlabel = UILabel (textUilabel: "Бумага > Кулак")
     private lazy var paperView: UIView = {
         let element = UIView()
-        element.backgroundColor = UIColor(red: 0.14, green: 0.15, blue: 0.53, alpha: 1.00)
+        element.backgroundColor = UIColor(red: 0.14, green: 0.15, blue: 0.53, alpha: 0.74)
         element.layer.cornerRadius = 14.5
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
     
     private lazy var scissorsStackView = UIStackView (text: "scissorsStackView")
+    private lazy var scissorsContainerView = UIView()
     private lazy var scissorsImageView = UIImageView (imageName: "scissors" )
     private lazy var scissorsTextUIlabel = UILabel (textUilabel: "Ножницы > Бумага")
     private lazy var scissorsView: UIView = {
         let element = UIView()
-        element.backgroundColor = UIColor(red: 0.14, green: 0.15, blue: 0.53, alpha: 1.00)
+        element.backgroundColor = UIColor(red: 0.14, green: 0.15, blue: 0.53, alpha: 0.74)
         element.layer.cornerRadius = 14.5
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
-    
-    
-    
     
     // MARK: - Life Cycle
     
@@ -165,8 +148,6 @@ class RulesViewController: UIViewController {
         
         setupUI()
         setupConstraints()
-        
-        
     }
 }
 
@@ -195,8 +176,11 @@ extension RulesViewController {
         
         firstStackView.addArrangedSubview(firstView)
         secondStackView.addArrangedSubview(secondView)
+        rockStackView.addArrangedSubview(rockContainerView)
         rockStackView.addArrangedSubview(rockView)
+        paperStackView.addArrangedSubview(paperContainerView)
         paperStackView.addArrangedSubview(paperView)
+        scissorsStackView.addArrangedSubview(scissorsContainerView)
         scissorsStackView.addArrangedSubview(scissorsView)
         thirdStackView.addArrangedSubview(thirdView)
         fourthStackView.addArrangedSubview(fourthView)
@@ -219,11 +203,6 @@ extension RulesViewController {
         thirdStackView.addArrangedSubview(thirdTextUIlabel)
         fourthStackView.addArrangedSubview(fourthTextUIlabel)
         fifthStackView.addArrangedSubview(fifthTextUIlabel)
-        
-
-        
-        
-        
     }
         // MARK: - Setup Constraints
     
@@ -234,74 +213,85 @@ extension RulesViewController {
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 26),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
             
-            
             //Констрейны 1,2 разделов
             firstView.heightAnchor.constraint(equalToConstant: 29),
             firstView.widthAnchor.constraint(equalToConstant: 29),
-            firstView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
+            //firstView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             firstUIlabel.centerXAnchor.constraint(equalTo: firstView.centerXAnchor),
             firstUIlabel.centerYAnchor.constraint(equalTo: firstView.centerYAnchor),
             
             
             secondView.heightAnchor.constraint(equalToConstant: 29),
             secondView.widthAnchor.constraint(equalToConstant: 29),
-            secondView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
+            //secondView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             secondUIlbel.centerXAnchor.constraint(equalTo: secondView.centerXAnchor),
             secondUIlbel.centerYAnchor.constraint(equalTo: secondView.centerYAnchor),
             
             //Констрейны иконок (камень, ножницы, бумага )
             
-            rockStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 65),
-            rockStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 197),
+            //rockStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 65),
+            //rockStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 197),
+            rockContainerView.heightAnchor.constraint(equalToConstant: 30),
+            rockContainerView.widthAnchor.constraint(equalToConstant: 30),
             rockView.heightAnchor.constraint(equalToConstant: 30),
             rockView.widthAnchor.constraint(equalToConstant: 30),
-            rockImageView.topAnchor.constraint(equalTo: rockView.topAnchor,constant: 7),
-            rockImageView.leadingAnchor.constraint(equalTo: rockView.leadingAnchor,constant: 7),
-            rockImageView.trailingAnchor.constraint(equalTo: rockView.trailingAnchor,constant: -7),
-            rockImageView.bottomAnchor.constraint(equalTo: rockView.bottomAnchor,constant: -7),
+            rockImageView.centerXAnchor.constraint(equalTo: rockView.centerXAnchor),
+            rockImageView.centerYAnchor.constraint(equalTo: rockView.centerYAnchor),
+            rockImageView.heightAnchor.constraint(equalToConstant: 12.5),
+            rockImageView.widthAnchor.constraint(equalToConstant: 11.31),
+            //rockImageView.topAnchor.constraint(equalTo: rockView.topAnchor,constant: 7),
+            //rockImageView.leadingAnchor.constraint(equalTo: rockView.leadingAnchor,constant: 7),
+            //rockImageView.trailingAnchor.constraint(equalTo: rockView.trailingAnchor,constant: -7),
+            //rockImageView.bottomAnchor.constraint(equalTo: rockView.bottomAnchor,constant: -7),
             
-            paperStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 65),
-            paperStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 234),
+            //paperStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 65),
+            //paperStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 234),
+            paperContainerView.heightAnchor.constraint(equalToConstant: 30),
+            paperContainerView.widthAnchor.constraint(equalToConstant: 30),
             paperView.heightAnchor.constraint(equalToConstant: 30),
             paperView.widthAnchor.constraint(equalToConstant: 30),
-            paperImageView.topAnchor.constraint(equalTo: paperView.topAnchor,constant: 5),
-            paperImageView.leadingAnchor.constraint(equalTo: paperView.leadingAnchor,constant: 7),
-            paperImageView.trailingAnchor.constraint(equalTo: paperView.trailingAnchor,constant: -7),
-            paperImageView.bottomAnchor.constraint(equalTo: paperView.bottomAnchor,constant: -5),
+            paperImageView.centerXAnchor.constraint(equalTo: paperView.centerXAnchor),
+            paperImageView.centerYAnchor.constraint(equalTo: paperView.centerYAnchor),
+            paperImageView.heightAnchor.constraint(equalToConstant: 17.11),
+            paperImageView.widthAnchor.constraint(equalToConstant: 10.5),
+            //paperImageView.topAnchor.constraint(equalTo: paperView.topAnchor,constant: 5),
+            //paperImageView.leadingAnchor.constraint(equalTo: paperView.leadingAnchor,constant: 7),
+            //paperImageView.trailingAnchor.constraint(equalTo: paperView.trailingAnchor,constant: -7),
+            //paperImageView.bottomAnchor.constraint(equalTo: paperView.bottomAnchor,constant: -5),
             
-            scissorsStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 65),
-            scissorsStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 271),
+            //scissorsStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 65),
+            //scissorsStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 271),
+            scissorsContainerView.heightAnchor.constraint(equalToConstant: 30),
+            scissorsContainerView.widthAnchor.constraint(equalToConstant: 30),
             scissorsView.heightAnchor.constraint(equalToConstant: 30),
             scissorsView.widthAnchor.constraint(equalToConstant: 30),
-            scissorsImageView.topAnchor.constraint(equalTo: scissorsView.topAnchor,constant: 5),
-            scissorsImageView.leadingAnchor.constraint(equalTo: scissorsView.leadingAnchor,constant: 7),
-            scissorsImageView.trailingAnchor.constraint(equalTo: scissorsView.trailingAnchor,constant: -7),
-            scissorsImageView.bottomAnchor.constraint(equalTo: scissorsView.bottomAnchor,constant: -5),
+            scissorsImageView.centerXAnchor.constraint(equalTo: scissorsView.centerXAnchor),
+            scissorsImageView.centerYAnchor.constraint(equalTo: scissorsView.centerYAnchor),
+            scissorsImageView.heightAnchor.constraint(equalToConstant: 17.49),
+            scissorsImageView.widthAnchor.constraint(equalToConstant: 10.89),
+            //scissorsImageView.topAnchor.constraint(equalTo: scissorsView.topAnchor,constant: 5),
+            //scissorsImageView.leadingAnchor.constraint(equalTo: scissorsView.leadingAnchor,constant: 7),
+            //scissorsImageView.trailingAnchor.constraint(equalTo: scissorsView.trailingAnchor,constant: -7),
+            //scissorsImageView.bottomAnchor.constraint(equalTo: scissorsView.bottomAnchor,constant: -5),
             
             //Констрейны 3,4,5 разделов
             thirdView.heightAnchor.constraint(equalToConstant: 29),
             thirdView.widthAnchor.constraint(equalToConstant: 29),
-            thirdView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
+            //thirdView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             thirdUIlbel.centerXAnchor.constraint(equalTo: thirdView.centerXAnchor),
             thirdUIlbel.centerYAnchor.constraint(equalTo: thirdView.centerYAnchor),
             
             fourthView.heightAnchor.constraint(equalToConstant: 29),
             fourthView.widthAnchor.constraint(equalToConstant: 29),
-            fourthView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
+            //fourthView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             fourthUIlbel.centerXAnchor.constraint(equalTo: fourthView.centerXAnchor),
             fourthUIlbel.centerYAnchor.constraint(equalTo: fourthView.centerYAnchor),
             
             fifthView.heightAnchor.constraint(equalToConstant: 29),
             fifthView.widthAnchor.constraint(equalToConstant: 29),
-            fifthView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
+            //fifthView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor,constant: 5),
             fifthUIlbel.centerXAnchor.constraint(equalTo: fifthView.centerXAnchor),
-            fifthUIlbel.centerYAnchor.constraint(equalTo: fifthView.centerYAnchor),
-            
-            
-            
-            
-            
-            
+            fifthUIlbel.centerYAnchor.constraint(equalTo: fifthView.centerYAnchor)
         ])
         
     }
@@ -325,7 +315,7 @@ extension UIStackView {
     convenience init(text:String) {
         self.init()
         self.axis = .horizontal
-        self.spacing = 20
+        self.spacing = 11
         self.alignment = .center
 //        self.backgroundColor = .red
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -335,17 +325,14 @@ extension UIStackView {
 
 extension UILabel {
     convenience init(textUilabel: String) {
-        self.init()
-        self.text = "\(textUilabel)"
+        self.init(text: textUilabel)
         self.numberOfLines = 4
-        //self.backgroundColor = .white
-        self.attributedText = NSMutableAttributedString(string: textUilabel)
+        self.backgroundColor = .white
         self.font = UIFont(name: "Rubik", size: 16)
         self.textAlignment = .left
-//        self.layer.masksToBounds = true
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.shadowOffset = CGSize(width: 1, height: 0)
-        self.shadowColor = UIColor.black.withAlphaComponent(0.25)
+        self.layer.shadowOffset = CGSize(width: 1, height: 0)
+        self.layer.shadowColor = UIColor.black.withAlphaComponent(0.25).cgColor
         self.layer.shadowOpacity = 0.15
         self.layer.shadowRadius = 6
         
@@ -358,7 +345,7 @@ extension UIImageView {
         //self.frame = CGRect(x: 0, y: 0, width: 11.31, height: 12.5)
         self.image = UIImage (named: imageName)
         self.clipsToBounds = true
-        //self.contentMode = .scaleAspectFit
+        self.contentMode = .scaleAspectFit
         self.isUserInteractionEnabled = true
         self.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -378,11 +365,9 @@ func attributedString(subStr: String) -> NSMutableAttributedString{
 
 //MARK: - Превью
 
-
-
-struct ViewControllerProvider1: PreviewProvider {
+/*struct ViewControllerProvider1: PreviewProvider {
     static var previews: some View {
         RulesViewController().showPreview()
       
     }
-}
+}*/

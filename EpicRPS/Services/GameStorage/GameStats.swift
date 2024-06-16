@@ -33,13 +33,13 @@ final class GameStats: GameStatsProtocol {
     private let winsKey = PlayerDataKey.wins.rawValue
     private let lossesKey = PlayerDataKey.losses.rawValue
     
-    enum Key: String {
+    private enum Key: String {
         case players
         case playerName
         case opponentName
     }
     
-    enum PlayerDataKey: String {
+    private enum PlayerDataKey: String {
         case name
         case avatar
         case wins
