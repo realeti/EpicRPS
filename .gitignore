@@ -1,0 +1,20 @@
+## User settings
+*.xcuserdata
+
+## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
+*.xcscmblueprint
+
+## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
+build/
+*.moved-aside
+DerivedData/
+.idea/
+
+# macOS
+#
+# General macOS files
+.DS_Store
+
+EpicRPS.xcodeproj/project.xcworkspace/xcuserdata/alex.xcuserdatad/UserInterfaceState.xcuserstate
+
+EpicRPS.xcodeproj/xcuserdata/alex.xcuserdatad/xcschemes/xcschememanagement.plist
