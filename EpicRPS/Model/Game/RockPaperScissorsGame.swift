@@ -72,6 +72,5 @@ class RockPaperScissorsGame {
     private func resetGame() {
         playerScore = 0
         opponentScore = 0
-        isGameEnded = false
     }
 }
