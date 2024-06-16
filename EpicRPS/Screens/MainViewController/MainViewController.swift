@@ -58,6 +58,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func settingsButtonPressed(_ sender: UIButton) {
-        print("press settings")
+        let vc = SettingsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

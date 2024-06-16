@@ -36,6 +36,8 @@
 		DD9E1ED02C1A190F00BC9694 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E1ECF2C1A190F00BC9694 /* MainView.swift */; };
 		DD9E1ED32C1A1D8E00BC9694 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E1ED22C1A1D8E00BC9694 /* ResultViewController.swift */; };
 		DD9E1ED52C1A1DB000BC9694 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E1ED42C1A1DB000BC9694 /* ResultView.swift */; };
+		FA14B5622C1EECDC00B294EB /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14B5612C1EECDC00B294EB /* SettingVC.swift */; };
+		FA14B5642C1EED2700B294EB /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA14B5632C1EED2700B294EB /* Poppins-Black.ttf */; };
 		FA1BC1432C1C8B2F0053C96F /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BC1422C1C8B2F0053C96F /* TableCell.swift */; };
 		FA1BC1452C1C8C340053C96F /* MockLeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BC1442C1C8C340053C96F /* MockLeaderData.swift */; };
 		FA1ECF9F2C1AF2DA0037A620 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ECF9E2C1AF2DA0037A620 /* GameView.swift */; };
@@ -86,6 +88,8 @@
 		DD9E1ECF2C1A190F00BC9694 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DD9E1ED22C1A1D8E00BC9694 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		DD9E1ED42C1A1DB000BC9694 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		FA14B5612C1EECDC00B294EB /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		FA14B5632C1EED2700B294EB /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		FA1BC1422C1C8B2F0053C96F /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		FA1BC1442C1C8C340053C96F /* MockLeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLeaderData.swift; sourceTree = "<group>"; };
 		FA1ECF9E2C1AF2DA0037A620 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 				C68679AB2C176A7800F40860 /* RulesViewController.swift */,
 				C60F29892C16564300D49F5A /* LaunchScreen.storyboard */,
 				BF5126142C1B7EE8008B13B5 /* LoadViewController.swift */,
+				FA14B5612C1EECDC00B294EB /* SettingVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				FAAF47BE2C19B89C000CC955 /* Rubik-Bold.ttf */,
 				FCD86E4D2C1A297900F681C2 /* dela-gothic-one-regular.ttf */,
 				FAAF47BD2C19B89C000CC955 /* Rubik-Medium.ttf */,
+				FA14B5632C1EED2700B294EB /* Poppins-Black.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -402,6 +408,7 @@
 				C6F58BC12C1BA4A4009D4944 /* background-music-1.wav in Resources */,
 				FAAF47BF2C19B89C000CC955 /* Rubik-Medium.ttf in Resources */,
 				FCD86E4E2C1A297900F681C2 /* dela-gothic-one-regular.ttf in Resources */,
+				FA14B5642C1EED2700B294EB /* Poppins-Black.ttf in Resources */,
 				FAAF47C02C19B89C000CC955 /* Rubik-Bold.ttf in Resources */,
 				C6F58BC32C1BA4A8009D4944 /* background-music-2.wav in Resources */,
 			);
@@ -415,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAAF47B32C19B821000CC955 /* GameViewController.swift in Sources */,
+				FA14B5622C1EECDC00B294EB /* SettingVC.swift in Sources */,
 				BF5126152C1B7EE8008B13B5 /* LoadViewController.swift in Sources */,
 				C6AD1E462C18DCEA003E5C92 /* GameOverProtocol.swift in Sources */,
 				C64800572C18BB0E00D25822 /* RockPaperScissorsGame.swift in Sources */,
