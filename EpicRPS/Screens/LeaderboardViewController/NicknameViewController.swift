@@ -140,7 +140,7 @@ extension NicknameViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         if let playerName = textField.text {
-            
+            GameStats().playerName = playerName
         }
         
         closeScreen()

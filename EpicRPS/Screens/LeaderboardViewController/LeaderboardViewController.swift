@@ -34,7 +34,8 @@ final class LeaderboardViewController: UIViewController {
     }()
     private lazy var avatarButton: UIButton = {
         let element = UIButton()
-        element.setImage(K.GamerAvatar.Image.player, for: .normal)
+//        element.setImage(K.GamerAvatar.Image.player, for: .normal)
+        element.setImage(UIImage(named: mockData.first?.avatar ?? K.defaultPlayerAvatar), for: .normal)
         return element
     }()
     private lazy var playerNameTextField: UITextField = {
@@ -67,7 +68,7 @@ final class LeaderboardViewController: UIViewController {
             blue: 149/255,
             alpha: 1
         )
-        element.text = "Player 1"
+        element.text = mockData.first?.name
         return element
     }()
     private lazy var tableBackgroundView: UIView = {
@@ -132,13 +133,20 @@ final class LeaderboardViewController: UIViewController {
     }()
     
     // MARK: - Private properties
-    private var mockData = MockLeaderData.getData()
+//    private var mockData = MockLeaderData.getData()
+    private var mockData = GameStats.shared.loadAllPlayers()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
         setupConstraints()
+        print(mockData.count)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
     
     // MARK: - Actions

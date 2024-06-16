@@ -11,7 +11,7 @@ protocol GameStatsProtocol {
     var playerName: String { get set }
     var opponentName: String { get set }
     
-    func loadPlayerData(_ playerName: String) -> PlayerProtocol?
+    func loadPlayerData(_ playerName: String, isOpponent: Bool) -> PlayerProtocol?
     func savePlayerData(for player: PlayerProtocol)
     func loadAllPlayers() -> [PlayerProtocol]
 }
@@ -73,21 +73,24 @@ extension GameStats {
 
 // MARK: - Load Player data
 extension GameStats {
-    func loadPlayerData(_ playerName: String) -> PlayerProtocol? {
-        guard let playerData = storage.dictionary(forKey: playersKey)?[playerName] as? [String: Any] else {
-            return nil
+    
+    func loadPlayerData(_ playerName: String, isOpponent: Bool = false) -> PlayerProtocol? {
+            guard let playerData = storage.dictionary(forKey: playersKey)?[playerName] as? [String: Any] else {
+                let avatar = isOpponent ? K.defaultOpponentAvatar : K.defaultPlayerAvatar
+                let mockPlayer = Player(name: playerName, avatar: avatar, wins: 0, losses: 0)
+                return mockPlayer
+            }
+
+            guard let name = playerData[nameKey] as? String,
+                  let avatar = playerData[avatarKey] as? String,
+                  let wins = playerData[winsKey] as? Int,
+                  let losses = playerData[lossesKey] as? Int else {
+                return nil
+            }
+
+            let player = Player(name: name, avatar: avatar, wins: wins, losses: losses)
+            return player
         }
-        
-        guard let name = playerData[nameKey] as? String,
-              let avatar = playerData[avatarKey] as? String,
-              let wins = playerData[winsKey] as? Int,
-              let losses = playerData[lossesKey] as? Int else {
-            return nil
-        }
-        
-        let player = Player(name: name, avatar: avatar, wins: wins, losses: losses)
-        return player
-    }
 }
 
 // MARK: - Save Player data

@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        print(GameStats.shared.loadAllPlayers())
     }
     
     // MARK: - Setup UI
