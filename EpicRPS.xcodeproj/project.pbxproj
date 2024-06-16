@@ -48,9 +48,10 @@
 		FAAF47BF2C19B89C000CC955 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAF47BD2C19B89C000CC955 /* Rubik-Medium.ttf */; };
 		FAAF47C02C19B89C000CC955 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAF47BE2C19B89C000CC955 /* Rubik-Bold.ttf */; };
 		FAEFB5642C1C41D200C6C057 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFB5632C1C41D200C6C057 /* LeaderboardViewController.swift */; };
-		FAEFB5662C1C4DBC00C6C057 /* SelectAvatarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFB5652C1C4DBC00C6C057 /* SelectAvatarVC.swift */; };
-		FAEFB5682C1C4E4500C6C057 /* EnterPlayerNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFB5672C1C4E4500C6C057 /* EnterPlayerNameVC.swift */; };
+		FAEFB5662C1C4DBC00C6C057 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFB5652C1C4DBC00C6C057 /* AvatarViewController.swift */; };
+		FAEFB5682C1C4E4500C6C057 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFB5672C1C4E4500C6C057 /* NicknameViewController.swift */; };
 		FAEFB56A2C1C617B00C6C057 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFB5692C1C617B00C6C057 /* UITextField + Extension.swift */; };
+		FAF0097D2C1E33510087229A /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0097C2C1E33510087229A /* AvatarCell.swift */; };
 		FCD86E4E2C1A297900F681C2 /* dela-gothic-one-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCD86E4D2C1A297900F681C2 /* dela-gothic-one-regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -97,9 +98,10 @@
 		FAAF47BD2C19B89C000CC955 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		FAAF47BE2C19B89C000CC955 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		FAEFB5632C1C41D200C6C057 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
-		FAEFB5652C1C4DBC00C6C057 /* SelectAvatarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAvatarVC.swift; sourceTree = "<group>"; };
-		FAEFB5672C1C4E4500C6C057 /* EnterPlayerNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPlayerNameVC.swift; sourceTree = "<group>"; };
+		FAEFB5652C1C4DBC00C6C057 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
+		FAEFB5672C1C4E4500C6C057 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		FAEFB5692C1C617B00C6C057 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
+		FAF0097C2C1E33510087229A /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		FCD86E4D2C1A297900F681C2 /* dela-gothic-one-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dela-gothic-one-regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -294,6 +296,15 @@
 			path = GameViewController;
 			sourceTree = "<group>";
 		};
+		FA6352942C1E45FF00ABBECF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FA1BC1422C1C8B2F0053C96F /* TableCell.swift */,
+				FAF0097C2C1E33510087229A /* AvatarCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		FAAF47B82C19B88C000CC955 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,10 +322,10 @@
 			isa = PBXGroup;
 			children = (
 				FA1BC1442C1C8C340053C96F /* MockLeaderData.swift */,
-				FA1BC1422C1C8B2F0053C96F /* TableCell.swift */,
+				FA6352942C1E45FF00ABBECF /* Cells */,
 				FAEFB5632C1C41D200C6C057 /* LeaderboardViewController.swift */,
-				FAEFB5652C1C4DBC00C6C057 /* SelectAvatarVC.swift */,
-				FAEFB5672C1C4E4500C6C057 /* EnterPlayerNameVC.swift */,
+				FAEFB5652C1C4DBC00C6C057 /* AvatarViewController.swift */,
+				FAEFB5672C1C4E4500C6C057 /* NicknameViewController.swift */,
 			);
 			path = LeaderboardViewController;
 			sourceTree = "<group>";
@@ -412,6 +423,7 @@
 				C6428EAE2C1D983B00080CD0 /* GameStats.swift in Sources */,
 				DD9E1ED52C1A1DB000BC9694 /* ResultView.swift in Sources */,
 				DD9E1ED02C1A190F00BC9694 /* MainView.swift in Sources */,
+				FAF0097D2C1E33510087229A /* AvatarCell.swift in Sources */,
 				FAAF47B92C19B88C000CC955 /* UIButton + Extension.swift in Sources */,
 				C60668C12C18E4D60079CE1E /* ProgressProtocol.swift in Sources */,
 				FAEFB56A2C1C617B00C6C057 /* UITextField + Extension.swift in Sources */,
@@ -432,9 +444,9 @@
 				C6AD1E482C18DCFB003E5C92 /* TimerProtocol.swift in Sources */,
 				C6F58BB12C1B735C009D4944 /* GameAudio.swift in Sources */,
 				C6F58BB42C1B7391009D4944 /* GameAudioType.swift in Sources */,
-				FAEFB5682C1C4E4500C6C057 /* EnterPlayerNameVC.swift in Sources */,
+				FAEFB5682C1C4E4500C6C057 /* NicknameViewController.swift in Sources */,
 				C60F29812C16564100D49F5A /* SceneDelegate.swift in Sources */,
-				FAEFB5662C1C4DBC00C6C057 /* SelectAvatarVC.swift in Sources */,
+				FAEFB5662C1C4DBC00C6C057 /* AvatarViewController.swift in Sources */,
 				C631BE402C165CAD00A0D736 /* Constants.swift in Sources */,
 				FAAF47BB2C19B88C000CC955 /* UIProgressView + Extension.swift in Sources */,
 			);

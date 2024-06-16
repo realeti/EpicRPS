@@ -24,13 +24,13 @@ final class TableCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let element = UILabel()
-        element.font = .init(name: K.fontBold700, size: 14)
-        element.textColor = .init(
-            red: 172/255,
-            green: 180/255,
-            blue: 195/255,
-            alpha: 1
-        )
+        element.font = UIFont(name: K.fontBold700, size: 14)
+        element.textColor = UIColor(
+                    red: 172/255,
+                    green: 180/255,
+                    blue: 195/255,
+                    alpha: 1
+                )
         return element
     }()
     
@@ -42,40 +42,50 @@ final class TableCell: UITableViewCell {
     
     private lazy var matchLabel: UILabel = {
         let element = UILabel()
-        element.font = .init(name: K.fontBold700, size: 13)
-        element.textColor = .init(
-            red: 92/255,
-            green: 92/255,
-            blue: 92/255,
-            alpha: 1
-        )
+        element.font = UIFont(name: K.fontBold700, size: 13)
+        element.textColor = UIColor(
+                    red: 92/255,
+                    green: 92/255,
+                    blue: 92/255,
+                    alpha: 1
+                )
         return element
     }()
     
     private lazy var rateLabel: UILabel = {
         let element = UILabel()
-        element.font = .init(name: K.fontMedium500, size: 18)
-        element.textColor = .init(
-            red: 92/255,
-            green: 92/255,
-            blue: 92/255,
-            alpha: 1
-        )
+        element.font = UIFont(name: K.fontMedium500, size: 18)
+        element.textColor = UIColor(
+                    red: 92/255,
+                    green: 92/255,
+                    blue: 92/255,
+                    alpha: 1
+                )
         return element
     }()
     
     private lazy var indexLabel: UILabel = {
         let element = UILabel()
         element.isHidden = true
-        element.font = .init(name: K.fontBold700, size: 9)
-        element.textColor = .init(red: 208/255, green: 214/255, blue: 227/255, alpha: 1)
+        element.font = UIFont(name: K.fontBold700, size: 9)
+        element.textColor = UIColor(
+                    red: 208/255,
+                    green: 214/255,
+                    blue: 227/255,
+                    alpha: 1
+                )
         return element
     }()
     
     private lazy var line: UIView = {
         let element = UIView()
         element.isHidden = true
-        element.backgroundColor = .init(red: 172/255, green: 180/255, blue: 195/255, alpha: 0.12)
+        element.backgroundColor = UIColor(
+                    red: 172/255,
+                    green: 180/255,
+                    blue: 195/255,
+                    alpha: 0.12
+                )
         return element
     }()
     
@@ -109,13 +119,13 @@ final class TableCell: UITableViewCell {
         switch indexPath.row {
         case 0:
             badges.image = .goldBadge
-            nameLabel.textColor = .init(
+            nameLabel.textColor = UIColor(
                 red: 252/255,
                 green: 189/255,
                 blue: 17/255,
                 alpha: 1
             )
-            background.backgroundColor = .init(
+            background.backgroundColor = UIColor(
                 red: 251/255,
                 green: 212/255,
                 blue: 58/255,
@@ -123,13 +133,13 @@ final class TableCell: UITableViewCell {
             )
         case 1:
             badges.image = .silverBadge
-            nameLabel.textColor = .init(
+            nameLabel.textColor = UIColor(
                 red: 195/255,
                 green: 196/255,
                 blue: 203/255,
                 alpha: 1
             )
-            background.backgroundColor = .init(
+            background.backgroundColor = UIColor(
                 red: 244/255,
                 green: 245/255,
                 blue: 249/255,
@@ -137,13 +147,13 @@ final class TableCell: UITableViewCell {
             )
         case 2:
             badges.image = .bronzeBadge
-            nameLabel.textColor = .init(
+            nameLabel.textColor = UIColor(
                 red: 208/255,
                 green: 161/255,
                 blue: 143/255,
                 alpha: 1
             )
-            background.backgroundColor = .init(
+            background.backgroundColor = UIColor(
                 red: 245/255,
                 green: 238/255,
                 blue: 229/255,
@@ -154,13 +164,13 @@ final class TableCell: UITableViewCell {
             indexLabel.isHidden = false
             background.backgroundColor = .clear
             badges.isHidden = true
-            matchLabel.textColor = .init(
+            matchLabel.textColor = UIColor(
                 red: 172/255,
                 green: 180/255,
                 blue: 195/255,
                 alpha: 1
             )
-            rateLabel.textColor = .init(
+            rateLabel.textColor = UIColor(
                 red: 172/255,
                 green: 180/255,
                 blue: 195/255,
