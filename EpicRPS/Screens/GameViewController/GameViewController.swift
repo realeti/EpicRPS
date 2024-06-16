@@ -340,6 +340,10 @@ private extension GameViewController {
 
 extension GameViewController: TimerProtocol {
     func timerDidEnded() {
+        guard !game.isGameEnded else {
+            return
+        }
+        
         game.roundTimeout()
         updateOpponentProgress()
         restartTimer()
