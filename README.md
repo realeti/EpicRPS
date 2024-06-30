@@ -1,6 +1,6 @@
 # Epic RPC
 
-![preview](https://github.com/AleksPt/EpicRPS/blob/develop/demonstration.gif)
+![preview](https://github.com/realeti/EpicRPS/assets/30148823/586c5cce-bfdd-4577-891c-683d982d83a0)
 
 ### 👨‍💻 Team:
 <p align="left"> 
