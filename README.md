@@ -1,4 +1,5 @@
 # Epic RPC
+_**English** | [Ukrainian](README.ua.md) | [Russian](README.ru.md)_
 
 ![preview](https://github.com/realeti/EpicRPS/assets/30148823/586c5cce-bfdd-4577-891c-683d982d83a0)
 
